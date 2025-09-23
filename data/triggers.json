@@ -1,0 +1,1117 @@
+{
+   "Abode": {
+      "doorOpened": [
+         "CreatedAt",
+         "DoorName"
+      ]
+   },
+   "Airthings": {
+      "humidityAbove": [
+         "CreatedAt",
+         "Device",
+         "Humidity"
+      ],
+      "radonAbove": [
+         "CreatedAt",
+         "Device",
+         "MeasurementUnit",
+         "RadonLevel"
+      ]
+   },
+   "AndroidBattery": {
+      "batteryLow": [
+         "BatteryPercentage",
+         "DeviceName",
+         "OccurredAt"
+      ],
+      "batteryPluggedIn": [
+         "BatteryPercentage",
+         "DeviceName",
+         "OccurredAt",
+         "PowerSource"
+      ]
+   },
+   "AndroidDevice": {
+      "bluetoothConnected": [
+         "DeviceName",
+         "OccurredAt"
+      ],
+      "newNotificationFromApp": [
+         "AppName",
+         "DeviceName",
+         "NotificationMessage",
+         "NotificationTitle",
+         "ReceivedAt"
+      ]
+   },
+   "AndroidMessages": {
+      "sentAMessageMatchingSearch": [
+         "ContactName",
+         "DeviceName",
+         "OccurredAt",
+         "Text",
+         "ToNumber"
+      ]
+   },
+   "AndroidPhone": {
+      "missAPhoneCall": [
+         "ContactName",
+         "DeviceName",
+         "FromNumber",
+         "OccurredAt"
+      ],
+      "placeAPhoneCall": [
+         "CallLength",
+         "ContactName",
+         "DeviceName",
+         "OccurredAt",
+         "ToNumber"
+      ],
+      "receiveAPhoneCall": [
+         "CallLength",
+         "ContactName",
+         "DeviceName",
+         "FromNumber",
+         "OccurredAt"
+      ]
+   },
+   "Apilio": {
+      "iftttActionReports": [
+         "ApilioValue1",
+         "ApilioValue2",
+         "ApilioValue3",
+         "CreatedAt",
+         "EventName"
+      ]
+   },
+   "Asana": {
+      "newTaskCompleted": [
+         "Assignee",
+         "CompletedAt",
+         "CreatedAt",
+         "ProjectName",
+         "Tags",
+         "TaskName",
+         "TaskNotes",
+         "TaskURL",
+         "Workspace"
+      ]
+   },
+   "Augusthome": {
+      "lockUnlocked": [
+         "HouseName",
+         "LockName",
+         "UnlockedAt",
+         "User",
+         "UserPhoto"
+      ]
+   },
+   "Bluebyadt": {
+      "sensor": [
+         "EventType",
+         "FormattedMessage",
+         "Timestamp"
+      ]
+   },
+   "Coinbase": {
+      "walletSellDetected": [
+         "CryptcourrencyAmount",
+         "CryptocurrencyCode",
+         "PaidAmount",
+         "PayoutAt",
+         "TransactionId",
+         "Wallet"
+      ]
+   },
+   "ComEd": {
+      "averagePriceChange": [
+         "AveragePrice",
+         "FromHour",
+         "Timestamp",
+         "ToHour"
+      ]
+   },
+   "DateAndTime": {
+      "everyDayAt": [
+         "CheckTime"
+      ],
+      "everyMonthOnThe": [
+         "CheckTime"
+      ],
+      "everyWeekdayAt": [
+         "CheckTime",
+         "DayOfWeek"
+      ]
+   },
+   "Diigo": {
+      "newBookmarkTaggedDiigo": [
+         "Description",
+         "Tags",
+         "Time",
+         "Title",
+         "Url"
+      ]
+   },
+   "Discord": {
+      "newMessageInChannel": [
+         "Author",
+         "CreatedAt",
+         "LinkToMessage",
+         "Message"
+      ]
+   },
+   "DlinkWifiRouter": {
+      "routerClientConnect": [
+         "ClientName",
+         "CreatedAt",
+         "DeviceName"
+      ]
+   },
+   "DoButton": {
+      "doButtonNewCommandCommon": [
+         "Latitude",
+         "LocationMapImageURL",
+         "LocationMapURL",
+         "Longitude",
+         "OccurredAt",
+         "ShareURL"
+      ]
+   },
+   "Dropbox": {
+      "newFileInFolder": [
+         "FileUrl",
+         "Filename",
+         "FilenameNoExt",
+         "ModifiedDate"
+      ]
+   },
+   "EasycontrolBosch": {
+      "awayModeOn": [
+         "CreatedAt",
+         "EventText"
+      ],
+      "homeModeOn": [
+         "CreatedAt",
+         "EventText"
+      ]
+   },
+   "Email": {
+      "sendIftttAnEmailTagged": [
+         "AttachmentTemporaryUrl",
+         "AttachmentUrl",
+         "Body",
+         "BodyHTML",
+         "From",
+         "ReceivedAt",
+         "Subject"
+      ]
+   },
+   "EnergenieMiHome": {
+      "motionStarted": [
+         "MotionSensorName",
+         "Timestamp"
+      ]
+   },
+   "Epa": {
+      "latestNews": [
+         "EntryContentPreview",
+         "EntryPublished",
+         "EntryRegion",
+         "EntryTitle",
+         "EntryUrl"
+      ]
+   },
+   "Evernote": {
+      "addTagToNote": [
+         "BodyHTML",
+         "CreatedAt",
+         "PublicUrl",
+         "Tags",
+         "Title"
+      ],
+      "newNoteInNotebook": [
+         "BodyHTML",
+         "CreatedAt",
+         "PublicUrl",
+         "Tags",
+         "Title"
+      ]
+   },
+   "FacebookPages": {
+      "newPhotoFromPage": [
+         "Caption",
+         "CreatedAt",
+         "ImageSource",
+         "Link",
+         "PageName",
+         "PageUrl"
+      ]
+   },
+   "FcuTod": {
+      "afterTimeOfDayStarts": [
+         "Datetime",
+         "DayType",
+         "EventType",
+         "HoursAfter",
+         "Season"
+      ],
+      "timeOfDay": [
+         "Datetime",
+         "DayType",
+         "EventType",
+         "Season"
+      ]
+   },
+   "Feed": {
+      "newFeedItem": [
+         "EntryAuthor",
+         "EntryContent",
+         "EntryImageUrl",
+         "EntryPublished",
+         "EntryTitle",
+         "EntryUrl",
+         "FeedTitle",
+         "FeedUrl"
+      ]
+   },
+   "Fibaro": {
+      "buttonClicked": [
+         "CreatedAt",
+         "DeviceId",
+         "HubSerial"
+      ]
+   },
+   "Finance": {
+      "currencyExchangeRateStocks": [
+         "CheckTime",
+         "ExchangeRate",
+         "InfoUrl",
+         "InputCurrency",
+         "OutputCurrency"
+      ],
+      "percentageDropStocks": [
+         "CheckTime",
+         "InfoUrl",
+         "PercentageChange",
+         "Price",
+         "StockName",
+         "StockTicker"
+      ]
+   },
+   "Flic": {
+      "click": [
+         "ClickType",
+         "ClickedAt",
+         "Latitude",
+         "Longitude"
+      ]
+   },
+   "Flickr": {
+      "anyNewPublicPhoto": [
+         "Description",
+         "FlickrUrl",
+         "FlickrUrlShort",
+         "OriginalSourceUrl",
+         "SourceUrl",
+         "Tags",
+         "TakenDate",
+         "Title",
+         "UploadedDate"
+      ],
+      "newFavoritePublicPhoto": [
+         "Description",
+         "FlickrUrlShort",
+         "OriginalSourceUrl",
+         "OwnerName",
+         "SourceUrl",
+         "Tags",
+         "Title",
+         "UploadedDate"
+      ],
+      "newPublicPhotosBatch": [
+         "LastFlickrUrl",
+         "LastSourceUrl",
+         "LastTags",
+         "LastUploadedDate",
+         "PhotoCount",
+         "PhotostreamUrl"
+      ]
+   },
+   "Futurehome": {
+      "modeSwitched": [
+         "Mode",
+         "SiteName",
+         "TriggeredAt"
+      ]
+   },
+   "GeAppliancesRefrigerator": {
+      "refrigeratorDoorFreshfoodOpen": [
+         "Appliance",
+         "DateAndTime",
+         "Event"
+      ]
+   },
+   "GoogleCalendar": {
+      "anyEventEnds": [
+         "Description",
+         "EndTime",
+         "EventType",
+         "EventUrl",
+         "StartTime",
+         "Title",
+         "Where"
+      ],
+      "anyEventStarts": [
+         "Description",
+         "Ends",
+         "EventType",
+         "EventUrl",
+         "Starts",
+         "Title",
+         "VideoCallUrl",
+         "Where"
+      ]
+   },
+   "GoogleDrive": {
+      "anyNewFile": [
+         "CreatedAt",
+         "FileUrl",
+         "Filename",
+         "Path"
+      ]
+   },
+   "GreenLightSignal": {
+      "co2Level": [
+         "Co2Index",
+         "Co2LevelValue",
+         "Date"
+      ]
+   },
+   "HavenIaq": {
+      "pm25Event": [
+         "CamName",
+         "Rising",
+         "Threshold",
+         "Timestamp",
+         "Value"
+      ]
+   },
+   "HcCookProcessor": {
+      "cookProcessorFinished": [
+         "CreatedAt"
+      ],
+      "cookProcessorStarted": [
+         "CreatedAt"
+      ]
+   },
+   "HcHood": {
+      "hoodPowerOff": [
+         "CreatedAt"
+      ],
+      "hoodPowerOn": [
+         "CreatedAt"
+      ]
+   },
+   "HcOven": {
+      "ovenDoorOpened": [
+         "CreatedAt"
+      ]
+   },
+   "HcWasher": {
+      "washerCycleFinished": [
+         "CreatedAt"
+      ]
+   },
+   "Instagram": {
+      "anyNewPhotoByYou": [
+         "Caption",
+         "CreatedAt",
+         "EmbedCode",
+         "SourceUrl",
+         "Url"
+      ],
+      "newPhotoByYouTagged": [
+         "Caption",
+         "CaptionNoTag",
+         "CreatedAt",
+         "EmbedCode",
+         "SourceUrl",
+         "Url"
+      ],
+      "newVideoByYouTaggedInstagram": [
+         "Caption",
+         "CaptionNoTag",
+         "CreatedAt",
+         "EmbedCode",
+         "ImageThumbnailURL",
+         "URL",
+         "VideoSourceURL"
+      ]
+   },
+   "Instapaper": {
+      "newLikedItem": [
+         "CreatedAt",
+         "Description",
+         "Title",
+         "URL"
+      ],
+      "newLinkSaved": [
+         "CreatedAt",
+         "Description",
+         "Title",
+         "URL"
+      ]
+   },
+   "IosReminders": {
+      "newReminderAdded": [
+         "CreatedDate",
+         "List",
+         "Notes",
+         "Priority",
+         "Title"
+      ]
+   },
+   "Irobot": {
+      "missionReport": [
+         "DirtDetectEvents",
+         "MinutesCharging",
+         "MinutesPaused",
+         "MinutesRunning",
+         "SquareFootage",
+         "StartTime",
+         "Timestamp"
+      ],
+      "robotStart": [
+         "Timestamp"
+      ]
+   },
+   "Isitchristmas": {
+      "christmas": [
+         "Answer",
+         "CreatedAt",
+         "Year"
+      ]
+   },
+   "IspyAgent": {
+      "motionDetected": [
+         "CreatedAt",
+         "Device"
+      ]
+   },
+   "Jotform": {
+      "latestFormSubmission": [
+         "FileUrl",
+         "FilteredRichTextData",
+         "FilteredSpreadsheetData",
+         "FormID",
+         "FormTitle",
+         "IP",
+         "RichTextData",
+         "SpreadsheetData",
+         "SubmissionDateTime",
+         "SubmissionID",
+         "TotalSubmissions"
+      ]
+   },
+   "Kaiterra": {
+      "lasereggAqi": [
+         "Aqi",
+         "CreatedAt"
+      ],
+      "locationAqi": [
+         "Aqi",
+         "CreatedAt"
+      ]
+   },
+   "Knocki": {
+      "knocki": [
+         "CreatedAt",
+         "Device",
+         "Gesture",
+         "Pattern"
+      ]
+   },
+   "Kronaby": {
+      "pusherPressed": [
+         "Latitude",
+         "Longitude",
+         "MapImageUrl",
+         "PressType",
+         "PressedAt"
+      ]
+   },
+   "Loc": {
+      "todayInHistory": [
+         "PostContentHtml",
+         "PostUrl",
+         "PublishedDate",
+         "Title"
+      ]
+   },
+   "LogitechPop": {
+      "shortPress": [
+         "Battery",
+         "ButtonId",
+         "CreatedAt",
+         "Name",
+         "Source"
+      ]
+   },
+   "Mesh": {
+      "events": [
+         "Text",
+         "TriggeredAt"
+      ]
+   },
+   "Mystrom": {
+      "button": [
+         "CreatedAt"
+      ]
+   },
+   "Netatmo": {
+      "co2RisesAbove": [
+         "DeviceName",
+         "MeasuredAt",
+         "MeasuredCO2",
+         "TargetCO2"
+      ],
+      "noiseRisesAbove": [
+         "DeviceName",
+         "MeasuredAt",
+         "MeasuredNoiseLevel",
+         "TargetNoiseLevel"
+      ],
+      "rainHasStarted": [
+         "DeviceName",
+         "MeasuredAt"
+      ],
+      "rainYesterdayAmount": [
+         "DeviceName",
+         "MeasuredAt",
+         "MeasuredRainfallIn",
+         "MeasuredRainfallMM"
+      ],
+      "temperatureDropsBelow": [
+         "DeviceName",
+         "MeasuredAt",
+         "MeasuredTemperatureC",
+         "MeasuredTemperatureF",
+         "TargetTemperatureC",
+         "TargetTemperatureF"
+      ],
+      "temperatureRisesAbove": [
+         "DeviceName",
+         "MeasuredAt",
+         "MeasuredTemperatureC",
+         "MeasuredTemperatureF",
+         "TargetTemperatureC",
+         "TargetTemperatureF"
+      ]
+   },
+   "Nytimes": {
+      "anyNewPopularArticleToday": [
+         "ArticleUrl",
+         "Author",
+         "Blurb",
+         "ImageUrl",
+         "PublishedDate",
+         "Section",
+         "Source",
+         "Title"
+      ],
+      "newArticleMatchingSearch": [
+         "ArticleUrl",
+         "Author",
+         "Blurb",
+         "ImageUrl",
+         "Keywords",
+         "PublishedDate",
+         "Section",
+         "Source",
+         "Title"
+      ],
+      "newMovieReview": [
+         "Author",
+         "MPAARating",
+         "MovieOpeningDate",
+         "MovieThumbnailUrl",
+         "MovieTitle",
+         "PublicationDate",
+         "ReviewHeadline",
+         "ReviewUrl"
+      ]
+   },
+   "Ohmconnect": {
+      "ohmHourEnd": [
+         "OhmHourEnd",
+         "OhmHourStart"
+      ]
+   },
+   "Phyn": {
+      "alertRaised": [
+         "AlertTime",
+         "AlertType",
+         "CreatedAt",
+         "HomeName",
+         "SuggestedFixtures"
+      ]
+   },
+   "Pocket": {
+      "newFavoriteItemPocket": [
+         "AddedAt",
+         "Excerpt",
+         "ImageUrl",
+         "Tags",
+         "Title",
+         "Url"
+      ],
+      "newItemAddedPocket": [
+         "AddedAt",
+         "Excerpt",
+         "ImageUrl",
+         "Tags",
+         "Title",
+         "Url"
+      ],
+      "newTaggedItemPocket": [
+         "AddedAt",
+         "Excerpt",
+         "ImageUrl",
+         "Tags",
+         "Title",
+         "Url"
+      ]
+   },
+   "Putio": {
+      "transferFinished": [
+         "CreatedAt",
+         "DownloadUrl",
+         "FileId",
+         "Name",
+         "Source",
+         "ViewUrl"
+      ]
+   },
+   "Reddit": {
+      "newPostFromSearchReddit": [
+         "Author",
+         "Content",
+         "ContentHTML",
+         "ImageURL",
+         "PostURL",
+         "PostedAt",
+         "Subreddit",
+         "Title"
+      ]
+   },
+   "Safetrek": {
+      "alertTriggered": [
+         "CreatedAt",
+         "Latitude",
+         "LocationMapUrl",
+         "Longitude",
+         "Name"
+      ]
+   },
+   "Scoutalarm": {
+      "modeDismissed": [
+         "At",
+         "By",
+         "Event",
+         "FormattedText",
+         "Name"
+      ]
+   },
+   "SmartthingsV2": {
+      "newPresentSmartthings": [
+         "ArrivedAt",
+         "DeviceName"
+      ],
+      "switchedOnSmartthings": [
+         "SwitchName",
+         "SwitchedOnAt"
+      ],
+      "unlockedSmartthings": [
+         "DeviceName",
+         "UnlockedAt"
+      ]
+   },
+   "Soundcloud": {
+      "followingNewPublicTrack": [
+         "CreatedAt",
+         "Description",
+         "EmbedCode",
+         "ImageUrl",
+         "Tags",
+         "Title",
+         "TrackId",
+         "TrackUrl",
+         "UserId",
+         "UserProfileUrl",
+         "Username"
+      ],
+      "newPublicFavoriteTrack": [
+         "CreatedAt",
+         "Description",
+         "EmbedCode",
+         "ImageUrl",
+         "Tags",
+         "Title",
+         "TrackId",
+         "TrackUrl",
+         "UserId",
+         "UserProfileUrl",
+         "Username"
+      ],
+      "newTrackFromSearch": [
+         "CreatedAt",
+         "Description",
+         "EmbedCode",
+         "ImageUrl",
+         "Tags",
+         "Title",
+         "TrackId",
+         "TrackUrl",
+         "UserId",
+         "UserProfileUrl",
+         "Username"
+      ]
+   },
+   "Spotify": {
+      "newSavedTrack": [
+         "AlbumCoverURL",
+         "AlbumName",
+         "ArtistName",
+         "SavedAt",
+         "TrackId",
+         "TrackIsrc",
+         "TrackName",
+         "TrackURL"
+      ],
+      "newTrackAddedToPlaylist": [
+         "AddedAt",
+         "AddedBy",
+         "AlbumCoverURL",
+         "AlbumName",
+         "ArtistName",
+         "PlaylistName",
+         "TrackId",
+         "TrackIsrc",
+         "TrackName",
+         "TrackURL"
+      ],
+      "searchEpisode": [
+         "EpisodeCoverUrl",
+         "EpisodeDescription",
+         "EpisodeId",
+         "EpisodeLanguages",
+         "EpisodeName",
+         "EpisodeReleaseDate",
+         "EpisodeUrl"
+      ],
+      "searchShow": [
+         "ShowCoverUrl",
+         "ShowDescription",
+         "ShowId",
+         "ShowName",
+         "ShowUrl"
+      ]
+   },
+   "Tantiv4": {
+      "whenFetchitButtonPress": [
+         "ButtonName",
+         "CreatedAt",
+         "DeviceName"
+      ]
+   },
+   "TecanConnect": {
+      "customMessage": [
+         "CustomMessage",
+         "InstrumentName",
+         "TimeOfEvent",
+         "User"
+      ],
+      "instrumentState": [
+         "InstrumentName",
+         "InstrumentState",
+         "TimeOfEvent",
+         "User"
+      ],
+      "runCompletionMessage": [
+         "InstrumentName",
+         "RunCompletionMessage",
+         "TimeOfEvent",
+         "User"
+      ]
+   },
+   "Telegram": {
+      "newGroupTextFilter": [
+         "AuthorName",
+         "AuthorUsername",
+         "GroupTitle",
+         "HTML",
+         "Text",
+         "TriggeredAt"
+      ]
+   },
+   "Todoist": {
+      "newCompletedTask": [
+         "CompletedAt",
+         "DueDate",
+         "Labels",
+         "LinkToTask",
+         "Priority",
+         "Project",
+         "Section",
+         "TaskContent",
+         "TaskDescription"
+      ]
+   },
+   "Trello": {
+      "cardAddedToList": [
+         "AddedAt",
+         "BoardName",
+         "CardURL",
+         "CreatorFullName",
+         "CreatorUsername",
+         "Description",
+         "ListName",
+         "Title"
+      ],
+      "cardAssignedToMe": [
+         "AssignedAt",
+         "AssignerFullName",
+         "AssignerUsername",
+         "BoardName",
+         "CardURL",
+         "Description",
+         "ListName",
+         "Title"
+      ]
+   },
+   "TrueEnergyDK": {
+      "electricityPriceCheap": [
+         "Co2Emission",
+         "Price",
+         "Region",
+         "ValidFrom"
+      ]
+   },
+   "Tumblr": {
+      "newPhotoPost": [
+         "CreatedAt",
+         "FullImageUrl",
+         "PostBodyHtml",
+         "PostBodyText",
+         "PostId",
+         "PostTags",
+         "ThumbnailUrl",
+         "Tumblelog",
+         "Url"
+      ]
+   },
+   "Twitch": {
+      "newVideoByChannelYouFollow": [
+         "CreatedAt",
+         "VideoChannel",
+         "VideoChannelUrl",
+         "VideoDescription",
+         "VideoPreviewImage",
+         "VideoTitle",
+         "VideoUrl"
+      ],
+      "streamGoingLiveForChannelYouFollow": [
+         "ChannelName",
+         "ChannelUrl",
+         "CreatedAt",
+         "CurrentViewers",
+         "Game",
+         "StreamPreview"
+      ]
+   },
+   "Uhoo": {
+      "sensorNotification": [
+         "AboveOrBelow",
+         "CreatedAt",
+         "DataAirPressure",
+         "DataCo",
+         "DataCo2",
+         "DataHumidity",
+         "DataNo2",
+         "DataOzone",
+         "DataPm25",
+         "DataTemperature",
+         "DataTvoc",
+         "DataVirusIndex",
+         "MyThreshold",
+         "SensorName",
+         "SensorUnit",
+         "SensorValue",
+         "UhooName"
+      ]
+   },
+   "ViewProd": {
+      "sensorTemperature": [
+         "CreatedAt",
+         "Device",
+         "State"
+      ]
+   },
+   "Watts": {
+      "lowcarbon": [
+         "Co2Level",
+         "EndTime",
+         "ExecutedAt",
+         "LocationName",
+         "RunDuration",
+         "StartTime"
+      ]
+   },
+   "Weather": {
+      "currentConditionIs": [
+         "CheckTime",
+         "Condition",
+         "ConditionImageURL",
+         "ForecastUrl",
+         "TempCelsius",
+         "TempFahrenheit"
+      ],
+      "currentHumidityRisesAbove": [
+         "CheckTime",
+         "Condition",
+         "ForecastUrl",
+         "Humidity",
+         "TempCelsius",
+         "TempFahrenheit"
+      ],
+      "currentPollenCountRisesAbove": [
+         "CheckTime",
+         "Condition",
+         "ForecastUrl",
+         "PollenCount",
+         "TempCelsius",
+         "TempFahrenheit"
+      ],
+      "currentTemperatureDropsBelow": [
+         "CheckTime",
+         "Condition",
+         "ConditionImageURL",
+         "ForecastUrl",
+         "TempCelsius",
+         "TempFahrenheit"
+      ],
+      "currentWeatherAtTime": [
+         "CheckTime",
+         "CurrentCondition",
+         "CurrentConditionImageURL",
+         "CurrentTempCelsius",
+         "CurrentTempFahrenheit",
+         "ForecastUrl",
+         "HighTempCelsius",
+         "HighTempFahrenheit",
+         "Humidity",
+         "LowTempCelsius",
+         "LowTempFahrenheit",
+         "PollenCount",
+         "SunriseAt",
+         "SunsetAt",
+         "TodaysCondition",
+         "TodaysConditionImageURL",
+         "UvIndex",
+         "WindDirection",
+         "WindSpeedKph",
+         "WindSpeedMph"
+      ],
+      "sunRises": [
+         "Condition",
+         "ConditionImageURL",
+         "ForecastUrl",
+         "HighTempCelsius",
+         "HighTempFahrenheit",
+         "LowTempCelsius",
+         "LowTempFahrenheit",
+         "SunriseAt",
+         "TempCelsius",
+         "TempFahrenheit"
+      ],
+      "sunSets": [
+         "Condition",
+         "ConditionImageURL",
+         "ForecastUrl",
+         "HighTempCelsius",
+         "HighTempFahrenheit",
+         "LowTempCelsius",
+         "LowTempFahrenheit",
+         "SunsetAt",
+         "TempCelsius",
+         "TempFahrenheit"
+      ]
+   },
+   "Whisker": {
+      "lr3Events": [
+         "CreatedAt",
+         "LitterRobotName"
+      ]
+   },
+   "Wirelesstag": {
+      "tooDry": [
+         "Answer",
+         "Comment",
+         "HumidityPercentage",
+         "OccurredAt",
+         "TagImageURL",
+         "TagName"
+      ]
+   },
+   "WithingsSleep": {
+      "bedin": [
+         "DateandTime",
+         "DeviceUser"
+      ],
+      "bedout": [
+         "DateandTime",
+         "DeviceUser"
+      ]
+   },
+   "Withingshome": {
+      "airquality": [
+         "AirQualityLevel",
+         "DateAndTime",
+         "DeviceMAC",
+         "DeviceName"
+      ]
+   },
+   "Wordpress": {
+      "anyNewPostWp": [
+         "PostContent",
+         "PostImageUrl",
+         "PostPublished",
+         "PostTitle",
+         "PostUrl",
+         "TagsAndCategories"
+      ]
+   },
+   "Wyzecam": {
+      "motionSensorNoDetectsTrigger": [
+         "MotionSensorName",
+         "TriggerMessage",
+         "TriggerTime"
+      ],
+      "motionTrigger": [
+         "MotionDetected",
+         "TriggerTime"
+      ],
+      "smokeTrigger": [
+         "SmokeDetected",
+         "TriggerTime"
+      ]
+   },
+   "Zubie": {
+      "departures": [
+         "EventDetails",
+         "EventTime",
+         "Place",
+         "Vehicle"
+      ]
+   }
+}
