@@ -113,7 +113,34 @@ def create_triggers_list():
     else:
         print("Trigger variables (list) already extracted.")
 
+
+def create_actions_list():
+    if not os.path.exists(".//data//actions_list.json"):
+        print("Extracting action methods...")
+        in_filename = ".//data//generated_filtercode_from_intent_1-547_300_qwen3 1.jsonl"    
+        data = load_jsonl(in_filename)
+    
+    
+        actions_list = []
+        for i in range(len(data)):
+            elem = data[i]["action_developer_info"]["Filter code method"]
+            
+            actions_list.append(elem)
+        
+        actions_list = sorted(list(set(actions_list)))
+
+        out_filename = ".//data//actions_list.json"
+        with open(out_filename, "w") as f:
+            json.dump(actions_list, f, indent=3)
+        
+        print("Action methods extracted.")
+
+    else:
+        print("Action methods already extracted.")
+
+
 if __name__ == "__main__":
-    create_triggers_json()
-    create_actions_json()
+    # create_triggers_json()
+    # create_actions_json()
     create_triggers_list()
+    create_actions_list()
