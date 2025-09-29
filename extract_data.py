@@ -142,5 +142,6 @@ def create_actions_list():
 if __name__ == "__main__":
     # create_triggers_json()
     # create_actions_json()
-    create_triggers_list()
-    create_actions_list()
+    # create_triggers_list()
+    # create_actions_list()
+    pass
