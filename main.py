@@ -1,6 +1,5 @@
 import json
 import math
-import numpy as np
 from sentence_transformers import SentenceTransformer
 from sklearn.metrics.pairwise import cosine_similarity
 
@@ -20,10 +19,6 @@ def get_applet_action(applet):
     return applet["action_developer_info"]["Filter code method"]
 
 
-def sigmoid(x):
-    return 1 / (1 + np.exp(-x))
-
-
 def match(model, intent, triggers, alpha=0.5):
     intent_embedding = model.encode([intent])
     trigger_embeddings = model.encode(triggers)
@@ -33,8 +28,7 @@ def match(model, intent, triggers, alpha=0.5):
     scores = {}
     for i in range(len(triggers)):
         if similarities[i] > 0:
-            # Normalize score
-            scores[triggers[i]] = sigmoid(similarities[i])
+            scores[triggers[i]] = similarities[i]
     
     if len(scores) <= 3:
         return scores
@@ -50,7 +44,7 @@ if __name__ == "__main__":
         data = f.readlines()
 
     # For testing
-    start = 129
+    start = 261
     n = 10
     
     applets = []
