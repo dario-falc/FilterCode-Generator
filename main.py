@@ -1,5 +1,5 @@
 import json
-import math
+from statistics import median
 from sentence_transformers import SentenceTransformer
 from sklearn.metrics.pairwise import cosine_similarity
 
@@ -19,10 +19,10 @@ def get_applet_action(applet):
     return applet["action_developer_info"]["Filter code method"]
 
 
-def match(model, intent, triggers, alpha=0.5):
+def match(model, intent, triggers):
     intent_embedding = model.encode([intent])
     trigger_embeddings = model.encode(triggers)
- 
+
     similarities = cosine_similarity(intent_embedding, trigger_embeddings)[0]
     
     scores = {}
@@ -33,26 +33,48 @@ def match(model, intent, triggers, alpha=0.5):
     if len(scores) <= 3:
         return scores
     else:    
-        # Keep top alpha%
-        n = math.ceil(len(scores) * alpha)
-        top_alpha_perc_scores = dict(sorted(scores.items(), key=lambda x: x[1], reverse=True)[:n])
-        return top_alpha_perc_scores
+        # Keep entry only if greater than median value
+        median_value = median(scores.values())
+        # print(f"Median value: {median_value}")
+
+        filtered_scores = {k: v for k, v in scores.items() if v > median_value}
+        filtered_scores = dict(sorted(filtered_scores.items(), key=lambda x: x[1], reverse=True))
+        
+        return filtered_scores
+
 
 
 if __name__ == "__main__":
-    with open("data/generated_filtercode_from_intent.jsonl", "r", encoding="utf-8") as f:
+    # with open("data/generated_filtercode_from_intent.jsonl", "r", encoding="utf-8") as f:
+    #     data = f.readlines()
+
+    with open("data/Json200.jsonl", "r", encoding="utf-8") as f:
         data = f.readlines()
 
+
     # For testing
-    start = 261
-    n = 10
+    start = 95
+    n_to_insert = 1
     
     applets = []
-    for i in range(start, start+n):
-        applets.append(json.loads(data[i]))
+    n_inserted = 0
+    i=0
+
+    while n_inserted!=n_to_insert:
+        entry = json.loads(data[start+i])
+    
+        # Keep only "tipologia = Corretto"
+        if entry["tipologia"] == "Corretto":
+            applets.append(entry)
+            n_inserted+=1
+        i+=1
+    
+    # for i in range(start, start+n_to_insert):
+    #     applets.append(json.loads(data[i]))
 
 
     for applet in applets:
+        print(f"Original description: {applet["original_description"]}")
         print(f"Intent: {applet["intent"]}\n")
         
         # Triggers
@@ -66,6 +88,13 @@ if __name__ == "__main__":
         
         res = match(model, applet["intent"], triggers)
         
-        for key, value in res.items():
-            print(f"{key}: {value}")
+        # for key, value in res.items():
+        #     print(f"{key}: {value}")
+        
+        print("Variable names:")
+        for key in res.keys():
+            print(key)
+        
+        print(f"Action method: {action}")
+        
         print("="*60)
