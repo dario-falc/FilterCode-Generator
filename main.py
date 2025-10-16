@@ -43,7 +43,6 @@ def match(model, intent, triggers):
         return filtered_scores
 
 
-
 if __name__ == "__main__":
     # with open("data/generated_filtercode_from_intent.jsonl", "r", encoding="utf-8") as f:
     #     data = f.readlines()
@@ -53,8 +52,8 @@ if __name__ == "__main__":
 
 
     # For testing
-    start = 95
-    n_to_insert = 1
+    start = 0
+    n_to_insert = 20
     
     applets = []
     n_inserted = 0
@@ -72,7 +71,9 @@ if __name__ == "__main__":
     # for i in range(start, start+n_to_insert):
     #     applets.append(json.loads(data[i]))
 
+    to_json = {}
 
+    i=1
     for applet in applets:
         print(f"Original description: {applet["original_description"]}")
         print(f"Intent: {applet["intent"]}\n")
@@ -96,5 +97,18 @@ if __name__ == "__main__":
             print(key)
         
         print(f"Action method: {action}")
-        
         print("="*60)
+                
+        to_json[f"applet_{i}"] = {}
+        to_json[f"applet_{i}"]["original_description"] = applet["original_description"]
+        to_json[f"applet_{i}"]["intent"] = applet["intent"]
+        to_json[f"applet_{i}"]["triggers"] = list(res.keys())
+        to_json[f"applet_{i}"]["action"] = action
+        to_json[f"applet_{i}"]["filter_code"] = applet["filter_code"]
+
+        i+=1
+
+    with open("data\\Json200_cleaned.json", "w") as f:
+        json.dump(to_json, f, indent=3, separators=(',', ': '))
+    
+    print("Data saved to file.")
