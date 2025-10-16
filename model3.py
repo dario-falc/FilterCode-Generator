@@ -1,57 +1,48 @@
 from transformers import AutoTokenizer, AutoModelForCausalLM
 import torch
 
-model_name = "infly/OpenCoder-1.5B-Instruct"
-tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True)
-model = AutoModelForCausalLM.from_pretrained(
-    model_name,
-    torch_dtype=torch.float32,
-    device_map="auto",
-    trust_remote_code=True
-)
+if __name__ == "__main__":
+    # CARICAMENTO MODELLO
+    model_name = "infly/OpenCoder-1.5B-Instruct"
+    tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True)
+    model = AutoModelForCausalLM.from_pretrained(
+        model_name,
+        torch_dtype=torch.float16,  # più leggero
+        trust_remote_code=True
+    ).to("cpu")
+
+    # === ESEMPIO INPUT ===
+    original_description = "When your car drives away from a location you specify, your garage door will automatically close."
+    intent = "When Dad's Honda departs from Home, close the Front Garage Door."
+    variables = "Zubie.departures.EventDetails, Zubie.departures.EventTime, Zubie.departures.Place, Zubie.departures.Vehicle"
+    action = "Garageio.closeGarageDoor.skip(string?: reason)"
+
+    # PROMPT SEMPLICE 
+    content = f"""
+    I have an IFTTT applet whose description is: '{original_description}'.
+    I want to add JavaScript filter code to implement the following functionality: '{intent}'.
+    The most likely variables from the trigger service that you have to use are the following {variables} (some might be useless and others might be missing),
+    while the action method is {action}.
+    Generate the correct JavaScript filter code.
+
+    Start now:
+    ```javascript
+    """
+
+    # TOKENIZZAZIONE 
+    inputs = tokenizer(content, return_tensors="pt").to(model.device)
+
+    # GENERAZIONE 
+    with torch.no_grad():
+        outputs = model.generate(
+            **inputs,
+            max_new_tokens=60,  # da 200 → 60
+            do_sample=False
+        )
 
 
-# === INPUT ===
-description = "When your Android device's battery drops below 15%, you will get a text notification as a reminder to plug it in."
-intent = "When the Android device's battery drops below 15%, send a text notification to remind the user to plug it in."
-variables = [
-    "AndroidBattery.batteryLow.BatteryPercentage",
-    "AndroidBattery.batteryLow.DeviceName",
-    "AndroidBattery.batteryLow.OccurredAt"
-]
-action = "AndroidMessages.sendAMessage.skip(string?: reason)"
+    result = tokenizer.decode(outputs[0], skip_special_tokens=True)
 
-# === PROMPT ===
-prompt = f"""IFTTT Filter Code
-Description: {description}
-Intent: {intent}
-Variables: {', '.join(variables)}
-Action: {action}
-Write ONLY valid JavaScript that fulfills the intent using the given variables and action.
-Do not include explanations, examples, placeholders, or test cases.
-Start directly with code.
-End your answer with ### END.
-"""
-
-# === GENERAZIONE ===
-inputs = tokenizer(prompt, return_tensors="pt").to(model.device)
-
-with torch.no_grad():
-    outputs = model.generate(
-        **inputs,
-        max_new_tokens=200,
-        temperature=0.2,  # più bassa = meno verboso
-        top_p=0.9,
-        do_sample=True
-    )
-
-result = tokenizer.decode(outputs[0], skip_special_tokens=True)
-
-# === POST-PROCESSING ===
-# 1. Togli righe
-cleaned = "\n".join([line for line in result.splitlines() if not line.strip().startswith("//")])
-# 2. Taglia tutto dopo "### END"
-cleaned = cleaned.split("### END")[0].strip()
-
-print("=== Filter Code ===")
-print(result.strip())
+    # STAMPA RISULTATO 
+    print("=== Filter Code ===")
+    print(result)
