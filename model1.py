@@ -1,38 +1,56 @@
 from transformers import AutoTokenizer, AutoModelForCausalLM
-import torch
 import json
 
 # deepseek-ai/deepseek-coder-1.3b-instruct
 
 if __name__ == "__main__":
-    tokenizer = AutoTokenizer.from_pretrained("deepseek-ai/deepseek-coder-1.3b-instruct", trust_remote_code=True)
-    model = AutoModelForCausalLM.from_pretrained("deepseek-ai/deepseek-coder-1.3b-instruct", trust_remote_code=True)#, torch_dtype=torch.bfloat16).cuda()
+    model_name = "deepseek-ai/deepseek-coder-1.3b-instruct"
+    tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True)
+    model = AutoModelForCausalLM.from_pretrained(model_name, trust_remote_code=True)#, torch_dtype=torch.bfloat16).cuda()
     
     
-    with open("data\\Json200_cleaned.json", "r") as f:
+    with open("data\\data.json", "r") as f:
         applets = json.load(f)
     
-    # print(f"applets: {applet}, type: {type(applet)}")
-    
+    i=1
     for applet in applets.values():
+        print(f"Analyzing applet n°{i}")
+        if model_name in applet.keys():
+            continue
 
         original_description = applet["original_description"]
         intent = applet["intent"]
-        triggers = ", ".join(applet["triggers"])
-        action = applet["action"]
+        triggers = applet["triggers"]
+        actions = applet["actions"]
+        skip = applet["skip"]
     
         print(f"Original description: {original_description}")
         print(f"Intent: {intent}")
-    
-        prompt = f"""I have an IFTTT applet who's description is: '{original_description}'.
-        The applet is already built and working: when the trigger event happens, the action event is executed.
-        I want to add JavaScript filter code to implent the following functionality: '{intent}'.
-        Trigger variables contain useful information provided by the trigger service for your custom applets.
-        The most likely variables from the trigger service that you are going to need to use are the following: {triggers}; keep in mind that some of these might be useless and others might be missing.
-        The applet that does what's described in the original description already runs by default.
-        The skip action method allows you to specify when the applet should NOT be ran, so use it properly so that the generated code matches the original description.
-        The skip action method for this applet is {action} and it's the only one you can use.
-        Generate me the correct working JavaScript filter code without using placeholders and by only using the information that i gave you, so that I can copy and paste into IFTTT without making any changes."""
+        # print(f"Triggers: {triggers}")
+        # print(f"Actions: {actions}")
+        # print(f"Skip: {skip}")
+        
+        
+        prompt = f"""
+        Generate only valid JavaScript filter code for the following IFTTT applet.
+
+        Description: {original_description}
+        Goal: {intent}
+
+        You can use these trigger variables: {', '.join(triggers) if triggers else 'None'}
+        Available action methods: {', '.join(actions) if actions else 'None'}
+        The skip method for the action service is {skip}
+
+        Rules:
+        - Output only JavaScript code (no comments, examples, explanations, or markdown).
+        - The code must follow this logic:
+            → If trigger conditions are met, the action runs normally.
+            → Otherwise, use the .skip("reason") method to stop the action.
+        - Only call skip() in the "else" clause of the if statement.
+        - Use parseFloat() when comparing numeric values.
+        - Keep the syntax simple and human-like.
+        - Assign the trigger variables to JavaScript variables to simplify the syntax.
+        Start directly with the JavaScript code."""
         
         messages=[
             { 'role': 'user', 'content': prompt}
@@ -41,4 +59,14 @@ if __name__ == "__main__":
         inputs = tokenizer.apply_chat_template(messages, add_generation_prompt=True, return_tensors="pt").to(model.device)
         # tokenizer.eos_token_id is the id of <|EOT|> token
         outputs = model.generate(inputs, max_new_tokens=512, do_sample=False, top_k=50, top_p=0.95, num_return_sequences=1, eos_token_id=tokenizer.eos_token_id)
-        print(tokenizer.decode(outputs[0][len(inputs[0]):], skip_special_tokens=True))
+        res = tokenizer.decode(outputs[0][len(inputs[0]):], skip_special_tokens=True)
+        
+        print(res)
+        
+        applet[model_name] = res
+        # applet.update({model_name: res})
+
+        with open("data\\data.json", "w") as f:
+            json.dump(applets, f, indent=3, separators=(',', ': '))
+        
+        i+=1

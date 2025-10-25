@@ -1,7 +1,7 @@
 import json
-from statistics import median
-from sentence_transformers import SentenceTransformer
-from sklearn.metrics.pairwise import cosine_similarity
+# from statistics import median
+# from sentence_transformers import SentenceTransformer
+# from sklearn.metrics.pairwise import cosine_similarity
 
 def get_applet_triggers(applet):
     trigger_filter_codes = []
@@ -25,8 +25,6 @@ def get_applet_actions(applet):
 
     if action_filter_codes:
         action_filter_codes = sorted(list(set(action_filter_codes)))
-    else:
-        action_filter_codes = "No actions available for this applet"
     
     return action_filter_codes
 
@@ -35,7 +33,7 @@ def get_applet_skip(applet):
     return applet["action_developer_info"]["Filter code method"]
 
 
-def match(model, intent, triggers):
+# def match(model, intent, triggers):
     intent_embedding = model.encode([intent])
     trigger_embeddings = model.encode(triggers)
 
@@ -70,7 +68,7 @@ if __name__ == "__main__":
 
 
     # Intent-variables matching
-    model = SentenceTransformer('all-MiniLM-L6-v2')
+    # model = SentenceTransformer('all-MiniLM-L6-v2')
 
     to_json = {}
     i=1
@@ -86,22 +84,6 @@ if __name__ == "__main__":
         
         # Skip
         skip = get_applet_skip(applet)
-
-        # Matching                
-        #res = match(model, applet["intent"], triggers)
-        
-        
-        # print("Variable names:")
-        # for elem in triggers:
-        #     print(elem)
-        
-        # print("Action methods:")
-        # for elem in actions:
-        #     print(elem)
-        
-        # print(f"Skip method: {skip}")
-        
-        # print("="*60)
                 
         to_json[f"applet_{i}"] = {}
         to_json[f"applet_{i}"]["original_description"] = applet["original_description"]
@@ -113,7 +95,7 @@ if __name__ == "__main__":
 
         i+=1
 
-    with open("data\\data_cleaned.json", "w") as f:
+    with open("data\\data.json", "w") as f:
         json.dump(to_json, f, indent=3, separators=(',', ': '))
     
     print("Data saved to file.")

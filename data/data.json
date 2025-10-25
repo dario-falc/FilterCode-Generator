@@ -10,7 +10,7 @@
          "Weather.currentTemperatureDropsBelow.TempCelsius",
          "Weather.currentTemperatureDropsBelow.TempFahrenheit"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "Heatzy.aSetAutoMode.skip(string?: reason)",
       "filter_code": "var tempCelsius = parseFloat(Weather.currentTemperatureDropsBelow.TempCelsius);\nif (tempCelsius < 5) {\n    // Allow action execution\n} else {\n    Heatzy.aSetAutoMode.skip(\"Current temperature is above the threshold of 5\u00b0C.\");\n}"
    },
@@ -45,7 +45,7 @@
          "HavenIaq.pm25Event.Timestamp",
          "HavenIaq.pm25Event.Value"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "Lennoxicomfort.fanmodeauto.skip(string?: reason)",
       "filter_code": "var pmLevel = parseFloat(HavenIaq.pm25Event.Value);\nif (pmLevel < 12 && HavenIaq.pm25Event.Rising === \"False\" && HavenIaq.pm25Event.CamName === \"Living Room\") {\n    // Proceed with action\n} else {\n    Lennoxicomfort.fanmodeauto.skip(\"Condition not met for fan mode auto.\");\n}"
    },
@@ -59,7 +59,7 @@
          "HavenIaq.pm25Event.Timestamp",
          "HavenIaq.pm25Event.Value"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "Kasa.turnOff.skip(string?: reason)",
       "filter_code": "var value = parseFloat(HavenIaq.pm25Event.Value);\nif (value < 12 && HavenIaq.pm25Event.Rising === \"False\" && HavenIaq.pm25Event.CamName === \"Basement\") {\n    return;\n} else {\n    Kasa.turnOff.skip(\"PM2.5 not below threshold or location mismatch.\");\n}"
    },
@@ -73,7 +73,7 @@
          "HavenIaq.pm25Event.Timestamp",
          "HavenIaq.pm25Event.Value"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "Lennoxicomfort.fanmodeon.skip(string?: reason)",
       "filter_code": "var camName = HavenIaq.pm25Event.CamName;\nvar pmValue = parseFloat(HavenIaq.pm25Event.Value);\nvar thresholdRising = HavenIaq.pm25Event.Rising;\n\nif (camName === \"Living Room\" && pmValue > 12 && thresholdRising === \"True\") {\n    Lennoxicomfort.fanmodeon.setSystem(\"Upstairs\");\n} else {\n    Lennoxicomfort.fanmodeon.skip();\n}"
    },
@@ -103,7 +103,7 @@
          "Apilio.iftttActionReports.CreatedAt",
          "Apilio.iftttActionReports.EventName"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "Ecobee.holdIndefinite.skip(string?: reason)",
       "filter_code": "var eventName = Apilio.iftttActionReports.EventName;\nvar apilioValue1 = Apilio.iftttActionReports.ApilioValue1;\nvar hour = Meta.currentUserTime.hour();\n\nif (eventName !== \"run_only_at_nighttime\") {\n  Ecobee.holdIndefinite.skip(\"Event name mismatch.\");\n}\n\nif (apilioValue1 !== \"Green\") {\n  Ecobee.holdIndefinite.skip(\"Apilio value1 must be Green.\");\n}\n\nif (!((hour >= 20 && hour <= 23) || (hour >= 0 && hour <= 5))) {\n  Ecobee.holdIndefinite.skip(\"Outside of allowed nighttime hours (20:00 to 06:00).\");\n}\n\nEcobee.holdIndefinite.setThermostat(\"Living Room Thermostat\");\nEcobee.holdIndefinite.setDesiredTemperature(22);"
    },
@@ -122,7 +122,7 @@
          "Weather.sunSets.TempCelsius",
          "Weather.sunSets.TempFahrenheit"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "Ecobee.turnSwitchOff.skip(string?: reason)",
       "filter_code": "var temp = Weather.sunSets.TempFahrenheit;\nvar condition = Weather.sunSets.Condition;\n\nif (temp === \"72\" && condition === \"Sunny\") {\n  Ecobee.turnSwitchOff.setName(\"Living Room Light\");\n} else {\n  Ecobee.turnSwitchOff.skip(\"Temperature is not 72\u00b0F or condition is not Sunny.\");\n}"
    },
@@ -141,7 +141,7 @@
          "Weather.sunRises.TempCelsius",
          "Weather.sunRises.TempFahrenheit"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "Ecobee.turnSwitchOff.skip(string?: reason)",
       "filter_code": "var tempC = parseFloat(Weather.sunRises.TempCelsius);\nif (tempC > 18) {\n    Ecobee.turnSwitchOff.setName(\"living room\");\n} else {\n    Ecobee.turnSwitchOff.skip(\"Temperature is not above 18\u00b0C.\");\n}"
    },
@@ -236,7 +236,7 @@
       "triggers": [
          "HcHood.hoodPowerOn.CreatedAt"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "Hue.turnOffAllHue.skip(string?: reason)",
       "filter_code": "Hue.turnOffAllHue.skip(\"Turning off not required; turning on kitchen hood.\");"
    },
@@ -246,7 +246,7 @@
       "triggers": [
          "DateAndTime.everyDayAt.CheckTime"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "Tantiv4.turnOnOff.skip(string?: reason)",
       "filter_code": "var checkTime = new Date(DateAndTime.everyDayAt.CheckTime);\nvar hour = checkTime.getHours();\nif ((hour === 7 && !checkTime.getMinutes()) || (hour === 19 && !checkTime.getMinutes())) {\n    Tantiv4.turnOnOff.setDeviceName(\"Living Room Lamp\");\n    if (hour === 7) {\n        Tantiv4.turnOnOff.setTurnOnOff(\"on\");\n    } else {\n        Tantiv4.turnOnOff.setTurnOnOff(\"off\");\n    }\n} else {\n    Tantiv4.turnOnOff.skip(\"Not the scheduled time.\");\n}"
    },
@@ -256,7 +256,7 @@
       "triggers": [
          "HcHood.hoodPowerOff.CreatedAt"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "Hue.turnOffAllHue.skip(string?: reason)",
       "filter_code": "var hour = Meta.currentUserTime.hour();\nif (hour < 6 || hour >= 22) {\n  Hue.turnOffAllHue.skip(\"Outside of active hours (06:00 to 22:00).\");\n}"
    },
@@ -637,7 +637,7 @@
          "TrueEnergyDK.electricityPriceCheap.Region",
          "TrueEnergyDK.electricityPriceCheap.ValidFrom"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "HcDryer.dryerStartProgram.skip(string?: reason)",
       "filter_code": "var hour = Meta.currentUserTime.hour();\nif (TrueEnergyDK.electricityPriceCheap.Region !== \"West Denmark\") {\n  HcDryer.dryerStartProgram.skip(\"Region is not West Denmark.\");\n} else if (parseFloat(TrueEnergyDK.electricityPriceCheap.Price) >= 150) {\n  HcDryer.dryerStartProgram.skip(\"Electricity price is at or above 150 DKK per kWh.\");\n} else if (hour < 7 || hour >= 19) {\n  HcDryer.dryerStartProgram.skip(\"Outside of allowed time window (07:00-18:59).\");\n} else {\n  HcDryer.dryerStartProgram.setProgram(\"Cotton\");\n  HcDryer.dryerStartProgram.setDryingTarget(\"Extra Dry\");\n}"
    },
@@ -656,7 +656,7 @@
          "Weather.sunSets.TempCelsius",
          "Weather.sunSets.TempFahrenheit"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "Hue.turnOffAllHue.skip(string?: reason)",
       "filter_code": "var temp = Weather.sunSets.TempCelsius;\nvar condition = Weather.sunSets.Condition;\nif(temp !== '18' || condition !== 'Sunny'){\n  Hue.turnOffAllHue.skip(\"Temperature is \" + temp + \"\u00b0C or condition is not Sunny.\");\n}"
    },
@@ -697,7 +697,7 @@
          "Weather.sunSets.TempCelsius",
          "Weather.sunSets.TempFahrenheit"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "WemoLightSwitch.attributeLsOnDiscrete.skip(string?: reason)",
       "filter_code": "var temp = parseFloat(Weather.sunSets.TempCelsius);\nif (temp <= 18 || Weather.sunSets.Condition !== \"Sunny\") {\n  WemoLightSwitch.attributeLsOnDiscrete.skip(\"Temperature is \" + temp + \"\u00b0C or condition is not Sunny\");\n}\nWemoLightSwitch.attributeLsOnDiscrete.set();"
    },
@@ -753,7 +753,7 @@
          "Irobot.missionReport.StartTime",
          "Irobot.missionReport.Timestamp"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "Hue.blinkAllHue.skip(string?: reason)",
       "filter_code": "var sqFeet = parseInt(Irobot.missionReport.SquareFootage, 10);\nif (sqFeet < 900) {\n    Hue.blinkAllHue.skip(\"Cleaning job was less than 900 square feet.\");\n}"
    },
@@ -794,7 +794,7 @@
          "Weather.sunSets.TempCelsius",
          "Weather.sunSets.TempFahrenheit"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "WemoSwitch.attributeSocketToggleDiscrete.skip(string?: reason)",
       "filter_code": "if (Weather.sunSets.TempFahrenheit <= 65) {\n  WemoSwitch.attributeSocketToggleDiscrete.skip(\"Temperature is not above 65\u00b0F.\");\n}"
    },
@@ -848,7 +848,7 @@
          "Weather.sunRises.TempCelsius",
          "Weather.sunRises.TempFahrenheit"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "Wiz.turnOff.skip(string?: reason)",
       "filter_code": "var sunrise = Weather.sunRises.SunriseAt;\nvar tenMinutesBeforeSunrise = new Date(sunrise.getTime() - 600000); // Subtract 10 minutes (10 * 60 * 1000)\nif (Meta.currentUserTime.now() < tenMinutesBeforeSunrise || Weather.sunRises.Condition !== \"Sunny\" || parseFloat(Weather.sunRises.TempCelsius) <= 18) {\n  Wiz.turnOff.skip(\"Conditions not met: must be sunny and above 18\u00b0C, and within 10 minutes before sunrise.\");\n}"
    },
@@ -1016,7 +1016,7 @@
          "DoButton.doButtonNewCommandCommon.OccurredAt",
          "DoButton.doButtonNewCommandCommon.ShareURL"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "HcCoffeeMachine.coffeeMakerTurnOn.skip(string?: reason)",
       "filter_code": "var lat = parseFloat(DoButton.doButtonNewCommandCommon.Latitude);\nvar lon = parseFloat(DoButton.doButtonNewCommandCommon.Longitude);\n\nif (Math.abs(lat - 37.8267) < 0.001 && Math.abs(lon + 122.4230) < 0.001) {\n    // Proceed to turn on coffee machine\n} else {\n    HcCoffeeMachine.coffeeMakerTurnOn.skip(\"Location not within allowed area.\");\n}"
    },
@@ -1079,7 +1079,7 @@
          "Abode.doorOpened.CreatedAt",
          "Abode.doorOpened.DoorName"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "Arlo.record.skip(string?: reason)",
       "filter_code": "if (Abode.doorOpened.DoorName !== \"Front Door\") {\n  Arlo.record.skip(\"This automation is only for the Front Door.\");\n} else {\n  Arlo.record.setDeviceName(\"Living Room Camera\");\n  Arlo.record.setDuration(30);\n}"
    },
@@ -1118,7 +1118,7 @@
          "Weather.sunRises.TempCelsius",
          "Weather.sunRises.TempFahrenheit"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "Futurehome.powerOff.skip(string?: reason)",
       "filter_code": "var sunriseHour = Weather.sunRises.SunriseAt.getHours();\nvar sunriseMinute = Weather.sunRises.SunriseAt.getMinutes();\nvar tempFahrenheit = Number(Weather.sunRises.TempFahrenheit);\nif (sunriseHour !== 6 || sunriseMinute !== 0 || tempFahrenheit <= 64) {\n  Futurehome.powerOff.skip(\"Sunrise not at 6:00 AM or temperature not above 64\u00b0F.\");\n}"
    },
@@ -1137,7 +1137,7 @@
          "Weather.sunSets.TempCelsius",
          "Weather.sunSets.TempFahrenheit"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "Futurehome.powerOn.skip(string?: reason)",
       "filter_code": "var temp = Weather.sunSets.TempFahrenheit;\nvar condition = Weather.sunSets.Condition;\n\nif (temp === \"68\" && condition === \"Partly cloudy\") {\n  // Proceed with action\n} else {\n  Futurehome.powerOn.skip(\"Current temperature must be exactly 68\u00b0F and condition must be partly cloudy.\");\n}"
    },
@@ -1177,7 +1177,7 @@
          "Weather.sunSets.TempCelsius",
          "Weather.sunSets.TempFahrenheit"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "LightwaverfLighting.switchOnLight.skip(string?: reason)",
       "filter_code": "var now = new Date(Meta.currentUserTime.iso());\nvar sunsetAt = new Date(Weather.sunSets.SunsetAt);\nvar minutesUntilSunset = (sunsetAt - now) / 60000;\n\nif (minutesUntilSunset <= 15 && minutesUntilSunset >= 0) {\n  var tempCelsius = parseFloat(Weather.sunSets.TempCelsius);\n  \n  if (tempCelsius > 18) {\n    return;\n  }\n}\n\nLightwaverfLighting.switchOnLight.skip(\"Sunset not within 15 minutes or temperature at or below 18\u00b0C\");"
    },
@@ -1211,7 +1211,7 @@
          "Weather.sunSets.TempCelsius",
          "Weather.sunSets.TempFahrenheit"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "Ewelink.switches4Action.skip(string?: reason)",
       "filter_code": "var tempCelsius = Weather.sunSets.TempCelsius;\nvar condition = Weather.sunSets.Condition;\n\nif (tempCelsius !== '18' || condition !== 'Sunny') {\n  Ewelink.switches4Action.skip(\"Temperature or weather condition does not match requirements.\");\n} else {\n  // Set outlet to channel 1 and action to \"on\"\n  Ewelink.switches4Action.setOnoffActQuery(\"on\");\n  Ewelink.switches4Action.setSwitches4OutletQuery(\"1\");\n}"
    },
@@ -1333,7 +1333,7 @@
          "Wyzecam.smokeTrigger.SmokeDetected",
          "Wyzecam.smokeTrigger.TriggerTime"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "Safetrek.alertAddress.skip(string?: reason)",
       "filter_code": "var cameraName = Wyzecam.smokeTrigger.SmokeDetected;\nif (cameraName.includes(\"Living Room Camera\")) {\n  Safetrek.alertAddress.setAddressLine1(\"123 Main Street\");\n  Safetrek.alertAddress.setAddressLine2(\"Apt 101\");\n  Safetrek.alertAddress.setCity(\"New York\");\n  Safetrek.alertAddress.setState(\"NY\");\n  Safetrek.alertAddress.setZip(\"10001\");\n} else {\n  Safetrek.alertAddress.skip(\"Triggered camera is not the Living Room Camera.\");\n}"
    },
@@ -1361,7 +1361,7 @@
       "triggers": [
          "DateAndTime.everyDayAt.CheckTime"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "Gogogate.closeDoor.skip(string?: reason)",
       "filter_code": "Gogogate.closeDoor.setDoorNumber(1);\nif (DateAndTime.everyDayAt.CheckTime.getHours() !== 20) {\n  Gogogate.closeDoor.skip(\"Trigger time is not 8:00 PM.\");\n}"
    },
@@ -1428,7 +1428,7 @@
          "Futurehome.modeSwitched.SiteName",
          "Futurehome.modeSwitched.TriggeredAt"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "Hue.turnOffAllHue.skip(string?: reason)",
       "filter_code": "var mode = Futurehome.modeSwitched.Mode;\nvar siteName = Futurehome.modeSwitched.SiteName;\nvar triggeredAtTime = new Date(Futurehome.modeSwitched.TriggeredAt);\nvar hour = triggeredAtTime.getHours();\n\nif (mode === \"home\" && siteName === \"Home\" && hour >= 17 && hour < 22) {\n    Hue.turnOffAllHue.skip(\"Mode is home between 17:00 and 22:00 at Home.\");\n}"
    },
@@ -1492,7 +1492,7 @@
          "Airthings.radonAbove.MeasurementUnit",
          "Airthings.radonAbove.RadonLevel"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "Hue.blinkAllHue.skip(string?: reason)",
       "filter_code": "var device = Airthings.radonAbove.Device;\nvar unit = Airthings.radonAbove.MeasurementUnit;\nvar radonLevelStr = Airthings.radonAbove.RadonLevel;\n\nif (device !== \"Home - Living Room\") {\n  Hue.blinkAllHue.skip(\"Device not Home - Living Room.\");\n} else if (unit !== \"Bq/m3\") {\n  Hue.blinkAllHue.skip(\"Measurement unit is not Bq/m3.\");\n} else {\n  var radonLevel = Number(radonLevelStr);\n  if (isNaN(radonLevel) || radonLevel <= 150) {\n    Hue.blinkAllHue.skip(\"Radon level does not exceed threshold of 150 Bq/m3.\");\n  }\n}"
    },
@@ -1556,7 +1556,7 @@
          "Airthings.radonAbove.MeasurementUnit",
          "Airthings.radonAbove.RadonLevel"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "Hue.blinkAllHue.skip(string?: reason)",
       "filter_code": "var device = Airthings.radonAbove.Device;\nvar unit = Airthings.radonAbove.MeasurementUnit;\nvar radonLevelStr = Airthings.radonAbove.RadonLevel;\n\nif (device !== \"Home - Living Room\") {\n  Hue.blinkAllHue.skip(\"Device is not Home - Living Room.\");\n}\n\nif (unit !== \"Bq/m3\") {\n  Hue.blinkAllHue.skip(\"Unit must be Bq/m3.\");\n}\n\nvar radonLevel = parseFloat(radonLevelStr);\nif (isNaN(radonLevel) || radonLevel <= 150) {\n  Hue.blinkAllHue.skip(\"Radon level is not above 150 Bq/m3.\");\n}"
    },
@@ -1579,7 +1579,7 @@
          "Mesh.events.Text",
          "Mesh.events.TriggeredAt"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "Switchbot.pressBot.skip(string?: reason)",
       "filter_code": "if (Mesh.events.Text !== \"Motion Tag: Detected!\") {\n  Switchbot.pressBot.skip(\"Event text does not match 'Motion Tag: Detected!'.\");\n}\nSwitchbot.pressBot.setChoseADevice(\"SwitchBoth\");"
    },
@@ -1673,7 +1673,7 @@
          "Weather.currentTemperatureDropsBelow.TempCelsius",
          "Weather.currentTemperatureDropsBelow.TempFahrenheit"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "DooyaConnector.closeBlinds.skip(string?: reason)",
       "filter_code": "var tempCelsius = parseFloat(Weather.currentTemperatureDropsBelow.TempCelsius);\nif (tempCelsius > 25) {\n  DooyaConnector.closeBlinds.setWhichBlinds(\"Living Room\");\n} else {\n  DooyaConnector.closeBlinds.skip(\"Temperature not above 25\u00b0C.\");\n}"
    },
@@ -1685,7 +1685,7 @@
          "Futurehome.modeSwitched.SiteName",
          "Futurehome.modeSwitched.TriggeredAt"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "Harmony.endActivity.skip(string?: reason)",
       "filter_code": "var siteName = Futurehome.modeSwitched.SiteName;\nif (siteName !== \"Home\") {\n  Harmony.endActivity.skip(\"Only applies to Home site.\");\n}\n\nvar mode = Futurehome.modeSwitched.Mode;\nif (mode !== \"sleep\") {\n  Harmony.endActivity.skip(\"Mode is not sleep.\");\n}\n\nvar triggeredAt = new Date(Futurehome.modeSwitched.TriggeredAt);\nvar hour = triggeredAt.getHours();\nif (!(hour >= 22 || hour <= 7)) {\n  Harmony.endActivity.skip(\"Only active between 10 PM and 7 AM.\");\n}"
    },
@@ -1700,7 +1700,7 @@
          "Weather.currentTemperatureDropsBelow.TempCelsius",
          "Weather.currentTemperatureDropsBelow.TempFahrenheit"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "GeAppliancesWac.wacSetTargetTemp.skip(string?: reason)",
       "filter_code": "var currentTemp = Number(Weather.currentTemperatureDropsBelow.TempFahrenheit);\nif (currentTemp > 75) {\n    GeAppliancesWac.wacSetTargetTemp.setTargetTemp(68);\n} else {\n    GeAppliancesWac.wacSetTargetTemp.skip(\"Outside temperature is not above 75\u00b0F.\");\n}"
    },
@@ -1711,7 +1711,7 @@
          "Mesh.events.Text",
          "Mesh.events.TriggeredAt"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "Littlebits.output.skip(string?: reason)",
       "filter_code": "if (Mesh.events.Text() !== 'Motion Tag: Detected!') {\n  Littlebits.output.skip(\"Event text does not match motion detection.\");\n}"
    },
@@ -1744,7 +1744,7 @@
          "Airthings.humidityAbove.Device",
          "Airthings.humidityAbove.Humidity"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "Hue.blinkAllHue.skip(string?: reason)",
       "filter_code": "var device = Airthings.humidityAbove.Device;\nvar humidityStr = Airthings.humidityAbove.Humidity;\nvar humidity = parseInt(humidityStr, 10);\nif (device === \"Home - Living room\" && humidity > 60) {\n    // Continue to action\n} else {\n    Hue.blinkAllHue.skip(\"Condition not met for device or humidity level.\");\n}"
    },
@@ -1755,7 +1755,7 @@
          "Netatmo.rainHasStarted.DeviceName",
          "Netatmo.rainHasStarted.MeasuredAt"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "Indegoconnect.sendDock.skip(string?: reason)",
       "filter_code": "var device = Netatmo.rainHasStarted.DeviceName;\nif(device !== \"My Rain gauge\") {\n  Indegoconnect.sendDock.skip(\"Rain reported by an unexpected device.\");\n}"
    },
@@ -1765,7 +1765,7 @@
       "triggers": [
          "DateAndTime.everyDayAt.CheckTime"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "Gogogate.closeDoor.skip(string?: reason)",
       "filter_code": "var doorNumber = \"1\"; // As per \"garage door number 1\"\nGogogate.closeDoor.setDoorNumber(doorNumber);\n// No condition for current state (not available in provided data)"
    },
@@ -2095,7 +2095,7 @@
          "Weather.currentTemperatureDropsBelow.TempCelsius",
          "Weather.currentTemperatureDropsBelow.TempFahrenheit"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "GeAppliancesWac.wacSetTargetTemp.skip(string?: reason)",
       "filter_code": "var tempC = parseFloat(Weather.currentTemperatureDropsBelow.TempCelsius);\nif (tempC < 18) {\n  GeAppliancesWac.wacSetTargetTemp.set['set-target-temp'](22);\n} else {\n  GeAppliancesWac.wacSetTargetTemp.skip(\"Current temperature is not below 18\u00b0C.\");\n}"
    },
@@ -2190,7 +2190,7 @@
          "Email.sendIftttAnEmailTagged.ReceivedAt",
          "Email.sendIftttAnEmailTagged.Subject"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "BangOlufsensBeoLinkGateway.boPress.skip(string?: reason)",
       "filter_code": "if (Email.sendIftttAnEmailTagged.Subject !== \"Meeting Reminder\") {\n  BangOlufsensBeoLinkGateway.boPress.skip(\"Subject is not 'Meeting Reminder'\");\n}\nif (tag !== \"#urgent\") {\n  BangOlufsensBeoLinkGateway.boPress.skip(\"Tag is not #urgent\");\n}\nif (Email.sendIftttAnEmailTagged.From !== \"somebody@gmail.com\") {\n  BangOlufsensBeoLinkGateway.boPress.skip(\"Not from somebody@gmail.com\");\n}\n\nBangOlufsensBeoLinkGateway.boPress.setBoButton(\"Good Morning\");"
    },
@@ -2201,7 +2201,7 @@
          "SmartthingsV2.newPresentSmartthings.ArrivedAt",
          "SmartthingsV2.newPresentSmartthings.DeviceName"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "Irobot.startRobot.skip(string?: reason)",
       "filter_code": "Irobot.startRobot.skip();"
    },
@@ -2250,7 +2250,7 @@
       "triggers": [
          "HcOven.ovenDoorOpened.CreatedAt"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "Hue.blinkAllHue.skip(string?: reason)",
       "filter_code": "Hue.blinkAllHue.setLights(\"Living Room\");"
    },
@@ -2324,7 +2324,7 @@
          "WithingsSleep.bedin.DateandTime",
          "WithingsSleep.bedin.DeviceUser"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "Wiz.turnOff.skip(string?: reason)",
       "filter_code": "var time = new Date(WithingsSleep.bedin.DateandTime());\nvar hour = time.getHours();\nvar user = WithingsSleep.bedin.DeviceUser();\n\nif (user !== \"Tom\") {\n  Wiz.turnOff.skip(\"Not Tom's bed-in.\");\n} else if ((hour >= 22) || (hour <= 6)) {\n  Wiz.turnOff.setEntity(\"Living Room\");\n} else {\n  Wiz.turnOff.skip(\"Bed-in detected outside allowed time window (22:00-06:00).\");\n}"
    },
@@ -2372,7 +2372,7 @@
          "Zubie.departures.Place",
          "Zubie.departures.Vehicle"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "Garageio.closeGarageDoor.skip(string?: reason)",
       "filter_code": "var vehicle = Zubie.departures.Vehicle;\nvar place = Zubie.departures.Place;\n\nif (vehicle !== \"Dad's Honda\" || place !== \"Home\") {\n  Garageio.closeGarageDoor.skip(\"Only trigger when Dad's Honda departs from Home.\");\n}"
    },
@@ -2384,7 +2384,7 @@
          "Wyzecam.motionSensorNoDetectsTrigger.TriggerMessage",
          "Wyzecam.motionSensorNoDetectsTrigger.TriggerTime"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "Wiz.turnOff.skip(string?: reason)",
       "filter_code": "var sensorName = Wyzecam.motionSensorNoDetectsTrigger.MotionSensorName;\nvar hour = Meta.currentUserTime.hour();\nif (sensorName !== \"hallway\" || (hour >= 7 && hour < 20)) {\n  Wiz.turnOff.skip(\"Not the hallway motion sensor or outside time range.\");\n}"
    },
@@ -2412,7 +2412,7 @@
          "Whisker.lr3Events.CreatedAt",
          "Whisker.lr3Events.LitterRobotName"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "Hue.blinkAllHue.skip(string?: reason)",
       "filter_code": "if (Whisker.lr3Events.LitterRobotName !== \"My Office Litter Robot\" || Whisker.lr3Events.EventType !== \"Waste Drawer Full\") {  \n  Hue.blinkAllHue.skip(\"Conditions not met: incorrect robot name or event type.\");\n}"
    },
@@ -2426,7 +2426,7 @@
          "Augusthome.lockUnlocked.User",
          "Augusthome.lockUnlocked.UserPhoto"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "Switchbot.turnOnBot.skip(string?: reason)",
       "filter_code": "if (\n  Augusthome.lockUnlocked.LockName !== \"Front Door\" ||\n  Augusthome.lockUnlocked.HouseName !== \"San Diego Beach House\" ||\n  Augusthome.lockUnlocked.User !== \"John Smith\"\n) {\n  Switchbot.turnOnBot.skip(\"Condition not met: Lock, house name, or user mismatch.\");\n}"
    },
@@ -2437,7 +2437,7 @@
          "Mesh.events.Text",
          "Mesh.events.TriggeredAt"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "WemoLightSwitch.attributeLsOnDiscrete.skip(string?: reason)",
       "filter_code": "var text = Mesh.events.Text();\nif (text !== \"Motion Tag: Detected!\") {\n  WemoLightSwitch.attributeLsOnDiscrete.skip(\"Text does not match.\");\n}\nvar triggeredAtHour = Meta.currentUserTime.hour(Mesh.events.TriggeredAt());\nif (triggeredAtHour < 7 || triggeredAtHour >= 19) {\n  WemoLightSwitch.attributeLsOnDiscrete.skip(\"Outside active hours (07:00-19:00).\");\n}\nWemoLightSwitch.attributeLsOnDiscrete.setMacaddress(\"00:11:22:33:44:55\");"
    },
@@ -2449,7 +2449,7 @@
          "Tantiv4.whenFetchitButtonPress.CreatedAt",
          "Tantiv4.whenFetchitButtonPress.DeviceName"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "Hue.turnOffAllHue.skip(string?: reason)",
       "filter_code": "var deviceName = Tantiv4.whenFetchitButtonPress.DeviceName;\nvar buttonName = Tantiv4.whenFetchitButtonPress.ButtonName;\n\nif (deviceName === \"Main Fetchit Device\" && buttonName === \"Office Button\") {\n  // Proceed to turn on lights in living room\n} else {\n  Hue.turnOffAllHue.skip(\"Device or button name does not match the criteria.\");\n}"
    },
@@ -2460,7 +2460,7 @@
          "Mesh.events.Text",
          "Mesh.events.TriggeredAt"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "WemoLightSwitch.attributeLsOffDiscrete.skip(string?: reason)",
       "filter_code": "var eventId = Mesh.events.EventId;\nvar text = Mesh.events.Text;\nvar hour = Meta.currentUserTime.hour();\n\nif (eventId !== \"12345\" || text !== \"Motion Tag: Detected!\") {\n  WemoLightSwitch.attributeLsOffDiscrete.skip(\"EventID or text doesn't match criteria.\");\n} else if (hour < 7 || hour >= 19) {\n  WemoLightSwitch.attributeLsOffDiscrete.skip(\"Outside of active hours (07:00 to 19:00).\");\n} else {\n  WemoLightSwitch.attributeLsOffDiscrete.setMacaddress(\"00:11:22:33:44:55\");\n}"
    },
@@ -2479,7 +2479,7 @@
          "Weather.sunRises.TempCelsius",
          "Weather.sunRises.TempFahrenheit"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "HcCoffeeMachine.coffeeMakerTurnOn.skip(string?: reason)",
       "filter_code": "var tempCelsius = parseInt(Weather.sunRises.TempCelsius);\nif (tempCelsius > 18) {\n  HcCoffeeMachine.coffeeMakerTurnOn.skip();\n} else {\n  HcCoffeeMachine.coffeeMakerTurnOn.skip(\"Temperature is \" + Weather.sunRises.TempCelsius + \"\u00b0C, which is below the required 18\u00b0C.\");\n}"
    },
@@ -2490,7 +2490,7 @@
          "Mesh.events.Text",
          "Mesh.events.TriggeredAt"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "Littlebits.deactivateOutput.skip(string?: reason)",
       "filter_code": "if (Mesh.events.Text !== \"Motion Tag: Detected!\") {\n  Littlebits.deactivateOutput.skip(\"Text does not match required motion detection event.\");\n}"
    },
@@ -2509,7 +2509,7 @@
          "Weather.sunSets.TempCelsius",
          "Weather.sunSets.TempFahrenheit"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "Lexi.deviceTurnOnAll.skip(string?: reason)",
       "filter_code": "var temp = Weather.sunSets.TempCelsius;\nif (temp === \"18\") {\n  Lexi.deviceTurnOnAll.setBrightness(\"80%\");\n  Lexi.deviceTurnOnAll.setColor(\"#FFC107\");\n} else {\n  Lexi.deviceTurnOnAll.skip(\"Current temperature is not 18\u00b0C.\");\n}"
    },
@@ -2592,7 +2592,7 @@
       "triggers": [
          "DateAndTime.everyDayAt.CheckTime"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "Garagewifi.closeDoor.skip(string?: reason)",
       "filter_code": "Garagewifi.closeDoor.setDoorNumber(1);\nif (!DateAndTime.everyDayAt.CheckTime) {\n  Garagewifi.closeDoor.skip(\"Cannot determine if the garage door is open.\");\n}"
    },
@@ -2602,7 +2602,7 @@
       "triggers": [
          "DateAndTime.everyDayAt.CheckTime"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "Gogogate.openDoor.skip(string?: reason)",
       "filter_code": "var doorNumber = 1;\nif (Gogogate.isDoorOpen(doorNumber)) {\n  Gogogate.openDoor.skip(\"Garage door is already open.\");\n}"
    },
@@ -2613,7 +2613,7 @@
          "Netatmo.rainHasStarted.DeviceName",
          "Netatmo.rainHasStarted.MeasuredAt"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "RainMachine.stopAllWatering.skip(string?: reason)",
       "filter_code": "var deviceName = Netatmo.rainHasStarted.DeviceName;\nif (deviceName !== 'My Rain gauge') {\n  RainMachine.stopAllWatering.skip(\"Rain detected by an unrecognized gauge.\");\n}"
    },
@@ -2747,7 +2747,7 @@
          "Weather.sunRises.TempCelsius",
          "Weather.sunRises.TempFahrenheit"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "Fansync.onOff.skip(string?: reason)",
       "filter_code": "var temp = parseFloat(Weather.sunRises.TempCelsius);\nif (temp <= 18 || Weather.sunRises.Condition !== \"Sunny\") {\n  Fansync.onOff.skip(\"Temperature must be above 18\u00b0C and condition must be Sunny.\");\n}"
    },
@@ -2864,7 +2864,7 @@
          "Weather.currentTemperatureDropsBelow.TempCelsius",
          "Weather.currentTemperatureDropsBelow.TempFahrenheit"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "GeAppliancesWac.wacSetTargetTemp.skip(string?: reason)",
       "filter_code": "GeAppliancesWac.wacSetTargetTemp.setTargetTemp(72);"
    },
@@ -2875,7 +2875,7 @@
          "Wyzecam.motionTrigger.MotionDetected",
          "Wyzecam.motionTrigger.TriggerTime"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "Safetrek.alertAddress.skip(string?: reason)",
       "filter_code": "var hour = Meta.currentUserTime.hour();\nif (hour < 7 || hour > 22) {\n    Safetrek.alertAddress.skip(\"Outside active hours.\");\n} else {\n    Safetrek.alertAddress.setAddressLine1(\"1377 Oak Street\");\n    Safetrek.alertAddress.setAddressLine2(\"Apt 3B\");\n    Safetrek.alertAddress.setCity(\"San Francisco\");\n    Safetrek.alertAddress.setState(\"CA\");\n    Safetrek.alertAddress.setZip(\"94105\");\n}"
    },
@@ -2902,7 +2902,7 @@
          "Flic.click.Latitude",
          "Flic.click.Longitude"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "Arlo.record.skip(string?: reason)",
       "filter_code": "var clickType = Flic.click.ClickType();\nif (clickType !== 'double_click') {\n  Arlo.record.skip(\"Only double-clicks allowed.\");\n}\nArlo.record.setDeviceName(\"Front Door Camera\");\nArlo.record.setDuration(300);"
    },
@@ -2942,7 +2942,7 @@
          "Knocki.knocki.Gesture",
          "Knocki.knocki.Pattern"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "WemoInsightSwitch.attributeInsightToggleDiscrete.skip(string?: reason)",
       "filter_code": "var gesture = Knocki.knocki.Gesture;\nvar device = Knocki.knocki.Device;\nvar hour = Meta.currentUserTime.hour();\n\nif (gesture !== \"Triple Knock\") {\n  WemoInsightSwitch.attributeInsightToggleDiscrete.skip(\"Incorrect gesture.\");\n} else if (device !== \"KNC1-W-00000088\") {\n  WemoInsightSwitch.attributeInsightToggleDiscrete.skip(\"Incorrect device ID.\");\n} else if (hour < 7 || hour >= 19) {\n  WemoInsightSwitch.attributeInsightToggleDiscrete.skip(\"Outside active hours (7 AM to 7 PM).\");\n}"
    },
@@ -2957,7 +2957,7 @@
          "DoButton.doButtonNewCommandCommon.OccurredAt",
          "DoButton.doButtonNewCommandCommon.ShareURL"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "Skylinknet.devOn.skip(string?: reason)",
       "filter_code": "var lat = DoButton.doButtonNewCommandCommon.Latitude;\nif (lat !== \"37.8267\") {\n  Skylinknet.devOn.skip(\"Latitude does not match.\");\n}\n\nvar lon = DoButton.doButtonNewCommandCommon.Longitude;\nif (lon !== \"-122.4230\") {\n  Skylinknet.devOn.skip(\"Longitude does not match.\");\n}\n\nvar occurredStr = DoButton.doButtonNewCommandCommon.OccurredAt;\nvar [basePart, ...rest] = occurredStr.split('+');\nvar [date, time] = basePart.split('T');\n\nvar dateParts = date.split('-');\nif (dateParts[1] !== '07' || dateParts[2] !== '08') {\n  Skylinknet.devOn.skip(\"Date does not match July 8th.\");\n}\n\nif (time !== '04:17:06') {\n  Skylinknet.devOn.skip(\"Time does not match 04:17:06.\");\n}\n\nSkylinknet.devOn.setWhichDevice(\"Living Room\");\nSkylinknet.devOn.setHubPassword(\"MyHouse123\");"
    },
@@ -2972,7 +2972,7 @@
          "DoButton.doButtonNewCommandCommon.OccurredAt",
          "DoButton.doButtonNewCommandCommon.ShareURL"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "WemoLightSwitch.attributeLsToggleDiscrete.skip(string?: reason)",
       "filter_code": "var latStr = DoButton.doButtonNewCommandCommon.Latitude;\nvar lonStr = DoButton.doButtonNewCommandCommon.Longitude;\n\nvar currentLat = parseFloat(latStr);\nvar currentLon = parseFloat(lonStr);\n\nif (Math.abs(currentLat - 37.8267) > 0.0001 || Math.abs(currentLon + 122.4230) > 0.0001) {\n    WemoLightSwitch.attributeLsToggleDiscrete.skip(\"Location does not match the specified coordinates.\");\n} else {\n    var hour = Meta.currentUserTime.hour();\n    if (hour < 7 || hour > 19) {\n        WemoLightSwitch.attributeLsToggleDiscrete.skip(\"Outside of active hours (07:00 to 19:00).\");\n    }\n}"
    },
@@ -2991,7 +2991,7 @@
          "Weather.sunRises.TempCelsius",
          "Weather.sunRises.TempFahrenheit"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "WemoDimmer.attributeDimmerToggleDiscrete.skip(string?: reason)",
       "filter_code": "var condition = Weather.sunRises.Condition;\nvar temperatureCelsius = parseFloat(Weather.sunRises.TempCelsius);\n\nif (condition !== \"Sunny\" || temperatureCelsius <= 18) {\n  WemoDimmer.attributeDimmerToggleDiscrete.skip(\"Condition not Sunny or temperature \u2264 18\u00b0C\");\n}"
    },
@@ -3004,7 +3004,7 @@
          "Knocki.knocki.Gesture",
          "Knocki.knocki.Pattern"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "WemoLightSwitch.attributeLsToggleDiscrete.skip(string?: reason)",
       "filter_code": "var device = Knocki.knocki.Device;\nvar gesture = Knocki.knocki.Gesture;\n\nif (device === \"KNC1-W-00000088\" && gesture === \"Triple Knock\") {\n  WemoLightSwitch.attributeLsToggleDiscrete.setMacaddress(\"00:11:22:33:44:55\");\n} else {\n  WemoLightSwitch.attributeLsToggleDiscrete.skip(\"Invalid device or gesture\");\n}"
    },
@@ -3023,7 +3023,7 @@
          "Weather.sunSets.TempCelsius",
          "Weather.sunSets.TempFahrenheit"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "WemoDimmer.attributeDimmerBrightnessChangeDiscrete.skip(string?: reason)",
       "filter_code": "var temp = parseFloat(Weather.sunSets.TempCelsius);\nif (temp > 18 && Weather.sunSets.Condition === \"Sunny\") {\n    WemoDimmer.attributeDimmerBrightnessChangeDiscrete.setSubType(75);\n} else {\n    WemoDimmer.attributeDimmerBrightnessChangeDiscrete.skip(\"Temperature or weather condition not met\");\n}"
    },
@@ -3042,7 +3042,7 @@
          "Weather.sunSets.TempCelsius",
          "Weather.sunSets.TempFahrenheit"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "HagerIot.switchon.skip(string?: reason)",
       "filter_code": "var temp = parseFloat(Weather.sunSets.TempCelsius);\nif (temp <= 18 || Weather.sunSets.Condition !== 'Sunny') {\n  HagerIot.switchon.skip(\"Temperature must be above 18\u00b0C and weather must be sunny.\");\n}\nHagerIot.switchon.cid.set(\"Porch Light\");"
    },
@@ -3055,7 +3055,7 @@
          "Knocki.knocki.Gesture",
          "Knocki.knocki.Pattern"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "WemoInsightSwitch.attributeInsightOnDiscrete.skip(string?: reason)",
       "filter_code": "var gesture = Knocki.knocki.Gesture;\nvar device = Knocki.knocki.Device;\n\nif (gesture === \"Triple Knock\" && device === \"KNC1-W-00000088\") {\n  // Proceed with action\n} else {\n  WemoInsightSwitch.attributeInsightOnDiscrete.skip(\"Gesture or device does not match criteria.\");\n}"
    },
@@ -3068,7 +3068,7 @@
          "Knocki.knocki.Gesture",
          "Knocki.knocki.Pattern"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "WemoLightSwitch.attributeLsOffDiscrete.skip(string?: reason)",
       "filter_code": "var gesture = Knocki.knocki.Gesture;\nvar device = Knocki.knocki.Device;\n\nif (gesture !== \"Triple Knock\" || device !== \"KNC1-W-00000088\") {\n  WemoLightSwitch.attributeLsOffDiscrete.skip(\"Wrong gesture or device. Expected Triple Knock on KNC1-W-00000088.\");\n}"
    },
@@ -3087,7 +3087,7 @@
          "Weather.sunRises.TempCelsius",
          "Weather.sunRises.TempFahrenheit"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "HagerIot.switchoff.skip(string?: reason)",
       "filter_code": "var condition = Weather.sunRises.Condition;\nif (condition !== \"Sunny\") {\n  HagerIot.switchoff.skip(\"Weather is not sunny at sunrise.\");\n}"
    },
@@ -3101,7 +3101,7 @@
          "Apilio.iftttActionReports.CreatedAt",
          "Apilio.iftttActionReports.EventName"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "Hue.turnOffAllHue.skip(string?: reason)",
       "filter_code": "var eventName = Apilio.iftttActionReports.EventName;\nvar value1 = Apilio.iftttActionReports.ApilioValue1;\nif (eventName !== \"run_only_at_nighttime\") {\n  Hue.turnOffAllHue.skip(\"Event name is not 'run_only_at_nighttime'.\");\n} else if (value1 !== \"Green\") {\n  Hue.turnOffAllHue.skip(\"Apilio value1 is not Green.\");\n} else {\n  var hour = Meta.currentUserTime.hour();\n  if (hour < 19 || hour > 22) {\n    Hue.turnOffAllHue.skip(\"Not between 19:00 and 22:00.\");\n  }\n}"
    },
@@ -3115,7 +3115,7 @@
          "Kronaby.pusherPressed.PressType",
          "Kronaby.pusherPressed.PressedAt"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "WemoInsightSwitch.attributeInsightToggleDiscrete.skip(string?: reason)",
       "filter_code": "var pressType = Kronaby.pusherPressed.PressType;\nif (pressType === \"double\") {\n  WemoInsightSwitch.attributeInsightToggleDiscrete.setMacAddress(\"00:11:22:33:44:55\");\n} else {\n  WemoInsightSwitch.attributeInsightToggleDiscrete.skip(\"Not a double press.\");\n}"
    },
@@ -3129,7 +3129,7 @@
          "Apilio.iftttActionReports.CreatedAt",
          "Apilio.iftttActionReports.EventName"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "Hue.turnOffAllHue.skip(string?: reason)",
       "filter_code": "var eventName = Apilio.iftttActionReports.EventName();\nif (eventName !== \"run_only_at_nighttime\") {\n  Hue.turnOffAllHue.skip(\"Event name does not match 'run_only_at_nighttime'.\");\n}\nvar hour = Meta.currentUserTime.hour();\nif (!(hour >= 20 || hour < 6)) {\n  Hue.turnOffAllHue.skip(\"Outside of nighttime hours (20:00 to 06:00).\");\n}\nvar value1 = Apilio.iftttActionReports.ApilioValue1();\nif (value1 !== \"Green\") {\n  Hue.turnOffAllHue.skip(\"Apilio Value1 is not 'Green'.\");\n}"
    },
@@ -3144,7 +3144,7 @@
          "DoButton.doButtonNewCommandCommon.OccurredAt",
          "DoButton.doButtonNewCommandCommon.ShareURL"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "Switchbot.pressBot.skip(string?: reason)",
       "filter_code": "var lat = DoButton.doButtonNewCommandCommon.Latitude;\nvar lon = DoButton.doButtonNewCommandCommon.Longitude;\n\nif (lat !== \"37.8267\" || lon !== \"-122.4230\") {\n  Switchbot.pressBot.skip(\"Incorrect location.\");\n}\n\nvar hour = Meta.currentUserTime.hour();\nif (hour < 7 || hour >= 19) {\n  Switchbot.pressBot.skip(\"Outside of active hours.\");\n}"
    },
@@ -3155,7 +3155,7 @@
          "EasycontrolBosch.awayModeOn.CreatedAt",
          "EasycontrolBosch.awayModeOn.EventText"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "Hue.turnOffAllHue.skip(string?: reason)",
       "filter_code": "var eventText = EasycontrolBosch.awayModeOn.EventText;\nif (deviceId !== \"1234567890\" || eventText !== \"Away mode\") {\n  Hue.turnOffAllHue.skip(\"Invalid device ID or event text.\");\n}\nHue.turnOffAllHue.setLights(\"living room\");"
    },
@@ -3166,7 +3166,7 @@
          "EasycontrolBosch.homeModeOn.CreatedAt",
          "EasycontrolBosch.homeModeOn.EventText"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "Hue.turnOffAllHue.skip(string?: reason)",
       "filter_code": "if (EasycontrolBosch.homeModeOn.EventText !== \"Home mode\" || EasycontrolBosch.homeModeOn.DeviceId !== \"1234567890\") {\n  Hue.turnOffAllHue.skip(\"Invalid device ID or not home mode event\");\n}"
    },
@@ -3197,7 +3197,7 @@
          "Apilio.iftttActionReports.CreatedAt",
          "Apilio.iftttActionReports.EventName"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "Kasa.turnOn.skip(string?: reason)",
       "filter_code": "var eventName = Apilio.iftttActionReports.EventName;\nif (eventName !== \"run_only_at_nighttime\") {\n  Kasa.turnOn.skip(\"Event name is not run_only_at_nighttime.\");\n}\n\nvar value1 = Apilio.iftttActionReports.ApilioValue1;\nif (value1 !== \"Green\") {\n  Kasa.turnOn.skip(\"Apilio Value 1 is not Green.\");\n}\n\nvar createdAt = new Date(Apilio.iftttActionReports.CreatedAt);\nvar hour = createdAt.getHours();\nif (hour < 19 || hour >= 23) {\n  Kasa.turnOn.skip(\"Event was not created between 19:00 and 22:59.\");\n}"
    },
@@ -3211,7 +3211,7 @@
          "Apilio.iftttActionReports.CreatedAt",
          "Apilio.iftttActionReports.EventName"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "Kasa.turnOff.skip(string?: reason)",
       "filter_code": "var eventName = Apilio.iftttActionReports.EventName;\nif(eventName !== \"run_only_at_nighttime\") {\n    Kasa.turnOff.skip(\"Event name not 'run_only_at_nighttime'.\");\n}\n\nvar value1 = Apilio.iftttActionReports.ApilioValue1;\nif(value1 !== \"Green\") {\n    Kasa.turnOff.skip(\"Custom value 1 is not Green.\");\n}\n\nvar createdAtStr = Apilio.iftttActionReports.CreatedAt;\nvar timePart = createdAtStr.split('T')[1].split('+')[0];\nvar hourInt = parseInt(timePart.split(':')[0]);\n\nif(hourInt < 19 || hourInt > 23) {\n    Kasa.turnOff.skip(\"Event created outside of 19:00 to 23:59.\");\n}"
    },
@@ -3226,7 +3226,7 @@
          "DoButton.doButtonNewCommandCommon.OccurredAt",
          "DoButton.doButtonNewCommandCommon.ShareURL"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "Hubitat.actionOn.skip(string?: reason)",
       "filter_code": "var lat = DoButton.doButtonNewCommandCommon.Latitude;\nvar lon = DoButton.doButtonNewCommandCommon.Longitude;\nvar occurredAt = DoButton.doButtonNewCommandCommon.OccurredAt;\n\nif (lat === \"37.8267\" && \n    lon === \"-122.4230\" && \n    occurredAt === \"2020-07-08T04:17:06+05:00\") {\n  Hubitat.actionOn.setDevice(\"Living Room Light\");\n} else {\n  Hubitat.actionOn.skip(\"Location or timestamp does not match specified values.\");\n}"
    },
@@ -3257,7 +3257,7 @@
          "Apilio.iftttActionReports.CreatedAt",
          "Apilio.iftttActionReports.EventName"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "Kasa.turnOn.skip(string?: reason)",
       "filter_code": "var eventName = Apilio.iftttActionReports.EventName();\nif (eventName !== 'run_only_at_nighttime') {  \n  Kasa.turnOn.skip('Event name does not match.');\n}\n\nvar apilioValue1 = Apilio.iftttActionReports.ApilioValue1();\nif (apilioValue1 !== 'Green') {  \n  Kasa.turnOn.skip('Apilio value 1 is not Green.');\n}\n\nvar createdAt = new Date(Apilio.iftttActionReports.CreatedAt());\nvar hour = createdAt.getUTCHours();\nif (hour < 19 || hour >= 23) {\n  Kasa.turnOn.skip('Event not created between 19:00 and 23:00.');\n}"
    },
@@ -3271,7 +3271,7 @@
          "Apilio.iftttActionReports.CreatedAt",
          "Apilio.iftttActionReports.EventName"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "Kasa.turnOff.skip(string?: reason)",
       "filter_code": "if (\n    Apilio.iftttActionReports.EventName === \"run_only_at_nighttime\" &&\n    Apilio.iftttActionReports.ApilioValue1 === \"Green\" &&\n    Apilio.iftttActionReports.CreatedAt.getHours() >= 19 &&\n    Apilio.iftttActionReports.CreatedAt.getHours() < 23\n) {\n    return;\n} else {\n    Kasa.turnOff.skip(\"Conditions not met: event name, value1, or creation time out of range.\");\n}"
    },
@@ -3301,7 +3301,7 @@
          "Apilio.iftttActionReports.CreatedAt",
          "Apilio.iftttActionReports.EventName"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "Ewelink.switches4Action.skip(string?: reason)",
       "filter_code": "var eventName = Apilio.iftttActionReports.EventName;\nif(eventName !== \"run_only_at_nighttime\") {\n  Ewelink.switches4Action.skip(\"Event name is not run_only_at_nighttime\");\n}\n\nvar apilioValue1 = Apilio.iftttActionReports.ApilioValue1;\nif(apilioValue1 !== \"Green\") {\n  Ewelink.switches4Action.skip(\"Apilio value 1 is not Green\");\n}\n\nvar createdAt = new Date(Apilio.iftttActionReports.CreatedAt);\nvar hour = createdAt.getHours();\nif(!(hour >= 20 || hour < 6)) {\n  Ewelink.switches4Action.skip(\"Not between 20:00 and 06:00\");\n}"
    },
@@ -3315,7 +3315,7 @@
          "Apilio.iftttActionReports.CreatedAt",
          "Apilio.iftttActionReports.EventName"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "Magichue.poweroff.skip(string?: reason)",
       "filter_code": "var eventName = Apilio.iftttActionReports.EventName;\nvar apilioValue1 = Apilio.iftttActionReports.ApilioValue1;\nvar hour = Meta.currentUserTime.hour();\n\nif (eventName !== 'run_only_at_nighttime') {\n  Magichue.poweroff.skip(\"Event name not matching.\");\n} else if ((hour < 20 && hour > 6) || (hour >= 0 && hour <= 6)) {\n  // Time is between 20:00 and 06:00\n  if (apilioValue1 === 'Green') {\n    Magichue.poweroff.setWhichLights(\"Living Room Lamp\");\n  } else {\n    Magichue.poweroff.skip(\"Apilio value1 not Green.\");\n  }\n} else {\n  Magichue.poweroff.skip(\"Outside of nighttime hours (20:00 to 06:00).\");\n}"
    },
@@ -3329,7 +3329,7 @@
          "Apilio.iftttActionReports.CreatedAt",
          "Apilio.iftttActionReports.EventName"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "Magichue.poweron.skip(string?: reason)",
       "filter_code": "var eventName = Apilio.iftttActionReports.EventName;\nvar apilioValue1 = Apilio.iftttActionReports.ApilioValue1;\nvar hour = Meta.currentUserTime.hour();\n\nif (eventName !== \"run_only_at_nighttime\") {\n  MagicHue.poweron.skip(\"Event name does not match 'run_only_at_nighttime'\");\n}\nif (!(hour >= 20 || hour < 6)) {\n  MagicHue.poweron.skip(\"Outside allowed hours (20:00 to 06:00)\");\n}\nif (apilioValue1 !== \"Green\") {\n  MagicHue.poweron.skip(\"Apilio value1 is not 'Green'\");\n}\n\nMagicHue.poweron.setWhichLights(\"Living Room\");\nMagicHue.poweron.setColor(\"Blue\");\nMagicHue.poweron.setBrightness(75);"
    },
@@ -3342,7 +3342,7 @@
          "Flic.click.Latitude",
          "Flic.click.Longitude"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "Hubitat.actionOn.skip(string?: reason)",
       "filter_code": "var clickType = Flic.click.ClickType;\nif (clickType !== 'double_click') {\n  Hubitat.actionOn.skip(\"Only double clicks are allowed.\");\n}\n\nvar hour = Meta.currentUserTime.hour();\nif (hour < 7 || hour > 19) {\n  Hubitat.actionOn.skip(\"Outside of active hours (07:00 to 19:00).\");\n}"
    },
@@ -3355,7 +3355,7 @@
          "Flic.click.Latitude",
          "Flic.click.Longitude"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "Hubitat.actionOff.skip(string?: reason)",
       "filter_code": "var clickType = Flic.click.ClickType;\nif (clickType !== \"double_click\") {\n  Hubitat.actionOff.skip(\"Not a double click.\");\n}\n\nvar hour = Meta.currentUserTime.hour();\nif (hour < 7 || hour > 19) {\n  Hubitat.actionOff.skip(\"Outside of active hours (07:00 to 19:00).\");\n}"
    },
@@ -3366,7 +3366,7 @@
          "SmartthingsV2.switchedOnSmartthings.SwitchName",
          "SmartthingsV2.switchedOnSmartthings.SwitchedOnAt"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "Ambiclimate.deviceModeComfort.skip(string?: reason)",
       "filter_code": "var switchName = SmartthingsV2.switchedOnSmartthings.SwitchName;\nvar switchedOnAtStr = SmartthingsV2.switchedOnSmartthings.SwitchedOnAt.split('at ')[1].trim();\nvar timeParts = switchedOnAtStr.match(/(\\d+):?(\\d+)?\\s*(AM|PM)/i);\n\nif (switchName !== \"Bedroom switch\") {\n  Ambiclimate.deviceModeComfort.skip(\"Not the Bedroom switch.\");\n} else if (!timeParts || timeParts[1] !== \"7\" || (timeParts.length < 3 ? false : \n    (timeParts[3].toUpperCase() === \"PM\")) && (\n        timeParts[2] === undefined ? true : parseInt(timeParts[2]) !== 0)) {\n  Ambiclimate.deviceModeComfort.skip(\"Switched on at incorrect time.\");\n}"
    },
@@ -3393,7 +3393,7 @@
          "Bluebyadt.sensor.FormattedMessage",
          "Bluebyadt.sensor.Timestamp"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "WemoLighting.ledTurnOn.skip(string?: reason)",
       "filter_code": "var hour = Meta.currentUserTime.hour();\nif (hour < 7 || hour > 19) {\n  WemoLighting.ledTurnOn.skip(\"Outside of active hours (07:00 to 19:00).\");\n}\nvar eventType = Bluebyadt.sensor.EventType;\nif (!(eventType === \"Motion\" || eventType === \"Open\")) {\n  WemoLighting.ledTurnOn.skip(\"Event type not triggered.\");\n}\nWemoLighting.ledTurnOn.setMacaddress(\"00:11:22:33:44:55\");"
    },
@@ -3407,7 +3407,7 @@
          "Apilio.iftttActionReports.CreatedAt",
          "Apilio.iftttActionReports.EventName"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "Ewelink.switches4Action.skip(string?: reason)",
       "filter_code": "var hour = Meta.currentUserTime.hour();\nif (Apilio.iftttActionReports.EventName() !== \"run_only_at_nighttime\") {\n  Ewelink.switches4Action.skip(\"Event name mismatch\");\n}\nif (Apilio.iftttActionReports.ApilioValue1() !== \"Green\") {\n  Ewelink.switches4Action.skip(\"Custom value 1 not Green\");\n}\nif (!(hour >= 20 || hour <= 6)) {\n  Ewelink.switches4Action.skip(\"Outside nighttime hours (20:00-06:00)\");\n}\n\nEwelink.switches4Action.setSwitches4Query(\"Living Room Lights\");\nEwelink.switches4Action.setSwitches4OutletQuery(1);\nEwelink.switches4Action.setOnoffActQuery(true);"
    },
@@ -3421,7 +3421,7 @@
          "Kronaby.pusherPressed.PressType",
          "Kronaby.pusherPressed.PressedAt"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "WemoCoffeemaker.attributeCoffeeMakerBrewMode.skip(string?: reason)",
       "filter_code": "var pressType = Kronaby.pusherPressed.PressType;\nvar lat = Kronaby.pusherPressed.Latitude;\nvar lon = Kronaby.pusherPressed.Longitude;\n\nif (pressType === \"double\" && lat === \"55.611947\" && lon === \"12.978337\") {\n  WemoCoffeemaker.attributeCoffeeMakerBrewMode.setMacaddress(\"KitchenBrew\");\n} else {\n  WemoCoffeemaker.attributeCoffeeMakerBrewMode.skip(\"Conditions not met.\");\n}"
    },
@@ -3435,7 +3435,7 @@
          "Kronaby.pusherPressed.PressType",
          "Kronaby.pusherPressed.PressedAt"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "WemoInsightSwitch.attributeINSIGHTOFF.skip(string?: reason)",
       "filter_code": ""
    },
@@ -3447,7 +3447,7 @@
          "ViewProd.sensorTemperature.Device",
          "ViewProd.sensorTemperature.State"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "Kumocloud.turnOn.skip(string?: reason)",
       "filter_code": "var deviceName = ViewProd.sensorTemperature.Device;\nvar tempState = parseFloat(ViewProd.sensorTemperature.State);\nif (deviceName === \"Living Room Sensor\" && tempState > 22) {\n  Kumocloud.turnOn.setSerial(\"SN12345\");\n  Kumocloud.turnOn.setMode(\"Heating\");\n} else {\n  Kumocloud.turnOn.skip(\"Conditions not met: device or temperature threshold.\");\n}"
    },
@@ -3461,7 +3461,7 @@
          "Scoutalarm.modeDismissed.FormattedText",
          "Scoutalarm.modeDismissed.Name"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "Hubitat.actionOff.skip(string?: reason)",
       "filter_code": "if (Scoutalarm.modeDismissed.Name != \"Away\" || Scoutalarm.modeDismissed.By != \"Dave via IFTTT\") {\n  Hubitat.actionOff.skip(\"Not dismissed in Away mode by Dave via IFTTT.\");\n}"
    },
@@ -3472,7 +3472,7 @@
          "IspyAgent.motionDetected.CreatedAt",
          "IspyAgent.motionDetected.Device"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "WemoLighting.groupLedTurnOn.skip(string?: reason)",
       "filter_code": "var hour = Meta.currentUserTime.hour();\nvar deviceName = IspyAgent.motionDetected.Device;\n\nif (hour < 7 || hour > 22) {\n  WemoLighting.groupLedTurnOn.skip(\"Outside of active hours (07:00 to 22:00).\");\n} else if (deviceName !== \"Front Door\") {\n  WemoLighting.groupLedTurnOn.skip(\"Motion detected by incorrect camera.\");\n}"
    },
@@ -3483,7 +3483,7 @@
          "Mesh.events.Text",
          "Mesh.events.TriggeredAt"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "WemoCoffeemaker.attributeCoffeeMakerBrewMode.skip(string?: reason)",
       "filter_code": "), they use Slack.postToChannel.skip with reason. So if all conditions are met, we don't call any skip() function and proceed to action.\n\nSo in our case, after checking both conditions, if they pass, then proceed without calling skip. Therefore, the code would first check for text match, then time.\n\nIf either condition fails, skip with a relevant reason.\n\nTherefore, combining these two checks:\n\nvar eventText = Mesh.events.Text;\nif (eventText !== \"Motion Tag: Detected!\") {\n  WemoCoffeemaker.attributeCoffeeMakerBrewMode.skip(\"Event text does not indicate motion detection.\");\n}\n\nvar triggeredTime = new Date(Mesh.events.TriggeredAt);\nvar hour = triggeredTime.getHours();\nif (hour < 6 || hour > 10) {\n  WemoCoffeemaker.attributeCoffeeMakerBrewMode.skip(\"Motion detected outside of allowed time window (06:00-10:00).\");\n}\n\n// If both pass, no skip is called; the action proceeds.\n\nBut wait, in JavaScript, if we don't call any function here, does it proceed? The code structure for filter_code must return whether to trigger the action. So if all conditions are met and no skip is called, then the action will execute.\n\nThus, this should be correct.\n\nNow, checking variable names: Mesh.events.Text and Mesh.events.TriggeredAt as per their Filter codes in ingredients.\n\nYes. The code uses those directly.\n\nSo that's the filter code.\n</think>\n\n<<<FILTERCODE>>>\nvar eventText = Mesh.events.Text;\nif (eventText !== \"Motion Tag: Detected!\") {\n  WemoCoffeemaker.attributeCoffeeMakerBrewMode.skip(\"Event text does not indicate motion detection.\");\n}\n\nvar triggeredTime = new Date(Mesh.events.TriggeredAt);\nvar hour = triggeredTime.getHours();\nif (hour < 6 || hour > 10) {\n  WemoCoffeemaker.attributeCoffeeMakerBrewMode.skip(\"Motion detected outside of allowed time window (06:00-10:00).\");\n}"
    },
@@ -3495,7 +3495,7 @@
          "AndroidBattery.batteryLow.DeviceName",
          "AndroidBattery.batteryLow.OccurredAt"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "Osumsmart.switchOn.skip(string?: reason)",
       "filter_code": "var deviceName = AndroidBattery.batteryLow.DeviceName;\nif (deviceName !== \"Google Pixel 7\") {\n    Osumsmart.switchOn.skip(\"Device is not Google Pixel 7.\");\n}\n\nvar batteryPercentage = parseInt(AndroidBattery.batteryLow.BatteryPercentage);\nif (batteryPercentage >= 15) {\n    Osumsmart.switchOn.skip(\"Battery percentage is not below 15%.\");\n}\n\nvar hour = Meta.currentUserTime.hour();\nif (hour < 20) {\n    Osumsmart.switchOn.skip(\"Current time is before 20:00.\");\n}"
    },
@@ -3506,7 +3506,7 @@
          "SmartthingsV2.newPresentSmartthings.ArrivedAt",
          "SmartthingsV2.newPresentSmartthings.DeviceName"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "Switchbot.turnOnBot.skip(string?: reason)",
       "filter_code": "var deviceName = SmartthingsV2.newPresentSmartthings.DeviceName;\nif (deviceName !== \"Living Room Sensor\") {\n  Switchbot.turnOnBot.skip(\"Device name is not \\\"Living Room Sensor\\\".\");\n}\n\nvar arrivedAtStr = SmartthingsV2.newPresentSmartthings.ArrivedAt;\nvar timeMatch = arrivedAtStr.match(/ at (\\d{1,2}:\\d{2}[AP]M)$/i);\nif (!timeMatch) {\n  Switchbot.turnOnBot.skip(\"Invalid arrival time format.\");\n}\n\nvar timePart = timeMatch[1];\nvar hourMinPeriod = timePart.split(\":\");\nvar hour = parseInt(hourMinPeriod[0]);\nvar rest = hourMinPeriod[1];\n\nvar matchMinuteAndPeriod = rest.match(/^(\\d+)([AP]M)$/i);\nif (!matchMinuteAndPeriod) {\n  Switchbot.turnOnBot.skip(\"Invalid time format for parsing.\");\n}\n\nvar minuteStr = matchMinuteAndPeriod[1];\nvar period = matchMinuteAndPeriod[2].toUpperCase();\nvar minute = parseInt(minuteStr);\n\nif (period === \"PM\" && hour !== 12) {\n  hour += 12;\n} else if (period === \"AM\" && hour === 12) {\n  hour = 0;\n}\n\nif (hour !== 15 || minute !== 0) {\n  Switchbot.turnOnBot.skip(\"Arrival time is not exactly at 3:00 PM.\");\n}"
    },
@@ -3655,7 +3655,7 @@
          "Apilio.iftttActionReports.CreatedAt",
          "Apilio.iftttActionReports.EventName"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "Ewelink.plugAction.skip(string?: reason)",
       "filter_code": "if (Apilio.iftttActionReports.EventName !== 'run_only_at_nighttime') {\n  Ewelink.plugAction.skip(\"Event name does not match.\");\n}\nvar hour = Apilio.iftttActionReports.CreatedAt.hour();\nif (hour < 20 || hour > 5) {\n  Ewelink.plugAction.skip(\"Outside of allowed night hours (20:00 to 06:00).\");\n}\nif (Apilio.iftttActionReports.ApilioValue1 !== 'Green') {\n  Ewelink.plugAction.skip(\"Apilio Value1 is not Green.\");\n}"
    },
@@ -3669,7 +3669,7 @@
          "Apilio.iftttActionReports.CreatedAt",
          "Apilio.iftttActionReports.EventName"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "Ewelink.plugs3Action.skip(string?: reason)",
       "filter_code": "var event = Apilio.iftttActionReports.EventName;\nvar hour = Meta.currentUserTime.hour();\nvar value1 = Apilio.iftttActionReports.ApilioValue1;\n\nif (event !== \"run_only_at_nighttime\" || \n    (hour < 20 && hour >= 0) || \n    (hour >= 6 && hour < 20) || \n    value1 !== \"Green\") {\n  Ewelink.plugs3Action.skip(\"Conditions not met for automation.\");\n} else {\n  Ewelink.plugs3Action.setPlugQuery(\"Living Room Lamp\");\n  Ewelink.plugs3Action.setOutlet(1);\n  Ewelink.plugs3Action.setOnoffAct(1);\n}"
    },
@@ -3683,7 +3683,7 @@
          "Apilio.iftttActionReports.CreatedAt",
          "Apilio.iftttActionReports.EventName"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "Ewelink.plugs3Action.skip(string?: reason)",
       "filter_code": "var eventName = Apilio.iftttActionReports.EventName;\nvar apilioValue1 = Apilio.iftttActionReports.ApilioValue1;\nvar hour = Meta.currentUserTime.hour();\n\nif (eventName !== \"run_only_at_nighttime\" || \n    !((hour >= 20) || (hour < 6)) ||\n    apilioValue1 !== \"Green\") {\n  Ewelink.plugs3Action.skip(\"Conditions not met.\");\n} else {\n  Ewelink.plugs3Action.setPlugs3Query(\"Living Room Lights\");\n  Ewelink.plugs3Action.setPlugs3OutletQuery(1);\n  Ewelink.plugs3Action.setOnoffActQuery(\"On\");\n}"
    },
@@ -3697,7 +3697,7 @@
          "Apilio.iftttActionReports.CreatedAt",
          "Apilio.iftttActionReports.EventName"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "Ewelink.plugs3Action.skip(string?: reason)",
       "filter_code": "var eventName = Apilio.iftttActionReports.EventName;\nif (eventName !== \"run_only_at_nighttime\") { Ewelink.plugs3Action.skip(); }\nvar value1 = Apilio.iftttActionReports.ApilioValue1;\nif (value1 !== \"Green\") { Ewelink.plugs3Action.skip(); }\nvar createdAt = new Date(Apilio.iftttActionReports.CreatedAt);\nvar hour = createdAt.getHours();\nvar minute = createdAt.getMinutes();\nif (hour !== 20 || minute !== 0) { Ewelink.plugs3Action.skip(); }\n\nEwelink.plugs3Action.setPlugs3Query(\"Living Room Devices\");\nEwelink.plugs3Action.setPlugs3OutletQuery(1);\nEwelink.plugs3Action.setOnoffActQuery(\"On\");"
    },
@@ -3723,7 +3723,7 @@
          "WithingsSleep.bedout.DateandTime",
          "WithingsSleep.bedout.DeviceUser"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "HcCoffeeMachine.coffeeMakerTurnOn.skip(string?: reason)",
       "filter_code": "var time = WithingsSleep.bedout.DateandTime;\nvar hour = time.getHours();\nif (hour >= 6 && hour < 9) {\n    HcCoffeeMachine.coffeeMakerTurnOn.skip(\"\");\n} else {\n    HcCoffeeMachine.coffeeMakerTurnOn.skip(\"Bed out time not between 06:00 and 09:00.\");\n}"
    },
@@ -3738,7 +3738,7 @@
          "DoButton.doButtonNewCommandCommon.OccurredAt",
          "DoButton.doButtonNewCommandCommon.ShareURL"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "HcCoffeeMachine.coffeeMakerTurnOff.skip(string?: reason)",
       "filter_code": "var lat = DoButton.doButtonNewCommandCommon.Latitude;\nvar lon = DoButton.doButtonNewCommandCommon.Longitude;\n\nif (lat === \"37.8267\" && lon === \"-122.4230\") {\n  HcCoffeeMachine.coffeeMakerTurnOff.setHaId(\"MyMorningBrew\");\n} else {\n  HcCoffeeMachine.coffeeMakerTurnOff.skip(\"Location does not match.\");\n}"
    },
@@ -3753,7 +3753,7 @@
          "DoButton.doButtonNewCommandCommon.OccurredAt",
          "DoButton.doButtonNewCommandCommon.ShareURL"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "HcCoffeeMachine.coffeeMakerStartProgram.skip(string?: reason)",
       "filter_code": "if (DoButton.doButtonNewCommandCommon.Latitude === \"37.82666360000001\" && DoButton.doButtonNewCommandCommon.Longitude === \"-122.42301220000003\") {\n  HcCoffeeMachine.coffeeMakerStartProgram.setHaId(\"kitchen_machine\");\n  HcCoffeeMachine.coffeeMakerStartProgram.setProgram(\"Espresso\");\n  HcCoffeeMachine.coffeeMakerStartProgram.setBeanAmount(\"Strong\");\n  HcCoffeeMachine.coffeeMakerStartProgram.setFillQuantity(\"Double Shot\");\n} else {\n  HcCoffeeMachine.coffeeMakerStartProgram.skip(\"Location does not match.\");\n}"
    },
@@ -3763,7 +3763,7 @@
       "triggers": [
          "DateAndTime.everyDayAt.CheckTime"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "HcDishwasher.dishwasherStartProgram.skip(string?: reason)",
       "filter_code": "if (!HcDishwasher.remoteStartEnabled || !HcDishwasher.isDoorClosed) {\n  HcDishwasher.dishwasherStartProgram.skip(\"Remote start not active or door is open.\");\n} else {\n  HcDishwasher.dishwasherStartProgram.setha_id(\"Kitchen Dishwasher\");\n  HcDishwasher.dishwasherStartProgram.setprogram(\"Eco\");\n}"
    },
@@ -3774,7 +3774,7 @@
          "DateAndTime.everyWeekdayAt.CheckTime",
          "DateAndTime.everyWeekdayAt.DayOfWeek"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "SAUTERCozytouch.launchActionGroup.skip(string?: reason)",
       "filter_code": "var day = DateAndTime.everyWeekdayAt.DayOfWeek;\nif (['Monday', 'Wednesday', 'Friday'].includes(day)) {\n  SAUTERCozytouch.launchActionGroup.setActionGroup(\"Good Morning\");\n} else if (['Tuesday', 'Thursday'].includes(day)) {\n  SAUTERCozytouch.launchActionGroup.setActionGroup(\"Good Evening\");\n}"
    },
@@ -3789,7 +3789,7 @@
          "DoButton.doButtonNewCommandCommon.OccurredAt",
          "DoButton.doButtonNewCommandCommon.ShareURL"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "HcFridge.freezerActivateSuperCooling.skip(string?: reason)",
       "filter_code": "if (DoButton.doButtonNewCommandCommon.Latitude === \"37.8267\" && DoButton.doButtonNewCommandCommon.Longitude === \"-122.4230\") {\n    HcFridge.freezerActivateSuperCooling.setHaId(\"MyKitchenFridge\");\n} else {\n    HcFridge.freezerActivateSuperCooling.skip(\"Location does not match specified coordinates.\");\n}"
    },
@@ -3802,7 +3802,7 @@
          "Flic.click.Latitude",
          "Flic.click.Longitude"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "HcCoffeeMachine.coffeeMakerTurnOn.skip(string?: reason)",
       "filter_code": "var clickType = Flic.click.ClickType;\nif (clickType !== 'double_click') {\n  HcCoffeeMachine.coffeeMakerTurnOn.skip(\"Not a double-click event.\");\n}\n\nvar hour = Meta.currentUserTime.hour();\nif (hour < 6 || hour >= 9) {\n  HcCoffeeMachine.coffeeMakerTurnOn.skip(\"Outside of active hours (6 AM to 9 AM).\");\n}\n\nHcCoffeeMachine.coffeeMakerTurnOn.setHaId(\"KitchenCoffee\");"
    },
@@ -3817,7 +3817,7 @@
          "DoButton.doButtonNewCommandCommon.OccurredAt",
          "DoButton.doButtonNewCommandCommon.ShareURL"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "HcFridge.freezerActivateSuperCooling.skip(string?: reason)",
       "filter_code": "var lat = parseFloat(DoButton.doButtonNewCommandCommon.Latitude);\nvar lon = parseFloat(DoButton.doButtonNewCommandCommon.Longitude);\n\nif (lat.toFixed(4) !== \"37.8267\" || lon.toFixed(4) !== \"-122.4230\") {\n  HcFridge.freezerActivateSuperCooling.skip(\"Location does not match required coordinates.\");\n}\n\nvar hour = Meta.currentUserTime.hour();\nif (hour < 7 || hour > 21) {\n  HcFridge.freezerActivateSuperCooling.skip(\"Outside of active hours (7 AM to 10 PM).\");\n}\n\nHcFridge.freezerActivateSuperCooling.setHaId(\"KitchenFridge\");"
    },
@@ -3828,7 +3828,7 @@
          "AndroidDevice.bluetoothConnected.DeviceName",
          "AndroidDevice.bluetoothConnected.OccurredAt"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "Osumsmart.setLevel.skip(string?: reason)",
       "filter_code": "var occurredTime = new Date(AndroidDevice.bluetoothConnected.OccurredAt);\nif (AndroidDevice.bluetoothConnected.DeviceName === \"Jawbone JAMBOX\" && occurredTime.getHours() === 7 && occurredTime.getMinutes() === 0) {\n  Osumsmart.setLevel.setDevice_list(\"Living Room Lamp\");\n  Osumsmart.setLevel.setLevels(50);\n} else {\n  Osumsmart.setLevel.skip(\"Conditions not met.\");\n}"
    },
@@ -3841,7 +3841,7 @@
          "Flic.click.Latitude",
          "Flic.click.Longitude"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "HcCoffeeMachine.coffeeMakerStartProgram.skip(string?: reason)",
       "filter_code": "var hour = Meta.currentUserTime.hour();\nif (Flic.click.ClickType === 'double_click' && \n    Flic.click.Longitude === \"18.0649000\" && \n    Flic.click.Latitude === \"59.3325800\") {\n  if (hour >= 7 && hour < 10) {\n    HcCoffeeMachine.coffeeMakerStartProgram.setProgram(\"Espresso\");\n    HcCoffeeMachine.coffeeMakerStartProgram.setBeanAmount(\"Strong\");\n    HcCoffeeMachine.coffeeMakerStartProgram.setFillQuantity(\"Large\");\n  } else {\n    HcCoffeeMachine.coffeeMakerStartProgram.skip(\"Outside of active hours (7 AM to 10 AM).\");\n  }\n} else {\n  HcCoffeeMachine.coffeeMakerStartProgram.skip(\"Incorrect click type or location.\");\n}"
    },
@@ -3855,7 +3855,7 @@
          "AndroidMessages.sentAMessageMatchingSearch.Text",
          "AndroidMessages.sentAMessageMatchingSearch.ToNumber"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "SAUTERCozytouch.launchActionGroup.skip(string?: reason)",
       "filter_code": "var deviceName = AndroidMessages.sentAMessageMatchingSearch.DeviceName;\nvar toNumber = AndroidMessages.sentAMessageMatchingSearch.ToNumber;\nvar text = AndroidMessages.sentAMessageMatchingSearch.Text;\nvar hour = Meta.currentUserTime.hour();\n\nif (deviceName !== \"Google Pixel 7\" || \n    toNumber !== \"14155551234\" || \n    text !== \"HeatUp\") {\n  SAUTERCozytouch.launchActionGroup.skip(\"Message doesn't match criteria\");\n} else if (hour < 7 || hour >= 19) {\n  SAUTERCozytouch.launchActionGroup.skip(\"Outside of allowed hours (07:00-19:00)\");\n} else {\n  SAUTERCozytouch.launchActionGroup.setActionGroup(\"Comfort\");\n}"
    },
@@ -3884,7 +3884,7 @@
          "DateAndTime.everyWeekdayAt.CheckTime",
          "DateAndTime.everyWeekdayAt.DayOfWeek"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "THERMORCozytouch.launchActionGroup.skip(string?: reason)",
       "filter_code": "var timeStr = DateAndTime.everyWeekdayAt.CheckTime;\nvar hour = parseInt(timeStr.split(' ')[1].replace(':', ''));\nvar ampm = timeStr.match(/(AM|PM)/i);\nif (ampm && ampm[0] === 'PM' && hour !== 12) {\n  hour += 12;\n}\nif (hour === 7 || hour === 19) {\n  // Proceed with action\n} else {\n  THERMORCozytouch.launchActionGroup.skip(\"Outside of scheduled times.\");\n}"
    },
@@ -3901,7 +3901,7 @@
          "GoogleCalendar.anyEventStarts.VideoCallUrl",
          "GoogleCalendar.anyEventStarts.Where"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "SAUTERCozytouch.launchActionGroup.skip(string?: reason)",
       "filter_code": "var eventTitle = GoogleCalendar.anyEventStarts.Title;\nvar eventLocation = GoogleCalendar.anyEventStarts.Where;\n\nif (eventTitle !== \"Practice Presentation\" || eventLocation !== \"Building A, Room 101\") {\n  SAUTERCozytouch.launchActionGroup.skip(\"Event title or location doesn't match requirements.\");\n} else {\n  SAUTERCozytouch.launchActionGroup.setScenario(\"Good Morning\");\n}"
    },
@@ -3911,7 +3911,7 @@
       "triggers": [
          "HcCookProcessor.cookProcessorStarted.CreatedAt"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "AndroidDevice.playBestSong.skip(string?: reason)",
       "filter_code": "var hour = Meta.currentUserTime.hour();\nif (hour < 17 || hour > 20) {\n  AndroidDevice.playBestSong.skip(\"Not between 17:00 and 20:00\");\n}"
    },
@@ -3940,7 +3940,7 @@
          "AndroidDevice.newNotificationFromApp.NotificationTitle",
          "AndroidDevice.newNotificationFromApp.ReceivedAt"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "SAUTERCozytouch.launchActionGroup.skip(string?: reason)",
       "filter_code": "if (AndroidDevice.newNotificationFromApp.AppName != \"Twitter\") {\n  SAUTERCozytouch.launchActionGroup.skip(\"Notification not from Twitter.\");\n}\nif (!AndroidDevice.newNotificationFromApp.NotificationMessage.includes(\"urgence\")) {\n  SAUTERCozytouch.launchActionGroup.skip(\"Keyword 'urgence' missing in notification message.\");\n}\nif (AndroidDevice.newNotificationFromApp.DeviceName != \"Google Pixel 7\") {\n  SAUTERCozytouch.launchActionGroup.skip(\"Notification received on device other than Google Pixel 7.\");\n}\nSAUTERCozytouch.launchActionGroup.setaction_group(\"Chauffage maximum\");"
    },
@@ -3950,7 +3950,7 @@
       "triggers": [
          "Mystrom.button.CreatedAt"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "Apilio.logicblockEvaluationRequests.skip(string?: reason)",
       "filter_code": "if (myStrom.button.Type == \"single\" && myStrom.button.Mac == \"00:11:22:33:44:55\") {\n  Apilio.logicblockEvaluationRequests.setLogicblockIdentifier(\"Morning Routine\");\n} else {\n  Apilio.logicblockEvaluationRequests.skip(\"Trigger MAC address or button type doesn't match requirements.\");\n}"
    },
@@ -3980,7 +3980,7 @@
          "TrueEnergyDK.electricityPriceCheap.Region",
          "TrueEnergyDK.electricityPriceCheap.ValidFrom"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "HcDishwasher.dishwasherTurnOn.skip(string?: reason)",
       "filter_code": "var region = TrueEnergyDK.electricityPriceCheap.Region();\nif (region !== \"West Denmark\") {\n  HcDishwasher.dishwasherTurnOn.skip(\"Region is not West Denmark.\");\n}\nvar priceStr = TrueEnergyDK.electricityPriceCheap.Price();\nvar co2EmissionStr = TrueEnergyDK.electricityPriceCheap.Co2Emission();\nvar price = parseFloat(priceStr);\nif (isNaN(price) || price >= 170) {\n  HcDishwasher.dishwasherTurnOn.skip(\"Price is not below 170 DKK per kWh.\");\n}\nvar co2Emission = parseFloat(co2EmissionStr);\nif (isNaN(co2Emission) || co2Emission >= 110) {\n  HcDishwasher.dishwasherTurnOn.skip(\"CO2 emission is not less than 110 grams per kWh.\");\n}"
    },
@@ -4010,7 +4010,7 @@
          "TecanConnect.runCompletionMessage.TimeOfEvent",
          "TecanConnect.runCompletionMessage.User"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "Hue.blinkAllHue.skip(string?: reason)",
       "filter_code": "var instrument = TecanConnect.runCompletionMessage.InstrumentName;\nvar message = TecanConnect.runCompletionMessage.RunCompletionMessage;\n\nif (instrument === \"Lab Instrument 1\" && message === \"Run Completed Successfully\") {\n} else {\n  Hue.blinkAllHue.skip(\"Instrument or completion message does not match criteria.\");\n}"
    },
@@ -4022,7 +4022,7 @@
          "Fibaro.buttonClicked.DeviceId",
          "Fibaro.buttonClicked.HubSerial"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "HcCoffeeMachine.coffeeMakerTurnOn.skip(string?: reason)",
       "filter_code": "var hour = Meta.currentUserTime.hour();\nif (hour < 6 || hour >= 10) {\n  HcCoffeeMachine.coffeeMakerTurnOn.skip(\"Outside active hours (6 AM to 10 AM).\");\n}\nHcCoffeeMachine.coffeeMakerTurnOn.setHaId(\"Morning Brew\");"
    },
@@ -4035,7 +4035,7 @@
          "ComEd.averagePriceChange.Timestamp",
          "ComEd.averagePriceChange.ToHour"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "HoneywellTotalConnectComfort.settoschedule.skip(string?: reason)",
       "filter_code": "var price = parseFloat(ComEd.averagePriceChange.AveragePrice);\nif (\n  ComEd.which_season === 'Summer' &&\n  price < 14 &&\n  ComEd.trigger_type === 'Under' &&\n  ComEd.how_often_to_trigger === 'First time'\n) {\n  runAction(\"honeywell_total_connect_comfort.settoschedule\", {});\n} else {\n  HoneywellTotalConnectComfort.settoschedule.skip(\"Conditions not met for resume schedule.\");\n}"
    },
@@ -4109,7 +4109,7 @@
          "TrueEnergyDK.electricityPriceCheap.Region",
          "TrueEnergyDK.electricityPriceCheap.ValidFrom"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "HcDishwasher.dishwasherStartProgram.skip(string?: reason)",
       "filter_code": "var price = parseFloat(TrueEnergyDK.electricityPriceCheap.Price);\nvar co2Emission = parseFloat(TrueEnergyDK.electricityPriceCheap.Co2Emission);\n\nif (price < 150 && co2Emission < 120) {\n    var hour = Meta.currentUserTime.hour();\n    // Assume program duration is ~3 hours to ensure completion by 7:00 AM\n    if ((hour + 3) <= 7) {\n        HcDishwasher.dishwasherStartProgram.setHaId(\"Kitchen Dishwasher ID\");\n        HcDishwasher.dishwasherStartProgram.setProgram(\"Eco\");\n    } else {\n        HcDishwasher.dishwasherStartProgram.skip(\"Current time would not allow dishwasher to finish by 07:00.\");\n    }\n} else {\n    HcDishwasher.dishwasherStartProgram.skip(\"Electricity price or CO2 emission conditions not met.\");\n}"
    },
@@ -4123,7 +4123,7 @@
          "LogitechPop.shortPress.Name",
          "LogitechPop.shortPress.Source"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "Smanos.armAway.skip(string?: reason)",
       "filter_code": "var buttonName = LogitechPop.shortPress.Name;\nif (buttonName !== \"Living Room\") {\n  Smanos.armAway.skip(\"Button name is not 'Living Room'.\");\n}\n\nvar batteryLevel = parseInt(LogitechPop.shortPress.Battery);\nif (isNaN(batteryLevel) || batteryLevel <= 50) {\n  Smanos.armAway.skip(\"Battery level must be above 50.\");\n}\n\nvar sourceType = LogitechPop.shortPress.Source;\nif (sourceType !== \"btn\") {\n  Smanos.armAway.skip(\"Trigger source is not a physical button.\");\n}"
    },
@@ -4151,7 +4151,7 @@
          "GoogleCalendar.anyEventEnds.Title",
          "GoogleCalendar.anyEventEnds.Where"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "SAUTERCozytouch.launchActionGroup.skip(string?: reason)",
       "filter_code": "var eventTitle = GoogleCalendar.anyEventEnds.Title;\nif (eventTitle === \"Team Meeting\") {\n  SAUTERCozytouch.launchActionGroup.setActionGroup(\"Coming Home\");\n} else {\n  SAUTERCozytouch.launchActionGroup.skip(\"Event title does not match 'Team Meeting'.\");\n}"
    },
@@ -4219,7 +4219,7 @@
          "Weather.currentTemperatureDropsBelow.TempCelsius",
          "Weather.currentTemperatureDropsBelow.TempFahrenheit"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "Coqon.simpleRuleAction.skip(string?: reason)",
       "filter_code": "var temp = parseFloat(Weather.currentTemperatureDropsBelow.TempCelsius);\nvar condition = Weather.currentTemperatureDropsBelow.Condition;\nvar hour = Meta.currentUserTime.hour();\n\nif (temp > 25 && condition === \"Sunny\" && hour >= 7 && hour <= 19) {\n  Coqon.simpleRuleAction.setActionCode(\"ROLL_LADEN_SCHLIESSEN\");\n} else {\n  Coqon.simpleRuleAction.skip();\n}"
    },
@@ -4230,7 +4230,7 @@
          "Wyzecam.motionTrigger.MotionDetected",
          "Wyzecam.motionTrigger.TriggerTime"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "Apilio.booleanVariableToTrueUpdates.skip(string?: reason)",
       "filter_code": "var hour = Meta.currentUserTime.hour();\nif (hour < 7 || hour >= 22) {\n  Apilio.booleanVariableToTrueUpdates.skip(\"Outside of active hours.\");\n} else {\n  var motionMessage = Wyzecam.motionTrigger.MotionDetected;\n  if (!motionMessage.includes(\"Living Room\")) {\n    Apilio.booleanVariableToTrueUpdates.skip(\"Motion not detected in specified room.\");\n  } else {\n    Apilio.booleanVariableToTrueUpdates.setVariableIdentifier(\"Someone_Is_Home\");\n  }\n}"
    },
@@ -4276,7 +4276,7 @@
          "DoButton.doButtonNewCommandCommon.OccurredAt",
          "DoButton.doButtonNewCommandCommon.ShareURL"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "Alpaca.liquidatePositions.skip(string?: reason)",
       "filter_code": "var lat = parseFloat(DoButton.doButtonNewCommandCommon.Latitude);\nvar lon = parseFloat(DoButton.doButtonNewCommandCommon.Longitude);\n\nif (Math.abs(lat - 37.8267) > 0.0001 || Math.abs(lon + 122.4230) > 0.0001) {\n  Alpaca.liquidatePositions.skip(\"Location not within the specified coordinates.\");\n} else {\n  var occurredAt = new Date(DoButton.doButtonNewCommandCommon.OccurredAt);\n  var hour = occurredAt.getUTCHours();\n  \n  if (hour < 15 || hour >= 16) {\n    Alpaca.liquidatePositions.skip(\"Press not between 15:00 and 16:00.\");\n  }\n}"
    },
@@ -4289,7 +4289,7 @@
          "Netatmo.noiseRisesAbove.MeasuredNoiseLevel",
          "Netatmo.noiseRisesAbove.TargetNoiseLevel"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "Apilio.logicblockEvaluationRequests.skip(string?: reason)",
       "filter_code": "var hour = Meta.currentUserTime.hour();\nif (hour >= 20 || hour < 6) {\n    var deviceName = Netatmo.noiseRisesAbove.DeviceName;\n    if (deviceName !== \"Living Room\") {\n        Apilio.logicblockEvaluationRequests.skip(\"Not from Living Room station.\");\n    } else {\n        var measuredNoiseLevel = parseFloat(Netatmo.noiseRisesAbove.MeasuredNoiseLevel);\n        var targetNoiseLevel = parseFloat(Netatmo.noiseRisesAbove.TargetNoiseLevel);\n        if (measuredNoiseLevel > targetNoiseLevel) {\n            Apilio.logicblockEvaluationRequests.setIdentifier(\"Security Checker\");\n        } else {\n            Apilio.logicblockEvaluationRequests.skip(\"Measured noise level is not above threshold.\");\n        }\n    }\n} else {\n    Apilio.logicblockEvaluationRequests.skip(\"Outside of active hours (20:00 to 06:00).\");\n}"
    },
@@ -4303,7 +4303,7 @@
          "AndroidDevice.newNotificationFromApp.NotificationTitle",
          "AndroidDevice.newNotificationFromApp.ReceivedAt"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "Hue.blinkAllHue.skip(string?: reason)",
       "filter_code": "var appName = AndroidDevice.newNotificationFromApp.AppName;\nvar notificationMessage = AndroidDevice.newNotificationFromApp.NotificationMessage;\nvar deviceName = AndroidDevice.newNotificationFromApp.DeviceName;\nvar receivedAtHour = new Date(AndroidDevice.newNotificationFromApp.ReceivedAt).getHours();\n\nif (appName !== \"Twitter\") {\n  Hue.blinkAllHue.skip(\"Not from Twitter.\");\n} else if (!notificationMessage.includes(\"URGENT\")) {\n  Hue.blinkAllHue.skip(\"Message does not contain 'URGENT'.\");\n} else if (deviceName !== \"Google Pixel 7\") {\n  Hue.blinkAllHue.skip(\"Notification received on a different device.\");\n} else if (receivedAtHour < 7 || receivedAtHour > 22) {\n  Hue.blinkAllHue.skip(\"Outside of active hours (07:00 to 22:00).\");\n}"
    },
@@ -4352,7 +4352,7 @@
          "DateAndTime.everyWeekdayAt.CheckTime",
          "DateAndTime.everyWeekdayAt.DayOfWeek"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "Yeelight.setColor.skip(string?: reason)",
       "filter_code": "var day = DateAndTime.everyWeekdayAt.DayOfWeek;\nif (day === \"Monday\" || day === \"Tuesday\" || day === \"Wednesday\" || day === \"Thursday\" || day === \"Friday\") {\n  // Weekday, proceed\n} else {\n  Yeelight.setColor.skip(\"Not a weekday.\");\n}\nvar color = \"Bright Yellow\"; // Assumes 'color_id' corresponds to bright yellow in the action's dropdown list\nYeelight.setColor.setDeviceId(\"Living Room Light\"); // Replace with actual device ID from dropdown\nYeelight.setColor.setColorId(color);"
    },
@@ -4362,7 +4362,7 @@
       "triggers": [
          "DateAndTime.everyDayAt.CheckTime"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "Yeelight.changeBright.skip(string?: reason)",
       "filter_code": "Yeelight.changeBright.skip(\"This automation requires multiple triggers over 15 minutes for gradual brightness increase, which isn't supported by this configuration.\");"
    },
@@ -4451,7 +4451,7 @@
          "DateAndTime.everyWeekdayAt.CheckTime",
          "DateAndTime.everyWeekdayAt.DayOfWeek"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "Apilio.booleanVariableToTrueUpdates.skip(string?: reason)",
       "filter_code": "var day = DateAndTime.everyWeekdayAt.DayOfWeek;\nif (!(day === \"Monday\" || day === \"Wednesday\" || day === \"Friday\")) {\n  Apilio.booleanVariableToTrueUpdates.skip(\"Not a target day (Monday, Wednesday, or Friday).\");\n}\nvar hour = DateAndTime.everyWeekdayAt.CheckTime.hour();\nif (hour !== 8) {\n  Apilio.booleanVariableToTrueUpdates.skip(\"Not at the specified time of 08:00.\");\n}"
    },
@@ -4517,7 +4517,7 @@
          "DoButton.doButtonNewCommandCommon.OccurredAt",
          "DoButton.doButtonNewCommandCommon.ShareURL"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "Magichue.togglelight.skip(string?: reason)",
       "filter_code": "var lat = DoButton.doButtonNewCommandCommon.Latitude;\nvar lon = DoButton.doButtonNewCommandCommon.Longitude;\nvar hour = Meta.currentUserTime.hour();\n\nif (lat !== \"37.8267\" || lon !== \"-122.4230\") {\n  Magichue.togglelight.skip(\"Not at home location.\");\n} else if (hour < 7 || hour >= 22) {\n  Magichue.togglelight.skip(\"Outside of active hours (7 AM to 10 PM).\");\n}"
    },
@@ -4536,7 +4536,7 @@
          "Weather.sunSets.TempCelsius",
          "Weather.sunSets.TempFahrenheit"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "Kasa.turnOn.skip(string?: reason)",
       "filter_code": "var sunsetTime = new Date(Weather.sunSets.SunsetAt);\nvar currentTime = new Date();\nvar minutesSinceSunset = (currentTime - sunsetTime) / 60000;\n\nif (minutesSinceSunset < 0 || minutesSinceSunset > 15) {\n  Kasa.turnOn.skip(\"Not within the 15 minutes after sunset window.\");\n} else {\n  var tempCelsius = parseFloat(Weather.sunSets.TempCelsius);\n  if (tempCelsius <= 18 || Weather.sunSets.Condition !== \"Sunny\") {\n    Kasa.turnOn.skip(\"Current temperature is not above 18\u00b0C or weather condition is not Sunny.\");\n  }\n}"
    },
@@ -4581,7 +4581,7 @@
          "Weather.currentConditionIs.TempCelsius",
          "Weather.currentConditionIs.TempFahrenheit"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "Yeelight.setScene.skip(string?: reason)",
       "filter_code": "var condition = Weather.currentConditionIs.Condition;\nvar temperature = parseFloat(Weather.currentConditionIs.TempCelsius);\nif (condition === \"Sunny\" && temperature > 18) {\n    Yeelight.setScene.setBundleId(\"Relax\");\n} else {\n    Yeelight.setScene.skip(\"Conditions not met.\");\n}"
    },
@@ -4600,7 +4600,7 @@
          "Weather.sunSets.TempCelsius",
          "Weather.sunSets.TempFahrenheit"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "Idevices.turnDeviceOn.skip(string?: reason)",
       "filter_code": "var temp = Weather.sunSets.TempFahrenheit();\nvar condition = Weather.sunSets.Condition();\n\nif (temp !== \"72\" || condition !== \"Sunny\") {\n  Idevices.turnDeviceOn.skip(\"Conditions not met: temperature is ${temp}\u00b0F and weather is ${condition}\");\n}"
    },
@@ -4613,7 +4613,7 @@
          "Knocki.knocki.Gesture",
          "Knocki.knocki.Pattern"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "Kasa.turnOn.skip(string?: reason)",
       "filter_code": "var hour = Meta.currentUserTime.hour();\nif (hour < 7 || hour > 19) {\n  Kasa.turnOn.skip(\"Outside of active hours (07:00 to 19:00).\");\n}\nif (Knocki.knocki.Gesture !== \"Triple Knock\") {\n  Kasa.turnOn.skip(\"Not a triple knock gesture.\");\n}"
    },
@@ -4647,7 +4647,7 @@
          "Instagram.anyNewPhotoByYou.SourceUrl",
          "Instagram.anyNewPhotoByYou.Url"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "Qapital.saveTowardGoal.skip(string?: reason)",
       "filter_code": "var caption = Instagram.anyNewPhotoByYou.Caption;\nif (!caption.toLowerCase().includes(\"travel\")) {\n  Qapital.saveTowardGoal.skip(\"Caption does not contain 'travel'\");\n} else {\n  Qapital.saveTowardGoal.setGoal(\"Dream Vacation\");\n  Qapital.saveTowardGoal.setAmount(5);\n}"
    },
@@ -4658,7 +4658,7 @@
          "WithingsSleep.bedout.DateandTime",
          "WithingsSleep.bedout.DeviceUser"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "Hue.turnOffAllHue.skip(string?: reason)",
       "filter_code": "var dt = WithingsSleep.bedout.DateandTime.getTime();\nvar hour = dt.getHours();\nif (hour < 7 || hour > 22) {\n    Hue.turnOffAllHue.skip(\"Outside of allowed hours.\");\n}\nif (WithingsSleep.bedout.DeviceUser != \"Tom\") {\n    Hue.turnOffAllHue.skip(\"Not Tom's sensor\");\n}"
    },
@@ -4787,7 +4787,7 @@
          "Weather.sunSets.TempCelsius",
          "Weather.sunSets.TempFahrenheit"
       ],
-      "actions": "No actions available for this applet",
+      "actions": [],
       "skip": "Idevices.turnNightlightOff.skip(string?: reason)",
       "filter_code": "if (Weather.sunSets.TempCelsius !== \"18\" || Weather.sunSets.Condition !== \"Sunny\") {\n  Idevices.turnNightlightOff.skip(\"Temperature or weather condition does not match requirements.\");\n}\nIdevices.turnNightlightOff.setWhatDevice(\"Living Room Lamp\");"
    }
