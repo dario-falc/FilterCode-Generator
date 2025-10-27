@@ -9,7 +9,7 @@ if __name__ == "__main__":
     model = AutoModelForCausalLM.from_pretrained(model_name, torch_dtype="auto", device_map="auto")
 
     
-    with open("data\\data_test.json", "r") as f:
+    with open("data\\data.json", "r") as f:
         applets = json.load(f)
 
     i=1
