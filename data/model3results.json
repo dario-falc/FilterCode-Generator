@@ -1,0 +1,778 @@
+[
+  {
+    "applet": "applet_3",
+    "filter_code": "var LennoxIcomfort = function() {\n    var self = this;\n            var msg = \"Fan mode is already Auto.\";\n            if (reason) {\n            }\n        }\n    };\n};"
+  },
+  {
+    "applet": "applet_4",
+    "filter_code": "var Kasa = require('kasa-client');\nvar IFTTT = require('node-ifttt');\nvar moment = require('moment');\nvar request = require('request');\nvar fs = require('fs');\nvar ifttt = new IFTTT();\nvar kasaApiKey = process.env.KASA_API_KEY;\nif (!kasaApiKey"
+  },
+  {
+    "applet": "applet_5",
+    "filter_code": "var Lennoxicomfort = Lennoxicomfort || {};\n(function() {\n\tvar Lennoxicomfort = Lennoxicomfort || {};\n\t\t\tif (reason === \"too high\") {\n\t\t\t} else"
+  },
+  {
+    "applet": "applet_6",
+    "filter_code": "var HoneywellTotalConnectComfort = function () {\n    var self = this;\n        var command = \"setfan \" + fan_state;\n        if (reason) {\n        }\n    };"
+  },
+  {
+    "applet": "applet_8",
+    "filter_code": "var weather = require('weather-js');\nvar request = require('request');\nvar fs = require('fs');\nvar weatherApiKey = '<KEY>';\nvar weatherUrl = 'http://api.openweathermap.org/data/2.5/weather?q=';\nvar weatherUrl2 = '&APPID=' + weatherApiKey;\nvar weatherUrl3 = '&APPID=' + weatherApiKey;\nvar weatherUrl4"
+  },
+  {
+    "applet": "applet_9",
+    "filter_code": "var weather = require('weather-js');\nvar Ecobee = require('node-ecobee');\nvar request = require('request');\nvar ecobee = new Ecobee();\nvar weatherApiKey = 'YOUR_WEATHER_API_KEY';\nvar weatherOptions = {\n};\nvar"
+  },
+  {
+    "applet": "applet_10",
+    "filter_code": "var Ecobee = require('node-ecobee-api');\nvar request = require('request');\nvar fs = require('fs');\nvar path = require('path');\nvar async = require('async');\nvar _ = require('underscore');\nvar ecobee = new Ecobee({"
+  },
+  {
+    "applet": "applet_13",
+    "filter_code": "var Ewelink = require('ewelink-api');\nvar SmartthingsV2 = require('smartthings-v2');\nvar request = require('request');\nvar moment = require('moment');\nvar url = require('url');\nvar fs = require('fs');\nvar _ = require('lodash');\nvar ewelink = new Ewelink({"
+  },
+  {
+    "applet": "applet_14",
+    "filter_code": "var Ewelink = require('node-ewelink-api');\nvar moment = require('moment');\nvar fs = require('fs');\nvar request = require('request');\nvar https = require('https');\nvar ewelink = new Ewelink({"
+  },
+  {
+    "applet": "applet_15",
+    "filter_code": "var Hue = require('node-hue-api');\nvar HueLight = require('node-hue-api').HueLight;\nvar HueBridge = require('node-hue-api').HueBridge;\nvar HueLightGroup = require('node-hue-api').HueLightGroup;\nvar HueLightState = require('node-hue-api').HueLightState;\nvar HueLightStateTransition = require('node-"
+  },
+  {
+    "applet": "applet_16",
+    "filter_code": "var Tantiv4 = require('tantiv4');\nvar tantiv4 = new Tantiv4();\n});\n});"
+  },
+  {
+    "applet": "applet_17",
+    "filter_code": "var HcHood = {\n    }\n};"
+  },
+  {
+    "applet": "applet_20",
+    "filter_code": "var Pocket = {\n    },\n        var newItemAddedPocket = Pocket.newItemAddedPocket;"
+  },
+  {
+    "applet": "applet_22",
+    "filter_code": "var dayOne = require('dayone-api');\nvar dayOneJournal = require('dayone-journal');\nvar dayOneJournalEntry = require('dayone-journal-entry');\nvar dayOneJournalEntryTag = require('dayone-journal-entry-tag');\nvar dayOneJournalEntryTagValue = require('dayone-journal-entry-tag-value');\nvar dayOneJournalEntryTagValueString = require('dayone-"
+  },
+  {
+    "applet": "applet_25",
+    "filter_code": "var UnforgettableMe = require('unforgettable-me');\nvar unforgettableMe = new UnforgettableMe();\nvar augmenter_name = \"SpotifySavedTrack\";\nvar body = JSON.stringify({"
+  },
+  {
+    "applet": "applet_27",
+    "filter_code": "var action = function(params) {\n  var message = \"A new file has been uploaded: \" + params.Dropbox.newFileInFolder.Filename;\n  var name = params.Dropbox.newFileInFolder.FilenameNoExt;\n  var reason = params.Dropbox.newFileInFolder.FilenameNoExt;"
+  },
+  {
+    "applet": "applet_31",
+    "filter_code": "var Pocket = {\n        var item = Pocket.newFavoriteItemPocket.AddedAt;\n        var excerpt = Pocket.newFavoriteItemPocket.Excerpt;\n        var image = Pocket.newFavoriteItemPocket.ImageUrl;\n        var tags = Pocket.newFavoriteItemPocket.Tags;\n        var title = Pocket.newFavoriteItemPocket.Title;\n        var url"
+  },
+  {
+    "applet": "applet_33",
+    "filter_code": "var UnforgettableMe = UnforgettableMe || {};\n        if (reason) {\n        }\n    }\n};"
+  },
+  {
+    "applet": "applet_35",
+    "filter_code": "var Nytimes = {\n    },\n            if (reason) {"
+  },
+  {
+    "applet": "applet_37",
+    "filter_code": "var electricityPriceCheap = {\n    }\n};\nvar dryerStartProgram = {"
+  },
+  {
+    "applet": "applet_38",
+    "filter_code": "var hue = require('node-hue-api');"
+  },
+  {
+    "applet": "applet_39",
+    "filter_code": "var Flickr = {"
+  },
+  {
+    "applet": "applet_40",
+    "filter_code": "var WemoLightSwitch = require('wemo-light-switch');\nvar WemoLightSwitch_ = require('wemo-light-switch');\nvar WemoLightSwitch_ = require('wemo-light-switch');\nvar WemoLightSwitch_ = require('wemo-light-switch');\nvar WemoLightSwitch_ = require('wemo-light-switch');\nvar WemoLightSwitch_ = require('wemo-"
+  },
+  {
+    "applet": "applet_42",
+    "filter_code": "var Dropbox = {\n        if (skip) {\n        }\n        var file = new File([url], filename, {type: \"image/jpeg\"});\n        var fileRef = Dropbox.addFile(file);"
+  },
+  {
+    "applet": "applet_43",
+    "filter_code": "var Irobot = require('node-irobot');\nvar Hue = require('node-hue-api');\nvar hue = new Hue.HueAPI();\nvar roomba = new Irobot.Roomba();\n    if (data.DirtDetectEvents) {\n    }\n});"
+  },
+  {
+    "applet": "applet_44",
+    "filter_code": "var weather = {"
+  },
+  {
+    "applet": "applet_47",
+    "filter_code": "var action = require('action-addon');\nvar AndroidDevice = require('cordova-android-device');\nvar moment = require('moment');\nvar sleep = require('sleep');\nvar WithingsSleep = require('cordova-plugin-withings-sleep');\nvar vibrate = '1000';\nvar reason = 'Bed in';\nvar bedin = new WithingsSleep.Sleep();\nvar sleep ="
+  },
+  {
+    "applet": "applet_48",
+    "filter_code": "var Wiz = {\n        if (reason === \"Sunny\") {\n        } else {\n        }\n    },\n    },"
+  },
+  {
+    "applet": "applet_49",
+    "filter_code": "function main(variables, context, user) {\n  var date = new Date();\n  var formatted_row = \"Date|\" + date.toISOString().slice(0, 10) + \"|\" + date.toLocaleTimeString() + \"|\" + user.name + \"|\";\n  var path ="
+  },
+  {
+    "applet": "applet_51",
+    "filter_code": "var Qnap = {\n            var file_name_no_ext = file_name.replace(/\\.[^/.]+$/, \"\");\n            var file_name_with_ext = file_name_no_ext + \".pdf\";\n            var file_name_with_ext_with_path = folder_path + \"/\" + file_"
+  },
+  {
+    "applet": "applet_52",
+    "filter_code": "var hue = require('node-hue-api');\nvar hueClient = new hue.HueAPI({\n});\n});"
+  },
+  {
+    "applet": "applet_55",
+    "filter_code": "var action = require('action-hero').action;\nvar Broadlink = require('action-hero-broadlink');\nvar BroadlinkDevice = Broadlink.Device;\nvar BroadlinkDeviceStatus = Broadlink.DeviceStatus;\nvar BroadlinkDeviceStatusImage = Broadlink.DeviceStatusImage;\nvar BroadlinkDeviceStatusImageURL = Broadlink.DeviceStatusImageURL;\nvar BroadlinkDeviceStatusString = Broadlink.DeviceStatusString"
+  },
+  {
+    "applet": "applet_57",
+    "filter_code": "var Irobot = require('node-irobot');\nvar Sonos = require('node-sonos');\nvar robot = new Irobot();\nvar sonos = new Sonos();\nvar action = function(robot, action) {\n    var timestamp = action.variables.Irobot.robotStart.Timestamp;\n    var groupedRooms = action.variables.Irobot.robotStart.GroupedRooms;\n    if (groupedRooms) {"
+  },
+  {
+    "applet": "applet_59",
+    "filter_code": "var AndroidBattery = {\n  }\n}"
+  },
+  {
+    "applet": "applet_61",
+    "filter_code": "var TwitchStreamGoingLiveForChannelYouFollow = function() {\n  var self = this;\n  var twitchStreamGoingLiveForChannelYouFollow = {"
+  },
+  {
+    "applet": "applet_62",
+    "filter_code": "var Abode = require('abode-api');\nvar Arlo = require('arlo-api');\nvar abode = new Abode({\n});\nvar arlo = new Arlo({\n});\nvar Abode"
+  },
+  {
+    "applet": "applet_63",
+    "filter_code": "var IFTTT = require('node-ifttt');\nvar Qnap = require('node-qnap');\nvar ifttt = new IFTTT({\n});\nvar qnap = new Qnap({\n});\nifttt.on('trigger', function(data, response) {\n  var"
+  },
+  {
+    "applet": "applet_65",
+    "filter_code": "var weather = require('weather-js');\nvar request = require('request');\nvar fs = require('fs');\nvar weatherApiKey = '<KEY>';\nvar weatherUrl = 'http://api.openweathermap.org/data/2.5/weather?q=New+York&appid=' + weatherApiKey;\nvar weatherForecastUrl = 'http://api.openweathermap.org/data/2.5/"
+  },
+  {
+    "applet": "applet_66",
+    "filter_code": "var action = function(params) {\n  var condition = params.Weather.sunRises.Condition;\n  var conditionImageURL = params.Weather.sunRises.ConditionImageURL;\n  var forecastUrl = params.Weather.sunRises.ForecastUrl;\n  var highTempCelsius = params.Weather.sunRises.HighTempCelsius;\n  var highTempFahrenheit = params.Weather.sunRises.High"
+  },
+  {
+    "applet": "applet_67",
+    "filter_code": "var LightwaverfLighting = function() {\n    var self = this;\n    var lightwaverf = require('node-lightwaverf');\n    var lightwaverf_client = lightwaverf.createClient();\n    var lightwaverf_config = {\n    };\n    var lightwaverf_client_config = {"
+  },
+  {
+    "applet": "applet_70",
+    "filter_code": "var message = \"The temperature in New York is \" + Weather.currentTemperatureDropsBelow.TempCelsius + \"°F\";\nvar name = \"New York\";\nvar reason = \"Above 75°F\";\nif (Weather.currentTemperatureDropsBelow.TempCelsius > 75) {"
+  },
+  {
+    "applet": "applet_71",
+    "filter_code": "var Instagram_Photo_YYYYMMDD_HHMMSS = \"Instagram_Photo_YYYYMMDD_HHMMSS.jpg\";\nvar Instagram_Photo_YYYYMMDD_HHMMSS_Folder = \"Photos\";\nvar Instagram_Photo_YYYYMMDD_HHMMSS_Folder_2024_Vacations = \"2024 Vacations\";\nvar Instagram_Photo_YYYYMM"
+  },
+  {
+    "applet": "applet_75",
+    "filter_code": "var weather = require('weather-js');\nvar Wiz = require('wiz-js');\nvar weather = require('weather-js');\nvar Wiz = require('wiz-js');\nvar weather = require('weather-js');\nvar Wiz = require('wiz-js');\nvar weather = require('weather-js');\nvar Wiz = require('wiz-js');\nvar weather = require('weather-"
+  },
+  {
+    "applet": "applet_76",
+    "filter_code": "var Safetrek = require('safetrek');\nvar Wyzecam = require('wyzecam');\nvar fireDepartment = \"123 Main Street, Apt 101, New York, NY 10001\";\nvar smokeTrigger = Wyzecam.smokeTrigger;\nvar alertAddress = Safetrek.alertAddress;\nvar alertAddressSkip = alertAddress."
+  },
+  {
+    "applet": "applet_77",
+    "filter_code": "var weatherUnderground = require('weather-underground');\nvar weather = require('weather-js');\nvar Wiz = require('wiz');\nvar weatherAPI = new weatherUnderground({\n  format: 'json'\n});\nvar weatherData = weather.current({\n});\nvar weatherCondition = weatherData.current.condition;"
+  },
+  {
+    "applet": "applet_78",
+    "filter_code": "var Gogogate = {\n        if (this.isDoorClosed()) {\n        } else {\n        }\n    },\n    },\n    },"
+  },
+  {
+    "applet": "applet_79",
+    "filter_code": "var Twitch = require('twit');\nvar TwitchStream = require('twitch-stream');\nvar Daskeyboardq = require('daskeyboardq');\nvar client = new Twitch({"
+  },
+  {
+    "applet": "applet_81",
+    "filter_code": "var AndroidBattery = {\n  }\n};"
+  },
+  {
+    "applet": "applet_82",
+    "filter_code": "var hue = require('node-hue-api');\nvar hueClient = new hue.HueAPI({\n});\n});"
+  },
+  {
+    "applet": "applet_84",
+    "filter_code": "var weather = require('weather-js');\nvar request = require('request');\nvar fs = require('fs');\nvar weatherApiKey = '<KEY>';\nvar weatherUrl = 'http://api.wunderground.com/api/' + weatherApiKey + '/conditions/q/New+York.json';\nvar weatherData = {"
+  },
+  {
+    "applet": "applet_85",
+    "filter_code": "var Instagram = {"
+  },
+  {
+    "applet": "applet_86",
+    "filter_code": "var Airthings = require('airthings');\nvar Hue = require('node-hue-api');\nvar airthings = new Airthings({\n});\nvar hue = new Hue.HueApi();\nvar hueLights = hue.lights();\nvar radonAbove = airthings.radonAbove();"
+  },
+  {
+    "applet": "applet_88",
+    "filter_code": "var weather = require('weather-js');\nvar request = require('request');\nvar fs = require('fs');\nvar weatherApiKey = '<KEY>';\nvar weatherUrl = 'http://api.wunderground.com/api/' + weatherApiKey + '/conditions/q/New+York.json';\nvar weatherData = {"
+  },
+  {
+    "applet": "applet_89",
+    "filter_code": "var Instagram = {"
+  },
+  {
+    "applet": "applet_90",
+    "filter_code": "var Airthings = require('airthings');\nvar Hue = require('node-hue-api');\nvar airthings = new Airthings({\n});\nvar hue = new Hue.HueApi();\nvar hueLights = hue.lights();\nvar radonAbove = airthings.radonAbove();"
+  },
+  {
+    "applet": "applet_91",
+    "filter_code": "const { Homey } = require('homey');\nconst { HcWasher } = require('./homey-washer');\nconst homey = new Homey();\nconst washer = new HcWasher(homey);"
+  },
+  {
+    "applet": "applet_92",
+    "filter_code": "var SwitchBot = require('switchbot');\nvar SwitchBot_ = require('switchbot');\nvar SwitchBot_ = require('switchbot');\nvar SwitchBot_ = require('switchbot');\nvar SwitchBot_ = require('switchbot');\nvar SwitchBot_ = require('switchbot');\nvar SwitchBot_ = require('switchbot');\nvar SwitchBot_ = require('switchbot');\nvar SwitchBot_ = require('switchbot"
+  },
+  {
+    "applet": "applet_93",
+    "filter_code": "var Rememberthemilk = Rememberthemilk || {};\n  var task = \"Read My Weekly News at 7:00 PM today #reading\";\n  var reason = \"I read the weekly news today.\";\n  if (Rememberthemilk.tasksAdd.setTask(task)) {"
+  },
+  {
+    "applet": "applet_94",
+    "filter_code": "var Daskeyboardq = Daskeyboardq || {};\n(function() {\n  var Daskeyboardq = Daskeyboardq || {};\n    var daskeyboardq = Daskeyboardq.getDaskeyboardq();\n  };"
+  },
+  {
+    "applet": "applet_95",
+    "filter_code": "var Reddit = {"
+  },
+  {
+    "applet": "applet_96",
+    "filter_code": "var WIZ_LIGHTS = [\n  {"
+  },
+  {
+    "applet": "applet_97",
+    "filter_code": "var IFTTT_APPLET_NAME = \"Dooya Connector\";\nvar IFTTT_APPLET_VERSION = \"1.0.0\";\nvar DooyaConnector = (function () {\n    function DooyaConnector() {\n    }\n        if (reason) {"
+  },
+  {
+    "applet": "applet_98",
+    "filter_code": "var harmony = require('node-harmony');\nvar harmony_remote = require('node-harmony-remote');\nvar harmony_remote_config = {\n};\nvar harmony_remote_client = new harmony_remote.Client(harmony_remote_"
+  },
+  {
+    "applet": "applet_101",
+    "filter_code": "var Ewelink = require('ewelink-api');\nvar request = require('request');\nvar fs = require('fs');\nvar ewelink = new Ewelink({\n});\nvar onoff_act_query = 'onoff_act_query';\nvar sunset"
+  },
+  {
+    "applet": "applet_102",
+    "filter_code": "var Hue = require('node-hue-api');\nvar HueLight = require('node-hue-api').HueLight;\nvar HueBridge = require('node-hue-api').HueBridge;\nvar HueLightGroup = require('node-hue-api').HueLightGroup;\nvar HueLightState = require('node-hue-api').HueLightState;\nvar HueLightStateGroup = require('node-"
+  },
+  {
+    "applet": "applet_103",
+    "filter_code": "var netatmo = require('netatmo-api');\nvar Indegoconnect = require('indegoconnect');\nvar netatmo_api = new netatmo.Netatmo({\n});\nvar indegoconnect = new Indego"
+  },
+  {
+    "applet": "applet_104",
+    "filter_code": "var Gogogate = {\n        if (this.isDoorClosed()) {\n        } else {\n        }\n    },\n    },\n    },"
+  },
+  {
+    "applet": "applet_105",
+    "filter_code": "var weather = {"
+  },
+  {
+    "applet": "applet_107",
+    "filter_code": "var GreenLightSignal = {\n    },"
+  },
+  {
+    "applet": "applet_108",
+    "filter_code": "var Flickr = {\n    },"
+  },
+  {
+    "applet": "applet_109",
+    "filter_code": "var stockPrice = Finance.percentageDropStocks.Price;\nvar stockName = Finance.percentageDropStocks.StockName;\nvar stockTicker = Finance.percentageDropStocks.StockTicker;\nvar percentageChange = Finance.percentageDropStocks.PercentageChange;\nvar stockInfoUrl = Finance.percentageDropStocks.InfoUrl;\nvar checkTime = Finance.percentageDropStocks.CheckTime;\nvar dimming = Finance."
+  },
+  {
+    "applet": "applet_113",
+    "filter_code": "var Qnap = {\n        if (skip) {\n        }\n        var file_name_regex = new RegExp(\"([a-zA-Z0-9_\\\\-\\\\s]+)\");\n        var file_name_match = file_name_regex.exec(file_name);"
+  },
+  {
+    "applet": "applet_114",
+    "filter_code": "var Twitch = require('twitch-js');\nvar Kasa = require('kasa-js');\nvar twitch = new Twitch({\n});\nvar kasa = new Kasa({"
+  },
+  {
+    "applet": "applet_117",
+    "filter_code": "var Twitch = require('twitch-api');\nvar TwitchStream = require('twitch-stream');\nvar Wiz = require('wiz');\nvar twitch = new Twitch({\n});\nvar stream = new TwitchStream(twitch, {"
+  },
+  {
+    "applet": "applet_118",
+    "filter_code": "var pollenCountRisesAbove = function() {\n  var condition = Weather.currentPollenCountRisesAbove.Condition;\n  var pollenCount = Weather.currentPollenCountRisesAbove.PollenCount;\n  var tempCelsius = Weather.currentPollenCountRisesAbove.TempCelsius;\n  var tempFahrenheit ="
+  },
+  {
+    "applet": "applet_119",
+    "filter_code": "var weatherUnderground = require('weather-underground');\nvar weather = require('weather-js');\nvar Wiz = require('wiz-js');\nvar weatherUndergroundApiKey = '<KEY>';\nvar weatherApiKey = '<KEY>';\nvar weatherUnderground = weatherUnderground({\n});\nvar weather = weather({\n});"
+  },
+  {
+    "applet": "applet_120",
+    "filter_code": "var message = \"New track: \" + Spotify.newTrackAddedToPlaylist.TrackName + \" by \" + Spotify.newTrackAddedToPlaylist.ArtistName;\nvar name = \"NewTrackAdded\";\nvar reason = \"New track added to playlist\";"
+  },
+  {
+    "applet": "applet_122",
+    "filter_code": "var Wiz = require('wiz-js');\nvar motionTrigger = Wiz.motionTrigger;\nvar Wiz = require('wiz-js');\nvar motionTrigger = Wiz.motionTrigger;\nvar Wiz = require('wiz-js');\nvar motionTrigger = Wiz.motionTrigger;\nvar Wiz = require('wiz-js');\nvar motionTrigger = Wiz.motionTrigger;\nvar Wiz ="
+  },
+  {
+    "applet": "applet_125",
+    "filter_code": "var Wiz = require('wiz-js');\nvar applet = new Wiz.Applet();\nvar trigger = new Wiz.Trigger();\nvar action = new"
+  },
+  {
+    "applet": "applet_126",
+    "filter_code": "var stockPrice = Finance.percentageDropStocks.Price;\nvar stockName = Finance.percentageDropStocks.StockName;\nvar stockTicker = Finance.percentageDropStocks.StockTicker;\nvar percentageChange = Finance.percentageDropStocks.PercentageChange;\nvar stockInfoUrl = Finance.percentageDropStocks.InfoUrl;\nvar checkTime = Finance.percentageDropStocks.CheckTime;\nvar dimming = Finance."
+  },
+  {
+    "applet": "applet_127",
+    "filter_code": "var IFTTT_EMAIL_TAGGED_SUBJECT = \"Meeting Reminder\";\nvar IFTTT_EMAIL_TAGGED_BODY = \"Hi, \\n\\nI am a BeoLiving Intelligence applet that will send an email with the subject '\" + IFTTT_EMAIL_TAGGED_SUBJECT + \"' and tagged as #urgent to your BeoLiving Intelligence"
+  },
+  {
+    "applet": "applet_130",
+    "filter_code": "var action = function (params) {\n  var author = params.Discord.newMessageInChannel.Author;\n  var createdAt = params.Discord.newMessageInChannel.CreatedAt;\n  var linkToMessage = params.Discord.newMessageInChannel.LinkToMessage;\n  var message = params.Discord.newMessageInChannel.Message;\n  var formatted_row = author + \"|||\";\n  formatted_row += message + \"|||\";\n  formatted_"
+  },
+  {
+    "applet": "applet_131",
+    "filter_code": "let HcOven = {\n    }\n}\nlet Hue = {\n        if (HcOven.ovenDoorOpened.CreatedAt.getHours() > 18) {\n        }"
+  },
+  {
+    "applet": "applet_133",
+    "filter_code": "var Daskeyboardq = Daskeyboardq || {};\n(function() {\n  var Daskeyboardq = Daskeyboardq || {};\n  };"
+  },
+  {
+    "applet": "applet_134",
+    "filter_code": "var IFTTT_APPLET_NAME = \"Dropbox File Upload\";\nvar IFTTT_APPLET_VERSION = \"0.0.1\";\nvar IFTTT_APPLET_AUTHOR = \"Data.world\";\nvar IFTTT_APPLET_URL = \"https://ifttt.com/applets/create\";\nvar IFTTT_APPLET_CONFIG = {"
+  },
+  {
+    "applet": "applet_135",
+    "filter_code": "var bedoutDate = new Date();\nvar bedoutTime = bedoutDate.getHours() + \":\" + bedoutDate.getMinutes();\nvar bedoutDateAndTime = bedoutDate.getDate() + \"/\" + (bedoutDate.getMonth() + 1) + \"/\" + bedoutDate.getFullYear() + \" \" + bedoutTime;\nvar bedoutDeviceUser = \"Tom"
+  },
+  {
+    "applet": "applet_136",
+    "filter_code": "let date = new Date();\nlet dateString = date.toLocaleDateString();\nlet timeString = date.toLocaleTimeString();\nlet dateAndTime = dateString + \" \" + timeString;\nlet bedIn = WithingsSleep.bedin.DateandTime;\nlet bedInDate = bedIn.substring(0, 10);\nlet bedInTime = bedIn"
+  },
+  {
+    "applet": "applet_137",
+    "filter_code": "var weather = require('weather-js');\nvar request = require('request');\nvar url = require('url');\nvar weatherUrl = \"http://api.openweathermap.org/data/2.5/weather?q=\";\nvar forecastUrl = \"http://api.openweathermap.org/data/2.5/forecast?q=\";\nvar weatherData = function(weatherUrl, city, callback) {"
+  },
+  {
+    "applet": "applet_138",
+    "filter_code": "var weather = new Weather();\nvar time = new Date();\nvar temp = weather.getTemperature(time);\nvar condition = weather.getCondition(time);\nvar conditionImageURL = weather.getConditionImageURL(time);"
+  },
+  {
+    "applet": "applet_139",
+    "filter_code": "var garageio = require('garageio');\nvar garageio_closeGarageDoor = function(event, context, callback) {\n    var reason = event.data.Zubie.departures.EventDetails;\n    if (reason === \"Dad's Honda departs from Home\") {\n            if (err) {"
+  },
+  {
+    "applet": "applet_140",
+    "filter_code": "var Wiz = require('wiz-js');\nvar motionSensorNoDetectsTrigger = {\n};\nvar action = function(context, callback) {\n  var motionSensorNoDetects = Wiz.getMotionSensorNoDetects();\n  if (motionSensorNoDetects.state === '"
+  },
+  {
+    "applet": "applet_141",
+    "filter_code": "var hue = require('node-hue-api');\nvar hueClient = new hue.HueApi({\n});\n});"
+  },
+  {
+    "applet": "applet_142",
+    "filter_code": "const EVENT_TYPE_WASTE_DRAWER_FULL = \"Waste Drawer Full\";\nconst EVENT_VAR_WASTE_DRAWER_FULL_AT = \"Waste Drawer Full At\";\nconst EVENT_VAR_WASTE_DRAWER_FULL_NAME = \"Litter Robot Name\";\nconst ACTION_"
+  },
+  {
+    "applet": "applet_143",
+    "filter_code": "var AugustHome = (function () {\n    function AugustHome() {\n    }\n        if (reason === undefined) {\n        }\n        var bot = Switchbot.getBot(\"Office Bot\");\n        if (bot) {\n        }\n        else {\n        }\n    };"
+  },
+  {
+    "applet": "applet_144",
+    "filter_code": "var WemoLightSwitch = require('wemo-light-switch');\nvar WemoLightSwitch_ = require('wemo-light-switch');\nvar WemoLightSwitch_ = require('wemo-light-switch');\nvar WemoLightSwitch_ = require('wemo-light-switch');\nvar WemoLightSwitch_ = require('wemo-light-switch');\nvar WemoLightSwitch_ = require('wemo-"
+  },
+  {
+    "applet": "applet_145",
+    "filter_code": "var hue = require('node-hue-api');\nvar hueClient = new hue.HueApi({\n});\n});"
+  },
+  {
+    "applet": "applet_146",
+    "filter_code": "var WemoLightSwitch = require('wemo-light-switch');\nvar WemoLightSwitch_ = require('wemo-light-switch');\nvar WemoLightSwitch_ = require('wemo-light-switch');\nvar WemoLightSwitch_ = require('wemo-light-switch');\nvar WemoLightSwitch_ = require('wemo-light-switch');\nvar WemoLightSwitch_ = require('wemo-"
+  },
+  {
+    "applet": "applet_148",
+    "filter_code": "var Littlebits = require('littlebits');\n    function IFTTT(config) {\n        var node = this;\n            if (msg.payload.toLowerCase() === \"detected!\") {\n            }"
+  },
+  {
+    "applet": "applet_149",
+    "filter_code": "var weather = require('weather-js');\nvar request = require('request');\nvar fs = require('fs');\nvar weather_api_key = 'YOUR_WEATHER_API_KEY';\nvar weather_api_url = 'http://api.openweathermap.org/data/2.5/weather?q=';\nvar weather_api_url_forecast = 'http://api.openweathermap.org/data"
+  },
+  {
+    "applet": "applet_151",
+    "filter_code": "var Wiz = {\n            var dim = parseFloat(dimming);\n            if (dim >= 0 && dim <= 100) {\n            } else {\n            }\n        },\n            if (mode =="
+  },
+  {
+    "applet": "applet_152",
+    "filter_code": "var Netatmo = require('netatmo-weather-station');\nvar Wiz = require('wiz-light');\nvar netatmo = new Netatmo.Netatmo({\n});\nvar co2RisesAbove = netatmo.co2RisesAbove({"
+  },
+  {
+    "applet": "applet_153",
+    "filter_code": "var Wiz = require('wiz-js');\nvar motionSensorNoDetectsTrigger = {\n};\nvar actionMethods = {\n    },"
+  },
+  {
+    "applet": "applet_154",
+    "filter_code": "var garagewifi = {\n        if (garage.isClosed()) {\n        } else {\n        }\n    }\n}\nfunction main() {\n    var date = DateAndTime.everyDayAt.CheckTime();\n    if (garage.isClosed()) {"
+  },
+  {
+    "applet": "applet_155",
+    "filter_code": "var garageDoor = require('garage-door');\nvar garageDoor = garageDoor.garageDoor;\nvar garageDoor = garageDoor.garageDoor;\nvar garageDoor = garageDoor.garageDoor;\nvar garageDoor = garageDoor.garageDoor;\nvar garageDoor = garageDoor.garageDoor;\nvar garageDoor = garage"
+  },
+  {
+    "applet": "applet_156",
+    "filter_code": "var Netatmo = require('netatmo-api');\nvar RainMachine = require('rain-machine');\nvar netatmo = new Netatmo({\n});\nvar rainMachine = new RainMachine({\n});"
+  },
+  {
+    "applet": "applet_157",
+    "filter_code": "var IfNotifications = {\n        var notification = new Notification(message);\n        if (skipReason) {\n                if (skipReason) {\n                }\n            };\n        }\n    }\n};"
+  },
+  {
+    "applet": "applet_159",
+    "filter_code": "var IFTTT_SIGNAL_MESSAGE = \"New IFTTT Bookmark: {{Title}}\";\nvar IFTTT_SIGNAL_NAME = \"Office Keyboard\";\nvar IFTTT_SIGNAL_SKIP_REASON = \"New IFTTT Bookmark: {{Title}}\";\nvar IFTTT_SIGNAL_MESSAGE_REGEX = /{{Title}}/g;\nvar IFTTT_SIGNAL_NAME_REGEX = /{{Name}}/g;"
+  },
+  {
+    "applet": "applet_160",
+    "filter_code": "var netatmo = require('netatmo-weather-station');\nvar Wiz = require('wiz-js');\nvar netatmoDevice = netatmo.createDevice({\n});\nvar netatmoTemperatureDropsBelow = netatmoDevice.createTemperatureDropsBelow"
+  },
+  {
+    "applet": "applet_162",
+    "filter_code": "(Only for WiZ Colors lights)\nvar Wiz = require('wiz-js');\nvar airQuality = require('./airQuality.js');\nvar airQualityLevel = airQuality.getAirQualityLevel();\nvar airQualityDate = airQuality.getAirQualityDate();\nvar airQualityTime = airQuality.getAirQualityTime();\nvar airQualityDevice = airQuality.getAirQualityDevice();\nvar airQualityDeviceName = airQuality.getAir"
+  },
+  {
+    "applet": "applet_163",
+    "filter_code": "var applet = function() {\n  var self = this;\n  var state = {"
+  },
+  {
+    "applet": "applet_164",
+    "filter_code": "var Lifx = require('node-lifx-lan');\nvar lifx = new Lifx.LifxLan();\nvar ge = require('node-ge-api');\nvar ge_appliances = ge.appliances;\nvar ge_appliance_refrigerator = ge_appliances.refrigerator;\nvar ge_appliance_refrigerator_door_fresh"
+  },
+  {
+    "applet": "applet_166",
+    "filter_code": "var Netatmo = require('node-netatmo');\nvar Wiz = require('node-wiz');\nvar netatmo = new Netatmo({\n});\nvar wiz = new Wiz();\nvar temperatureRisesAbove = netatmo.temperatureRisesAbove({"
+  },
+  {
+    "applet": "applet_167",
+    "filter_code": "var LinkJapanEHome = require('linkjapanehome');\nvar LinkJapanEHome_PowerState = require('linkjapanehome-powerstate');\nvar LinkJapanEHome_Weather = require('linkjapanehome-weather');\nvar powerState = new LinkJapanEHome_PowerState();\nvar weather = new LinkJapanEHome_Weather();\nvar sunSets = weather.sunSets"
+  },
+  {
+    "applet": "applet_171",
+    "filter_code": "var Wyzecam = require('wyzecam');\nvar Safetrek = require('safetrek');\nvar motionTrigger = Wyzecam.motionTrigger;\nvar alertAddress = Safetrek.alertAddress;\nvar motionDetected = motionTrigger.MotionDetected;\nvar triggerTime = motionTrigger.TriggerTime;\nvar alertAddressSkip = alertAddress.skip;\nvar motionDetectedAction = function"
+  },
+  {
+    "applet": "applet_172",
+    "filter_code": "var motionSensorName = EnergenieMiHome.motionStarted.MotionSensorName;\nvar timestamp = EnergenieMiHome.motionStarted.Timestamp;\nvar currentTime = new Date();\nvar currentTimeString = currentTime.getHours() + \":\" + currentTime."
+  },
+  {
+    "applet": "applet_174",
+    "filter_code": "var Netatmo = require('node-netatmo');\nvar Wiz = require('node-wiz');\nvar netatmo = new Netatmo({\n});\nvar rainGauge = netatmo.rainGauges.get('My Rain gauge');\nif (rainGauge.rainHasStarted.DeviceName === 'My Rain gauge') {"
+  },
+  {
+    "applet": "applet_176",
+    "filter_code": "const {"
+  },
+  {
+    "applet": "applet_177",
+    "filter_code": "var skylinknet = require('skylinknet');\nvar skylink = new skylinknet.Skylink({\n});\nvar skylinknet = require('skylinknet');\nvar skylink = new skylinknet.Skylink({"
+  },
+  {
+    "applet": "applet_178",
+    "filter_code": "var latitude = 37.8267;\nvar longitude = -122.4230;\nvar time = new Date();\nvar time_hour = time.getHours();\nvar time_minute = time.getMinutes();\nvar time_second = time.getSeconds();\nvar time_day = time.getDay();\nvar time_month = time"
+  },
+  {
+    "applet": "applet_179",
+    "filter_code": "var WemoDimmer = require('wemo-dimmer');\nvar wemoDimmer = new WemoDimmer();\nvar weather = require('weather-js');\nvar weather_sunRises = weather.sunRises();\nvar weather_current = weather.current({\n});"
+  },
+  {
+    "applet": "applet_180",
+    "filter_code": "var WemoLightSwitch = function(config) {\n  var self = this;\n  });"
+  },
+  {
+    "applet": "applet_181",
+    "filter_code": "var WemoDimmer = require('wemo-dimmer');\nvar dimmer = new WemoDimmer({\n});\nvar dimmerBrightness = dimmer.attributeDimmerBrightnessChangeDiscrete.skip();\nif (dimmerBrightness) {"
+  },
+  {
+    "applet": "applet_182",
+    "filter_code": "var HagerIot = require('hager-iot');\nvar hager = new HagerIot({\n});\n});"
+  },
+  {
+    "applet": "applet_183",
+    "filter_code": "const WemoInsightSwitch = require('wemo-insight-switch');\nconst wemoInsightSwitch = new WemoInsightSwitch();\n    if (err) {\n    } else {\n    }\n});"
+  },
+  {
+    "applet": "applet_184",
+    "filter_code": "var WemoLightSwitch = function(config) {\n  var self = this;\n  });"
+  },
+  {
+    "applet": "applet_186",
+    "filter_code": "var hue = require('node-hue-api');\nvar hueClient = new hue.HueApi({\n});\n});"
+  },
+  {
+    "applet": "applet_187",
+    "filter_code": "var WemoInsightSwitch = function(config) {\n  var self = this;"
+  },
+  {
+    "applet": "applet_190",
+    "filter_code": "var Hue = require('node-hue-api');\nvar HueLight = require('node-hue-api').HueLight;\nvar HueBridge = require('node-hue-api').HueBridge;\nvar HueLightGroup = require('node-hue-api').HueLightGroup;\nvar HueBridgeGroup = require('node-hue-api').HueBridgeGroup;\nvar HueLightState = require('node-hue"
+  },
+  {
+    "applet": "applet_191",
+    "filter_code": "var eventData = {\n};\nvar eventData = {"
+  },
+  {
+    "applet": "applet_192",
+    "filter_code": "var weather = require('weather-js');\nvar Ewelink = require('ewelink-api');\nvar fs = require('fs');\nvar request = require('request');\nvar https = require('https');\nvar ewelink = new Ewelink({"
+  },
+  {
+    "applet": "applet_196",
+    "filter_code": "var weather = require('weather-js');\nvar Ewelink = require('ewelink-api');\nvar fs = require('fs');\nvar request = require('request');\nvar https = require('https');\nvar ewelink = new Ewelink({"
+  },
+  {
+    "applet": "applet_199",
+    "filter_code": "var Apilio = Apilio || {};"
+  },
+  {
+    "applet": "applet_201",
+    "filter_code": "var Magichue = {\n        if (reason === \"Green\") {\n        } else {\n        }\n    }\n};"
+  },
+  {
+    "applet": "applet_203",
+    "filter_code": "var Flic = {\n    }\n}\nvar Flic = {"
+  },
+  {
+    "applet": "applet_204",
+    "filter_code": "var flic = require('flic-sdk');\nvar flic_client = flic.createClient({\n});\n  var latitude = data.latitude;\n  var longitude = data.longitude;\n  var clickType = data.clickType;\n  var clickedAt = data."
+  },
+  {
+    "applet": "applet_205",
+    "filter_code": "var AC_MODE_COMFORT = {\n        var AC_MODE_COMFORT_SKIPPED = \"AC_MODE_COMFORT_SKIPPED\";\n        var AC_MODE_COMFORT_REASON = \"AC_MODE_COMFORT_REASON\";\n        var AC_MODE_COMFORT_REASON_NOT_SET = \"AC_MODE_COMFORT_REASON_NOT_SET"
+  },
+  {
+    "applet": "applet_206",
+    "filter_code": "var WemoLighting = require('wemo-lighting');\nvar Wemo = require('wemo-client');\nvar Knocki = require('knocki');\nvar knocki = Knocki.knocki;\nvar wemo = new Wemo();\nvar wemoLighting = new WemoLighting(wemo);\nvar wemoDevice = wemo.getDevice('00:11:22:"
+  },
+  {
+    "applet": "applet_207",
+    "filter_code": "var Bluebyadt = Bluebyadt || {};\n(function() {\n  var WemoLighting = WemoLighting || {};\n    var deviceName = this.getDeviceName();\n    var device = this.getDevice();\n    var deviceName = this.getDeviceName();\n    var device = this.getDevice();\n    var deviceName = this.getDeviceName();\n    var device ="
+  },
+  {
+    "applet": "applet_208",
+    "filter_code": "var Ewelink = require('apilio-ewelink');\nvar Apilio = require('apilio-node');\nvar ewelink = new Ewelink();\nvar apilio = new Apilio();\n  if (value == 'Green') {\n  }"
+  },
+  {
+    "applet": "applet_209",
+    "filter_code": "var WemoCoffeemaker = function () {\n    var self = this;\n        }\n    };"
+  },
+  {
+    "applet": "applet_210",
+    "filter_code": "var WemoInsightSwitch = function(config) {\n  var self = this;"
+  },
+  {
+    "applet": "applet_211",
+    "filter_code": "var Kumocloud = require('kumocloud');\nvar kumocloud = new Kumocloud({\n});\n  if (err) {\n  } else {"
+  },
+  {
+    "applet": "applet_212",
+    "filter_code": "var Scoutalarm = {\n    },\n        var applet = new HubitatApplet(\"ScoutAlarm\");\n        var device = applet"
+  },
+  {
+    "applet": "applet_213",
+    "filter_code": "var IFTTT = require('node-ifttt');\nvar WemoLighting = require('wemo-lighting');\nvar ifttt = new IFTTT({\n});\nifttt.on('ready', function() {\n  var lights = new WemoLighting({"
+  },
+  {
+    "applet": "applet_216",
+    "filter_code": "var SmartthingsV2 = require('smartthings-v2');\nvar Switchbot = require('switchbot');\nvar SwitchbotHub = require('switchbot-hub');\nvar moment = require('moment');\nvar request = require('request');\nvar switchbot = new Switchbot();\nvar hub = new SwitchbotHub();\nvar smartthings = new SmartthingsV2({"
+  },
+  {
+    "applet": "applet_219",
+    "filter_code": "var task_\nif (task_\n    var task_name = Evernote.newNoteInNotebook.Title;\n    var task_tags = Evernote.newNoteInNotebook.Tags.join(\", \");\n    var task_url = Evernote.newNoteInNotebook.PublicUrl;"
+  },
+  {
+    "applet": "applet_220",
+    "filter_code": "var Putio = require('putio');\nvar Todoist = require('node-todoist');\nvar moment = require('moment');\nvar fs = require('fs');\nvar request = require('request');\nvar cheerio = require('cheerio');\nvar putio = new Putio({\n});\nvar todoist = new Todoist({"
+  },
+  {
+    "applet": "applet_221",
+    "filter_code": "var Asana = require('actions-on-google').Asana;\nvar fs = require('fs');\nvar path = require('path');\nvar request = require('request');\nvar url = require('url');\nvar _ = require('lodash');\nvar asana = new Asana({\n});"
+  },
+  {
+    "applet": "applet_223",
+    "filter_code": "var IFTTT_APPLET_NAME = \"Watering Zone 3\";\nvar IFTTT_APPLET_VERSION = \"1.0.0\";\nvar IFTTT_APPLET_URL = \"https://github.com/rachio/rachio-applets/blob/master/watering-zone-3.js\";\nvar IFTTT_APPLET_AUTHOR = \"<NAME>\";"
+  },
+  {
+    "applet": "applet_224",
+    "filter_code": "var Ewelink = require('apilio-ewelink');\nvar Apilio = require('apilio-node');\nvar ewelink = new Ewelink();\nvar apilio = new Apilio();\n  if (value == 'Green') {\n  }\n});"
+  },
+  {
+    "applet": "applet_225",
+    "filter_code": "var Ewelink = require('apilio-ewelink');\nvar Apilio = require('apilio-node');\nvar ewelink = new Ewelink();\nvar apilio = new Apilio();\n  if (value == 'Green') {\n  }"
+  },
+  {
+    "applet": "applet_226",
+    "filter_code": "var Ewelink = require('apilio-ewelink');\nvar Apilio = require('apilio-node');\nvar ewelink = new Ewelink();\nvar apilio = new Apilio();\n  if (value == 'Green') {\n  }"
+  },
+  {
+    "applet": "applet_227",
+    "filter_code": "var Ewelink = require('apilio-ewelink');\nvar Apilio = require('apilio-apilio');\nvar plugs = Ewelink.plugs3Action;\nvar plugs3Action = plugs.skip;\nvar apilio = new Apilio('YOUR_API_KEY');"
+  },
+  {
+    "applet": "applet_228",
+    "filter_code": "var HoneywellTotalConnectComfort = function () {\n    var self = this;"
+  },
+  {
+    "applet": "applet_229",
+    "filter_code": "let date = new Date();\nlet dateString = date.toLocaleDateString();\nlet timeString = date.toLocaleTimeString();\nlet dateAndTime = dateString + \" \" + timeString;\nlet bedoutDateAndTime = dateAndTime + \" \" + WithingsSleep.bedout.DateandTime;\nlet bedoutDate = dateString + \" \" + WithingsSleep"
+  },
+  {
+    "applet": "applet_232",
+    "filter_code": "const IFTTT = require('node-ifttt');\nconst moment = require('moment');\nconst HcDishwasher = require('./hc-dishwasher');\nconst applet = new IFTTT.IFTTT(process.env.IFTTT_KEY);\nconst dishwasher"
+  },
+  {
+    "applet": "applet_235",
+    "filter_code": "let coffeeMakerTurnOn = function(reason) {\n    if (reason === \"MorningStart\") {\n    }\n}\nlet coffeeMakerTurnOn = function() {\n}\nlet coffeeMakerTurnOn = function(reason"
+  },
+  {
+    "applet": "applet_237",
+    "filter_code": "var Osumsmart = {\n        if (level === undefined) {\n        }\n        var smartDevice = Osumsmart.getDeviceByName(\"Living Room Lamp\");\n        if (smartDevice) {\n        }\n    }\n};"
+  },
+  {
+    "applet": "applet_239",
+    "filter_code": "var AndroidMessages = Java.use('com.google.android.gms.gcm.GcmListenerService');\nvar ACTION_GROUP_NAME = \"SAUTERCozytouch\";\nvar ACTION_GROUP_NAME_SHORT = \"SC\";\nvar ACTION_GROUP_NAME_SHORT_SHORT = \"SCS\";\nvar ACTION_GROUP_NAME_SHORT_SHORT_SHORT = \"SCSS\";\nvar ACTION_GROUP_"
+  },
+  {
+    "applet": "applet_240",
+    "filter_code": "var HoneywellTotalConnectComfort = function () {\n    var self = this;"
+  },
+  {
+    "applet": "applet_241",
+    "filter_code": "let dateAndTime = new DateAndTime();\nlet thermorCozytouch = new THERMORCozytouch();\nlet dayOfWeek = dateAndTime.everyWeekdayAt.DayOfWeek;\nlet timeOfDay = dateAndTime.everyWeekdayAt.CheckTime;\nlet isMorning ="
+  },
+  {
+    "applet": "applet_243",
+    "filter_code": "var HcCookProcessor = function() {\n}\n    var song = \"Happy\";\n    var songUrl = \"https://www.youtube.com/watch?v=\" + song;\n    var songTitle = \"Happy\";\n    var songArtist = \"Pharrell Williams"
+  },
+  {
+    "applet": "applet_244",
+    "filter_code": "var TecanConnect = require('tecan-connect');\nvar Nanoleaf = require('tecan-connect-nanoleaf');\nvar tecanConnect = new TecanConnect();\nvar nanoleaf = new Nanoleaf(tecanConnect);\nvar instrumentState = tecanConnect.instrumentState;\nvar instrumentName = instrumentState.InstrumentName;\nvar instrumentState = instrumentState.InstrumentState;\nvar"
+  },
+  {
+    "applet": "applet_248",
+    "filter_code": "const {\n} = require(\"node-ifttt\");"
+  },
+  {
+    "applet": "applet_249",
+    "filter_code": "var TecanConnect = require('tecan-connect');\nvar Nanoleaf = require('tecan-nanoleaf');\nvar Tecan = new TecanConnect();\nvar Nanoleaf = new Nanoleaf();\nvar runCompletionMessage = Tecan.runCompletionMessage;\nif (runCompletionMessage.InstrumentName == \"Run Completed Successfully\") {\n    var duration = runCompletionMessage.RunCompletionMessage;"
+  },
+  {
+    "applet": "applet_250",
+    "filter_code": "var TecanConnect = require('tecan-connect');\nvar Hue = require('tecan-connect-hue');\nvar tecanConnect = new TecanConnect();\nvar hue = new Hue(tecanConnect);\nvar runCompletionMessage = tecanConnect.runCompletionMessage;\nif (runCompletionMessage.InstrumentName == \"Lab Instrument 1\") {\n    if (runCompletionMessage.RunCompletionMessage =="
+  },
+  {
+    "applet": "applet_251",
+    "filter_code": "var HcCoffeeMachine = function() {\n    var self = this;\n        if (reason === \"morning\") {\n        }\n        else {\n        }\n    }\n}"
+  },
+  {
+    "applet": "applet_253",
+    "filter_code": "var TecanConnect = require('tecan-connect');\nvar Hue = require('tecan-connect-hue');\nvar Tecan = require('tecan-connect-tecan');\nvar TecanConnectTecan = require('tecan-connect-tecan-tecan');\nvar TecanConnectTecanTecan = require('tecan-connect-tecan-tecan-"
+  },
+  {
+    "applet": "applet_254",
+    "filter_code": "var DlinkWifiRouter = {\n    }\n};\nvar AndroidMessages = {"
+  },
+  {
+    "applet": "applet_255",
+    "filter_code": "var HoneywellTotalConnectComfort = function () {\n    var self = this;"
+  },
+  {
+    "applet": "applet_256",
+    "filter_code": "var IfNotifications = {\n        var notification = new Notification(message);\n        };\n    },\n    }\n};\nvar TecanConnect = {"
+  },
+  {
+    "applet": "applet_257",
+    "filter_code": "var earliestStartTime = \"07:00\";\nvar duration = \"00:05\";\nvar electricityPriceCheap = {"
+  },
+  {
+    "applet": "applet_259",
+    "filter_code": "const IFTTT_APPLET_NAME = \"Cookit_Cooking_Finished\";\nconst IFTTT_APPLET_ID = \"Cookit_Cooking_Finished\";\nconst IFTTT_APPLET_\nconst IFTTT_APPLET_"
+  },
+  {
+    "applet": "applet_261",
+    "filter_code": "var MapeiMapeheat = function() {\n    var _this = this;\n        var duration_seconds = parseFloat(duration);\n        var scale_seconds = parseFloat(scale);\n        var setpoint_temperature_seconds = parseFloat(setpoint_temperature);\n        if (duration_seconds < 0 || scale_seconds < 0 || setpoint_temperature_"
+  },
+  {
+    "applet": "applet_263",
+    "filter_code": "var weather = require('weather-js');\nvar request = require('request');\nvar fs = require('fs');\nvar weather_api_key = 'YOUR_WEATHER_API_KEY';\nvar weather_api_url = 'http://api.openweathermap.org/data/2.5/weather?q=London&APPID=' + weather_api_key;\nvar weather_api_url_forecast ="
+  },
+  {
+    "applet": "applet_264",
+    "filter_code": "var weather = require('weather-js');\nvar coqon = require('coqon');\nvar weather_currentTemperatureDropsBelow = weather.currentTemperatureDropsBelow;\nvar action = coqon.simpleRuleAction.skip(\"Rollladen schließen\");\nif (weather_currentTemperatureDropsBelow.CheckTime === \"2018-03-21T19:00:0"
+  },
+  {
+    "applet": "applet_265",
+    "filter_code": "var now = new Date();\nvar hour = now.getHours();\nvar minute = now.getMinutes();\nvar ampm = hour >= 12 ? 'pm' : 'am';"
+  },
+  {
+    "applet": "applet_266",
+    "filter_code": "var Monzo = Monzo || {};\n    var amount = parseFloat(amount);\n    if (amount > 0) {\n    } else {\n    }\n  },"
+  },
+  {
+    "applet": "applet_270",
+    "filter_code": "if (AndroidDevice.newNotificationFromApp"
+  },
+  {
+    "applet": "applet_272",
+    "filter_code": "var weather = require('weather-js');\nvar Dozens = require('dozens');\nvar dozens = new Dozens({\n});\n    if"
+  },
+  {
+    "applet": "applet_273",
+    "filter_code": "let date = DateAndTime.everyWeekdayAt.CheckTime;\nlet day = DateAndTime.everyWeekdayAt.DayOfWeek;\nlet time = DateAndTime.everyWeekdayAt.CheckTime;\nlet time_hour = time.hour;\nlet time_minute = time.minute;\nlet time_second = time.second;\nlet time_day = time"
+  },
+  {
+    "applet": "applet_274",
+    "filter_code": "var Yeelight = require('yeelight');\nvar YeelightDevice = require('yeelight-device');\nvar YeelightDeviceList = require('yeelight-device-list');\nvar YeelightDeviceListFactory = require('yeelight-device-list-factory');\nvar YeelightDeviceListFactoryFactory = require('yeelight-device-list-factory-factory');\nvar"
+  },
+  {
+    "applet": "applet_278",
+    "filter_code": "var Epa = {\n    },\n            if (day_of_week == \"Monday\") {"
+  },
+  {
+    "applet": "applet_280",
+    "filter_code": "var date = new Date();\nvar day = date.getDay();\nvar time = date.getHours() + \":\" + date.getMinutes();\nvar dateAndTime = date.getDate() + \"/\" + (date.getMonth() + 1)"
+  },
+  {
+    "applet": "applet_283",
+    "filter_code": "var Dozens = {\n            var amount = parseFloat(amount);\n            if (amount > 0) {\n            } else {\n            }\n        },\n            if (reason) {"
+  },
+  {
+    "applet": "applet_284",
+    "filter_code": "var Magichue = {\n        if (reason === \"home\") {\n        } else {\n        }\n    },"
+  },
+  {
+    "applet": "applet_285",
+    "filter_code": "var weather = require('weather-js');\nvar Kasa = require('node-kasa-client');\nvar kasa = new Kasa({\n});\nvar weather_api_key = 'your-weather-api-key';\nvar sunset_time = new Date();"
+  },
+  {
+    "applet": "applet_288",
+    "filter_code": "var weather = new Weather();\nvar Yeelight = new Yeelight();\nvar weatherCondition = weather.currentConditionIs.CheckTime;\nvar weatherConditionIsSunny = weather.currentConditionIs.Condition === \"Sunny\";\nvar weatherConditionIsSunnyImageURL = weather.currentConditionIs.ConditionImageURL === \"https://s3."
+  },
+  {
+    "applet": "applet_290",
+    "filter_code": "var Kasa = {\n        if (reason) {\n        }\n        var knocki = {\n        };\n        var response = {"
+  },
+  {
+    "applet": "applet_292",
+    "filter_code": "const { IFTTT } = require('actions-on-google');\nconst { Qapital } = require('qapital');\nconst qapital = new Qapital();\nconst ifttt = new IFTTT();\nconst {"
+  },
+  {
+    "applet": "applet_293",
+    "filter_code": "var hue = require('node-hue-api');\nvar hueClient = new hue.HueApi({\n});\n});"
+  },
+  {
+    "applet": "applet_295",
+    "filter_code": "var IFTTT = require('ifttt');\nvar Spotify = require('ifttt-spotify');\nvar ifttt = new IFTTT({\n});\nifttt.configure({"
+  },
+  {
+    "applet": "applet_297",
+    "filter_code": "var Lifx = require('lifx-lan');\nvar LifxClient = new Lifx.Client();\nvar LifxClient = new Lifx.Client();\nvar LifxClient = new Lifx.Client();\nvar LifxClient = new Lifx.Client();\nvar LifxClient = new Lifx.Client();\nvar LifxClient = new L"
+  },
+  {
+    "applet": "applet_299",
+    "filter_code": "var IFTTT_APPLET_NAME = \"Turn Nightlight On\";\nvar IFTTT_APPLET_VERSION = \"0.1\";\nvar IFTTT_APPLET_URL = \"https://ifttt.com/recipes/set/Nightlight-On\";\nvar IFTTT_APPLET_AUTHOR = \"<NAME>\";\nvar IFT"
+  }
+]
