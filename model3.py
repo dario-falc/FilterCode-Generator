@@ -1,80 +1,76 @@
+from transformers import AutoModelForCausalLM, GemmaTokenizer
 import json
-import torch
-from transformers import AutoTokenizer, AutoModelForCausalLM
 
-model_name = "bigcode/starcoderbase-1b"
-prompt_template = """
-Ignore any previous context.
+# === MODELLO ===
+model_name = "google/gemma-2-2b-it"
 
-Write ONLY the JavaScript filter code for this IFTTT applet.
+if __name__ == "__main__":
+    tokenizer = GemmaTokenizer.from_pretrained(model_name)
+    model = AutoModelForCausalLM.from_pretrained(model_name, torch_dtype="auto", device_map="auto")
+    with open("./data/data.json", "r", encoding="utf-8") as f:
+        applets = json.load(f)
 
-Description: {description}
-Goal: {intent}
+    i = 1
+    for key, applet in applets.items():
+        print(f"Analyzing applet n°{i}: {key}")
 
-Trigger variables:
-{triggers}
+        if model_name in applet.keys():
+            i += 1
+            continue
 
-Action methods:
-{actions}, {skip}
+        original_description = applet.get("original_description", "")
+        intent = applet.get("intent", "")
+        triggers = applet.get("triggers", [])
+        actions = applet.get("actions", [])
+        skip = applet.get("skip", "")
 
-Rules:
-- Begin with 'var' or 'let'.
-- Use parseFloat() for numeric comparisons.
-- If goal condition is TRUE → run the action.
-- If FALSE → call .skip("reason").
-- Output only valid JavaScript code.
+        print(f"Original description: {original_description}")
+        print(f"Intent: {intent}")
 
-"""
+        # === PROMPT ===
+        prompt = f"""
+        Generate only valid JavaScript filter code for the following IFTTT applet.
 
-with open("./data/data.json", "r", encoding="utf-8") as f:
-    data = json.load(f)
+        Description: {original_description}
+        Goal: {intent}
 
-tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True)
-model = AutoModelForCausalLM.from_pretrained(model_name, torch_dtype=torch.float32).to("cpu")
+        Trigger variables: {', '.join(triggers) if triggers else 'None'}
+        Action methods: {', '.join(actions) if actions else 'None'}, {skip or 'None'}
 
-output_path = "./data/generated_filtercodes_final.jsonl"
-batch_size = 3
+        Rules:
+        - Output only JavaScript code (no comments or markdown).
+        - The code must follow this logic:
+            → If trigger conditions are met, the action runs normally.
+            → Otherwise, use the .skip("reason") method.
+        - Only call skip() inside the "else" clause.
+        - Use parseFloat() for numeric comparisons.
+        - Start directly with 'var'.
+        """
 
-with open(output_path, "w", encoding="utf-8") as out_file:
-    keys = list(data.keys())
-    for start in range(0, len(keys), batch_size):
-        for key in keys[start:start+batch_size]:
-            applet = data[key]
-            desc = applet.get("original_description", "")
-            intent = applet.get("intent", "")
-            triggers = ", ".join(applet.get("triggers", []))
-            actions = ", ".join(applet.get("actions", []))
-            skip = applet.get("skip", "")
+        inputs = tokenizer(prompt, return_tensors="pt").to(model.device)
+        outputs = model.generate(
+            **inputs,
+            max_new_tokens=200,
+            temperature=0.4,
+            top_p=0.9,
+            do_sample=True
+        )
 
-            prompt = prompt_template.format(
-                description=desc,
-                intent=intent,
-                triggers=triggers,
-                actions=actions,
-                skip=skip
-            )
+        result = tokenizer.decode(outputs[0], skip_special_tokens=True)
 
-            inputs = tokenizer(prompt, return_tensors="pt").to("cpu")
-            with torch.no_grad():
-                outputs = model.generate(
-                    **inputs,
-                    max_new_tokens=100,
-                    temperature=0.25,
-                    top_p=0.9,
-                    do_sample=True
-                )
-            result = tokenizer.decode(outputs[0], skip_special_tokens=True)
-            # pulizia
-            lines = [l for l in result.splitlines()
-                     if l.strip() and not l.lower().startswith(("description", "goal", "rules", "ignore"))]
-            cleaned = "\n".join(lines).strip()
-            out_file.write(json.dumps({
-                "applet": key,
-                "filter_code": cleaned
-            }, ensure_ascii=False) + "\n")
+        # Pulizia semplice
+        if "var " in result:
+            result = "var " + result.split("var ", 1)[1]
+        result = result.split("```")[0].strip()
 
-            # micro-reset
-            torch.manual_seed(torch.initial_seed())
-            # (possibilità di reinizializzare modello se necessario)
+        print("=== Filter Code ===")
+        print(result)
+        applet[model_name] = result
 
-print("✅ Generazione completata.")
+        # Salvataggio progressivo
+        with open("./data/data.json", "w", encoding="utf-8") as f:
+            json.dump(applets, f, indent=3, ensure_ascii=False)
+
+        i += 1
+
+    print("\nTutte le applet elaborate!")
