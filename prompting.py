@@ -3,7 +3,8 @@ import json
 
 if __name__ == "__main__":
     # model_name = "qwen2.5-coder-7b-instruct"
-    model_name = "gemma-2-9b-it"
+    model_name = "deepseek-coder-6.7b-instruct"
+    # model_name = "gemma-2-9b-it"
     
     client = OpenAI(base_url="http://127.0.0.1:1234/v1/", api_key="lm-studio")
 
@@ -55,7 +56,7 @@ if __name__ == "__main__":
         
         applet[model_name] = res
         
-        with open("data\\new_data.json", "w") as f:
+        with open("data\\data.json", "w") as f:
             json.dump(applets, f, indent=3, separators=(',', ': '))
         
         i+=1
