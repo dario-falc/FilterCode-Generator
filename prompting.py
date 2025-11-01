@@ -9,7 +9,7 @@ if __name__ == "__main__":
     
     client = OpenAI(base_url="http://127.0.0.1:1234/v1/", api_key="lm-studio")
 
-    with open("data\\data.json", "r", encoding="utf-8") as f:
+    with open("data\\new_data.json", "r", encoding="utf-8") as f:
         applets = json.load(f)
     
     i=1
@@ -58,7 +58,7 @@ if __name__ == "__main__":
         
         applet[model_name] = res
         
-        with open("data\\data.json", "w") as f:
+        with open("data\\new_data.json", "w") as f:
             json.dump(applets, f, indent=3, separators=(',', ': '))
         
         i+=1
