@@ -3,8 +3,9 @@ import json
 
 if __name__ == "__main__":
     # model_name = "qwen2.5-coder-7b-instruct"
-    model_name = "deepseek-coder-6.7b-instruct"
+    # model_name = "deepseek-coder-6.7b-instruct"
     # model_name = "gemma-2-9b-it"
+    model_name = "yi-coder-9b-chat"
     
     client = OpenAI(base_url="http://127.0.0.1:1234/v1/", api_key="lm-studio")
 
@@ -15,6 +16,7 @@ if __name__ == "__main__":
     for applet in applets.values():
         print(f"Analyzing applet n°{i}")
         if model_name in applet.keys():
+            i+=1
             continue
 
         original_description = applet["original_description"]
