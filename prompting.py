@@ -3,8 +3,8 @@ import json
 
 if __name__ == "__main__":
     # model_name = "qwen2.5-coder-7b-instruct"
-    model_name = "yi-coder-9b-chat"
-    # model_name = "deepseek-coder-6.7b-instruct"
+    # model_name = "yi-coder-9b-chat"
+    model_name = "Codestral-7B-v0.1"
     
     client = OpenAI(base_url="http://127.0.0.1:1234/v1/", api_key="lm-studio")
 
