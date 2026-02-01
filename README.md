@@ -54,60 +54,57 @@ FilterCode-Generator/
 ├── metrics.json                      # Aggregated evaluation results
 ├── requirements.txt                  # Project dependencies
 └── README.md
+```
 
 ## ⚙️ Requirements
 
-Python 3.9+
-PyTorch
-Hugging Face Transformers
-NLP evaluation libraries (BLEU, ROUGE, METEOR, CodeBLEU)
+- Python 3.9+
+- PyTorch
+- Hugging Face Transformers
+- NLP evaluation libraries (BLEU, ROUGE, METEOR, CodeBLEU)
 
 Install dependencies with:
+```text
 pip install -r requirements.txt
-
+```
 
 ## ▶️ How to Run
 
 Each model can be executed independently.
 
 Example:
-
+```text
 python model1.py
-
+```
 
 The script will:
 
-Load the input applets from data/data.json
-
-Generate JavaScript filter code using the selected model
-
-Store the generated output back into the dataset
+- Load the input applets from data/data.json
+- Generate JavaScript filter code using the selected model
+- Store the generated output back into the dataset
 
 Repeat for other models:
-
+```text
 python model2.py
 python model3.py
-
+```
 
 ## 📊 Evaluation
 
 Automatic evaluation is performed using:
 
-BLEU
-
-ROUGE-1 / ROUGE-2 / ROUGE-L
-
-METEOR
-
-CodeBLEU
-
-CodeBERTScore
+- BLEU
+- ROUGE-1 / ROUGE-2 / ROUGE-L
+- METEOR
+- CodeBLEU
+- CodeBERTScore
 
 Evaluation results are stored in:
-
+```text
 metrics.json
+```
 
-🧪 Notes
+## 🧪 Notes
 
 The project is intended for experimental and research purposes
 
